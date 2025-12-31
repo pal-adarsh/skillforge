@@ -83,14 +83,14 @@ export const LessonTestChatbot = ({
 
       setTestData(data);
       toast({
-        title: "Test Generated!",
+        title: "Questions Generated!",
         description: `${data.questions?.length || 5} questions ready for you.`,
       });
     } catch (error) {
       console.error('Error generating test:', error);
       toast({
         title: "Error",
-        description: "Failed to generate test. Please try again.",
+        description: "Failed to generate Questions. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -205,7 +205,7 @@ export const LessonTestChatbot = ({
                       size="lg"
                     >
                       <MessageCircle className="h-4 w-4 mr-2" />
-                      Generate Test
+                      Generate Questions
                     </Button>
                   </motion.div>
                 )}
@@ -217,7 +217,7 @@ export const LessonTestChatbot = ({
                     className="text-center py-16"
                   >
                     <Loader2 className="h-12 w-12 mx-auto mb-4 text-primary animate-spin" />
-                    <p className="text-muted-foreground">Generating your test...</p>
+                    <p className="text-muted-foreground">Generating your questions...</p>
                     <p className="text-xs text-muted-foreground mt-2">Powered by Gemini AI</p>
                   </motion.div>
                 )}
@@ -232,7 +232,7 @@ export const LessonTestChatbot = ({
                       <h4 className="font-semibold">{testData.testTitle}</h4>
                       <Button variant="ghost" size="sm" onClick={resetTest}>
                         <RotateCcw className="h-4 w-4 mr-1" />
-                        New Test
+                        New Questions
                       </Button>
                     </div>
 
@@ -339,14 +339,14 @@ export const LessonTestChatbot = ({
               {/* Footer */}
               {testData && !showResults && (
                 <div className="p-4 border-t border-border">
-                  <Button 
+                  {/* <Button 
                     onClick={submitTest} 
                     className="w-full"
                     disabled={!allAnswered}
                   >
                     <CheckCircle className="h-4 w-4 mr-2" />
                     Submit Test ({Object.keys(answers).length}/{testData.questions.length} answered)
-                  </Button>
+                  </Button> */}
                 </div>
               )}
 

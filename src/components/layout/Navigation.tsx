@@ -13,7 +13,7 @@ export const Navigation = () => {
   const location = useLocation();
   const { user, signOut } = useAuth();
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language] as Record<string, string>;
 
   const navItems = [
     { name: t.dashboard, icon: Brain, path: "/dashboard" },
