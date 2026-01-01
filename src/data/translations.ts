@@ -290,6 +290,7 @@ export const translations = {
       beginYourJourney: "Comienza tu viaje",
     // Navigation
     dashboard: "Panel",
+    appName: "SkillForge",
     lessons: "Lecciones",
     quiz: "Cuestionario",
     profile: "Perfil",
