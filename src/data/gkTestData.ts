@@ -4816,10 +4816,1606 @@ export const gkTestCategories: GKTestCategory[] = [
 
 
 // Technology & Digital World
+{
+  id: "tdw-advanced-questions",
+  title: "Technology & Digital World – Advanced",
+  description: "Advanced MCQs covering digital systems, AI, cloud, cybersecurity, and future technologies",
+  icon: "DesktopComputer",
+  color: "from-indigo-500 to-blue-600",
+  questions: [
+    {
+      id: "tdw-aq1",
+      question: "Which statement best explains the difference between science and technology?",
+      type: "mcq",
+      options: [
+        "Science focuses on invention, while technology focuses on discovery",
+        "Science explains phenomena; technology applies knowledge to solve problems",
+        "Science depends on machines; technology does not",
+        "There is no difference between science and technology"
+      ],
+      correctAnswer: "Science explains phenomena; technology applies knowledge to solve problems",
+      explanation: "Science seeks to understand how the natural world works, while technology uses that understanding (and other knowledge) to create tools, systems, and solutions."
+    },
 
+    {
+      id: "tdw-aq2",
+      question: "Digital information is primarily represented using which system?",
+      type: "mcq",
+      options: ["Decimal", "Binary", "Octal", "Hexadecimal"],
+      correctAnswer: "Binary",
+      explanation: "Digital systems represent data using binary digits (0 and 1), which are reliable for electronic storage and processing."
+    },
 
+    {
+      id: "tdw-aq3",
+      question: "The Internet and the World Wide Web are the same.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "The internet is a global network infrastructure, while the World Wide Web is a service running on it that provides linked web pages accessed via browsers."
+    },
 
+    {
+      id: "tdw-aq4",
+      question: "Which component is primarily responsible for executing instructions in a computer?",
+      type: "mcq",
+      options: ["RAM", "Storage Drive", "CPU", "Motherboard"],
+      correctAnswer: "CPU",
+      explanation: "The CPU (Central Processing Unit) executes program instructions and performs calculations and logical operations."
+    },
 
+    {
+      id: "tdw-aq5",
+      question: "Which cloud service model provides complete applications over the internet?",
+      type: "mcq",
+      options: ["IaaS", "PaaS", "SaaS", "On-premises"],
+      correctAnswer: "SaaS",
+      explanation: "Software as a Service (SaaS) delivers fully functional applications via the web, without requiring users to manage infrastructure or platforms."
+    },
+
+    {
+      id: "tdw-aq6",
+      question: "Which learning method allows AI systems to learn by trial and error using rewards?",
+      type: "mcq",
+      options: [
+        "Supervised learning",
+        "Unsupervised learning",
+        "Reinforcement learning",
+        "Transfer learning"
+      ],
+      correctAnswer: "Reinforcement learning",
+      explanation: "Reinforcement learning trains agents to take actions in an environment to maximize cumulative rewards, commonly used in robotics and game AI."
+    },
+
+    {
+      id: "tdw-aq7",
+      question: "Why are SSDs generally faster than HDDs?",
+      type: "mcq",
+      options: [
+        "They use more electricity",
+        "They store more data",
+        "They have no moving parts",
+        "They use binary instead of decimal"
+      ],
+      correctAnswer: "They have no moving parts",
+      explanation: "Solid-state drives use flash memory instead of spinning disks, enabling much faster data access and improved durability."
+    },
+
+    {
+      id: "tdw-aq8",
+      question: "Phishing attacks primarily aim to:",
+      type: "mcq",
+      options: [
+        "Damage computer hardware",
+        "Steal sensitive information by deception",
+        "Slow down internet speed",
+        "Install licensed software"
+      ],
+      correctAnswer: "Steal sensitive information by deception",
+      explanation: "Phishing tricks users into revealing passwords, bank details, or personal data by pretending to be trustworthy entities."
+    },
+
+    {
+      id: "tdw-aq9",
+      question: "Which technology enables smart homes to automatically respond to environmental data?",
+      type: "mcq",
+      options: [
+        "Cloud-only systems",
+        "Internet of Things (IoT)",
+        "Blockchain",
+        "Virtual Reality"
+      ],
+      correctAnswer: "Internet of Things (IoT)",
+      explanation: "IoT connects sensors and devices that collect data and trigger automated actions such as adjusting lights, temperature, or security systems."
+    },
+
+    {
+      id: "tdw-aq10",
+      question: "Which is a major ethical concern associated with deep AI models?",
+      type: "mcq",
+      options: [
+        "Low internet speed",
+        "Hardware overheating",
+        "Bias and lack of transparency",
+        "Limited storage capacity"
+      ],
+      correctAnswer: "Bias and lack of transparency",
+      explanation: "Deep AI models can inherit biases from training data and are often difficult to interpret, raising fairness and accountability concerns."
+    },
+
+    {
+      id: "tdw-aq11",
+      question: "Blockchain ensures data integrity mainly through:",
+      type: "mcq",
+      options: [
+        "Central authority verification",
+        "Repeated backups",
+        "Cryptographic hashing and distributed consensus",
+        "Password protection"
+      ],
+      correctAnswer: "Cryptographic hashing and distributed consensus",
+      explanation: "Each block contains a cryptographic hash of the previous block, and consensus among nodes prevents unauthorized data modification."
+    },
+
+    {
+      id: "tdw-aq12",
+      question: "Quantum computers are especially suitable for which type of problem?",
+      type: "mcq",
+      options: [
+        "Word processing",
+        "Email communication",
+        "Simulation of quantum systems",
+        "Basic arithmetic"
+      ],
+      correctAnswer: "Simulation of quantum systems",
+      explanation: "Quantum computers naturally model quantum behavior, making them useful for chemistry, materials science, and optimization problems."
+    },
+
+    {
+      id: "tdw-aq13",
+      question: "The digital divide mainly refers to:",
+      type: "mcq",
+      options: [
+        "Difference between hardware and software",
+        "Gap in access to technology and digital skills",
+        "Speed difference between networks",
+        "Cost difference between devices"
+      ],
+      correctAnswer: "Gap in access to technology and digital skills",
+      explanation: "The digital divide includes unequal access to devices, internet, skills, and digital literacy across populations."
+    },
+
+    {
+      id: "tdw-aq14",
+      question: "Metaverse platforms primarily rely on which combination of technologies?",
+      type: "mcq",
+      options: [
+        "Only social media and chat apps",
+        "VR/AR, 3D graphics, networking, and digital identities",
+        "Email and cloud storage",
+        "Databases and spreadsheets"
+      ],
+      correctAnswer: "VR/AR, 3D graphics, networking, and digital identities",
+      explanation: "The metaverse combines immersive interfaces, real-time networking, avatars, and digital economies to create persistent virtual spaces."
+    }
+  ]
+},
+
+// Civics and governance
+{
+  id: "civics-governance-questions",
+  title: "Civics & Governance",
+  description: "MCQs covering civics, democracy, governance, citizenship, and political systems",
+  icon: "DesktopComputer",
+  color: "from-green-500 to-teal-600",
+  questions: [
+    {
+      id: "cg-q1",
+      question: "Civics mainly deals with:",
+      type: "mcq",
+      options: [
+        "Scientific discoveries",
+        "How people live together and are governed",
+        "Business and trade systems",
+        "Natural resources management"
+      ],
+      correctAnswer: "How people live together and are governed",
+      explanation: "Civics studies public life, government institutions, laws, rights, duties, and citizen participation."
+    },
+
+    {
+      id: "cg-q2",
+      question: "Citizenship is only a legal status.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "Citizenship also involves active participation, awareness, and responsibility toward society and the state."
+    },
+
+    {
+      id: "cg-q3",
+      question: "Which term refers to a political organization with authority over a territory?",
+      type: "mcq",
+      options: ["Society", "Nation", "State", "Community"],
+      correctAnswer: "State",
+      explanation: "A state has defined territory, population, government, and the authority to make and enforce laws."
+    },
+
+    {
+      id: "cg-q4",
+      question: "A nation is primarily based on:",
+      type: "mcq",
+      options: [
+        "Political boundaries",
+        "Economic systems",
+        "Shared identity and sense of belonging",
+        "Military power"
+      ],
+      correctAnswer: "Shared identity and sense of belonging",
+      explanation: "A nation is formed through common culture, history, language, or identity, not just political borders."
+    },
+
+    {
+      id: "cg-q5",
+      question: "Which is NOT a core function of government?",
+      type: "mcq",
+      options: [
+        "Law-making",
+        "Defense and security",
+        "Providing public services",
+        "Running private businesses"
+      ],
+      correctAnswer: "Running private businesses",
+      explanation: "Governments regulate and support the economy but do not primarily run private enterprises."
+    },
+
+    {
+      id: "cg-q6",
+      question: "In a democracy, the ultimate source of power lies with:",
+      type: "mcq",
+      options: ["The military", "The judiciary", "The people", "The bureaucracy"],
+      correctAnswer: "The people",
+      explanation: "Democracy is based on popular sovereignty, meaning authority comes from the people."
+    },
+
+    {
+      id: "cg-q7",
+      question: "Which form of democracy involves citizens directly voting on laws?",
+      type: "mcq",
+      options: [
+        "Representative democracy",
+        "Indirect democracy",
+        "Direct democracy",
+        "Federal democracy"
+      ],
+      correctAnswer: "Direct democracy",
+      explanation: "In direct democracy, citizens themselves decide policies instead of electing representatives."
+    },
+
+    {
+      id: "cg-q8",
+      question: "The principle of separation of powers exists to:",
+      type: "mcq",
+      options: [
+        "Speed up decision-making",
+        "Reduce the role of courts",
+        "Prevent concentration of power",
+        "Eliminate political opposition"
+      ],
+      correctAnswer: "Prevent concentration of power",
+      explanation: "Dividing power among legislature, executive, and judiciary creates checks and balances."
+    },
+
+    {
+      id: "cg-q9",
+      question: "Which organ of government is responsible for interpreting laws?",
+      type: "mcq",
+      options: ["Legislature", "Executive", "Judiciary", "Election Commission"],
+      correctAnswer: "Judiciary",
+      explanation: "Courts interpret laws and ensure they align with the constitution."
+    },
+
+    {
+      id: "cg-q10",
+      question: "Universal adult franchise means:",
+      type: "mcq",
+      options: [
+        "Only educated citizens can vote",
+        "Only property owners can vote",
+        "All adult citizens have the right to vote",
+        "Voting is optional for everyone"
+      ],
+      correctAnswer: "All adult citizens have the right to vote",
+      explanation: "Universal adult franchise ensures equal voting rights regardless of gender, caste, or wealth."
+    },
+
+    {
+      id: "cg-q11",
+      question: "Political parties mainly help democracy by:",
+      type: "mcq",
+      options: [
+        "Eliminating opposition",
+        "Organizing public participation and choices",
+        "Replacing elections",
+        "Controlling the judiciary"
+      ],
+      correctAnswer: "Organizing public participation and choices",
+      explanation: "Political parties link citizens to government by presenting policies and candidates."
+    },
+
+    {
+      id: "cg-q12",
+      question: "Local self-government is important because it:",
+      type: "mcq",
+      options: [
+        "Centralizes power",
+        "Delays decision-making",
+        "Brings governance closer to people",
+        "Removes citizen participation"
+      ],
+      correctAnswer: "Brings governance closer to people",
+      explanation: "Decentralization allows faster responses to local needs and encourages citizen involvement."
+    },
+
+    {
+      id: "cg-q13",
+      question: "Civil servants are expected to be:",
+      type: "mcq",
+      options: [
+        "Politically neutral and professional",
+        "Elected by citizens",
+        "Members of ruling parties",
+        "Temporary employees"
+      ],
+      correctAnswer: "Politically neutral and professional",
+      explanation: "Public administration relies on non-partisan civil services for continuity and fairness."
+    },
+
+    {
+      id: "cg-q14",
+      question: "Good governance emphasizes all EXCEPT:",
+      type: "mcq",
+      options: [
+        "Transparency",
+        "Accountability",
+        "Rule of law",
+        "Arbitrary decision-making"
+      ],
+      correctAnswer: "Arbitrary decision-making",
+      explanation: "Good governance requires fairness, openness, and lawful decision-making, not arbitrariness."
+    },
+
+    {
+      id: "cg-q15",
+      question: "Why are media and civil society important in governance?",
+      type: "mcq",
+      options: [
+        "They replace governments",
+        "They act as watchdogs and represent public interests",
+        "They make laws",
+        "They control elections"
+      ],
+      correctAnswer: "They act as watchdogs and represent public interests",
+      explanation: "Media and civil society promote transparency, accountability, and citizen awareness."
+    },
+
+    // ================= ADVANCED QUESTIONS =================
+
+    {
+      id: "cg-aq1",
+      question: "Why is accountability considered a cornerstone of democratic governance?",
+      type: "mcq",
+      options: [
+        "It ensures faster decisions",
+        "It allows leaders to act without oversight",
+        "It enables citizens to question and correct those in power",
+        "It removes the need for elections"
+      ],
+      correctAnswer: "It enables citizens to question and correct those in power",
+      explanation: "Accountability ensures that power-holders must explain actions and face consequences through elections, courts, audits, or public scrutiny."
+    },
+
+    {
+      id: "cg-aq2",
+      question: "Decentralized governance can improve service delivery mainly because:",
+      type: "mcq",
+      options: [
+        "Local governments face fewer rules",
+        "Decisions are closer to local needs and contexts",
+        "It eliminates national policies",
+        "It weakens citizen participation"
+      ],
+      correctAnswer: "Decisions are closer to local needs and contexts",
+      explanation: "Local authorities better understand community needs, enabling more responsive and effective governance."
+    },
+
+    {
+      id: "cg-aq3",
+      question: "Which situation best reflects participatory democracy?",
+      type: "mcq",
+      options: [
+        "Citizens vote once every five years only",
+        "Courts alone decide public policies",
+        "Citizens help decide local budgets and policies",
+        "Media controls governance"
+      ],
+      correctAnswer: "Citizens help decide local budgets and policies",
+      explanation: "Participatory democracy expands citizen involvement beyond elections through forums, hearings, and budgeting."
+    },
+
+    {
+      id: "cg-aq4",
+      question: "Why are electoral reforms often controversial?",
+      type: "mcq",
+      options: [
+        "They always reduce voter turnout",
+        "They involve trade-offs between fairness, trust, and practicality",
+        "They eliminate political parties",
+        "They remove universal adult franchise"
+      ],
+      correctAnswer: "They involve trade-offs between fairness, trust, and practicality",
+      explanation: "Reforms affect power distribution and must balance integrity, accessibility, cost, and public confidence."
+    },
+
+    {
+      id: "cg-aq5",
+      question: "Global governance is increasingly important mainly because:",
+      type: "mcq",
+      options: [
+        "National governments no longer exist",
+        "Most problems are now local",
+        "Many challenges cross national borders",
+        "It replaces domestic governance"
+      ],
+      correctAnswer: "Many challenges cross national borders",
+      explanation: "Issues like climate change, pandemics, trade, and digital regulation require international cooperation beyond individual states."
+    }
+  ]
+}, 
+
+// Constitution of india
+{
+  id: "constitution-of-india-questions",
+  title: "Constitution of India – Practice Questions",
+  description: "MCQs and analytical questions covering constitutional structure, rights, governance, and amendments",
+  icon: "BookOpenCheck",
+  color: "from-indigo-600 to-amber-500",
+  questions: [
+
+    // ================= BEGINNER =================
+
+    {
+      id: "ci-q1",
+      question: "A constitution is best described as:",
+      type: "mcq",
+      options: [
+        "A set of religious rules",
+        "A political party manifesto",
+        "The fundamental law of a country",
+        "A temporary government order"
+      ],
+      correctAnswer: "The fundamental law of a country",
+      explanation: "A constitution lays down the basic structure of government, powers, and rights of citizens."
+    },
+
+    {
+      id: "ci-q2",
+      question: "Why does a country need a constitution?",
+      type: "mcq",
+      options: [
+        "To increase government power",
+        "To avoid arbitrary rule and protect rights",
+        "To replace ordinary laws",
+        "To control citizens completely"
+      ],
+      correctAnswer: "To avoid arbitrary rule and protect rights",
+      explanation: "A constitution limits power, defines institutions, and safeguards citizens from misuse of authority."
+    },
+
+    {
+      id: "ci-q3",
+      question: "The Constitution of India came into force on:",
+      type: "mcq",
+      options: [
+        "15 August 1947",
+        "26 November 1949",
+        "24 January 1950",
+        "26 January 1950"
+      ],
+      correctAnswer: "26 January 1950",
+      explanation: "26 January was chosen to honor the Poorna Swaraj declaration of 1930."
+    },
+
+    {
+      id: "ci-q4",
+      question: "Who is known as the chief architect of the Indian Constitution?",
+      type: "mcq",
+      options: [
+        "Jawaharlal Nehru",
+        "Rajendra Prasad",
+        "B. R. Ambedkar",
+        "Sardar Patel"
+      ],
+      correctAnswer: "B. R. Ambedkar",
+      explanation: "Dr. B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly."
+    },
+
+    {
+      id: "ci-q5",
+      question: "Which document is often called the ‘identity card’ of the Constitution?",
+      type: "mcq",
+      options: ["Schedules", "Directive Principles", "Preamble", "Fundamental Duties"],
+      correctAnswer: "Preamble",
+      explanation: "The Preamble reflects the philosophy, objectives, and nature of the Constitution."
+    },
+
+    // ================= INTERMEDIATE =================
+
+    {
+      id: "ci-q6",
+      question: "India is described as a 'Union of States' in the Constitution to emphasize:",
+      type: "mcq",
+      options: [
+        "Complete independence of states",
+        "A loose confederation",
+        "Unity with flexibility",
+        "Absence of federalism"
+      ],
+      correctAnswer: "Unity with flexibility",
+      explanation: "The phrase stresses national unity while allowing reorganization of states."
+    },
+
+    {
+      id: "ci-q7",
+      question: "Which part of the Constitution deals with Fundamental Rights?",
+      type: "mcq",
+      options: ["Part II", "Part III", "Part IV", "Part V"],
+      correctAnswer: "Part III",
+      explanation: "Part III guarantees enforceable Fundamental Rights."
+    },
+
+    {
+      id: "ci-q8",
+      question: "Directive Principles of State Policy are:",
+      type: "mcq",
+      options: [
+        "Legally enforceable by courts",
+        "Political guidelines without importance",
+        "Non-justiciable but fundamental to governance",
+        "Applicable only during emergencies"
+      ],
+      correctAnswer: "Non-justiciable but fundamental to governance",
+      explanation: "DPSPs guide the state in policymaking but cannot be enforced by courts."
+    },
+
+    {
+      id: "ci-q9",
+      question: "Which body audits government expenditure in India?",
+      type: "mcq",
+      options: [
+        "Election Commission",
+        "Finance Commission",
+        "Comptroller and Auditor General",
+        "Union Public Service Commission"
+      ],
+      correctAnswer: "Comptroller and Auditor General",
+      explanation: "The CAG ensures financial accountability of the executive."
+    },
+
+    {
+      id: "ci-q10",
+      question: "Fundamental Duties were added to the Constitution by:",
+      type: "mcq",
+      options: [
+        "44th Amendment",
+        "73rd Amendment",
+        "42nd Amendment",
+        "52nd Amendment"
+      ],
+      correctAnswer: "42nd Amendment",
+      explanation: "The 42nd Amendment (1976) introduced Fundamental Duties under Article 51A."
+    },
+
+    // ================= ADVANCED (LOCKED) =================
+
+    {
+      id: "ci-aq1",
+      question: "Why is the Indian Constitution described as both rigid and flexible?",
+      type: "mcq",
+      options: [
+        "Because it cannot be amended",
+        "Because all amendments require a referendum",
+        "Because different provisions have different amendment procedures",
+        "Because Parliament has unlimited power"
+      ],
+      correctAnswer: "Because different provisions have different amendment procedures",
+      explanation: "Some provisions need simple majority, others special majority or state ratification, balancing stability and change."
+    },
+
+    {
+      id: "ci-aq2",
+      question: "The basic structure doctrine primarily limits:",
+      type: "mcq",
+      options: [
+        "Judicial review",
+        "Fundamental Rights",
+        "Parliament’s amendment power",
+        "Executive authority"
+      ],
+      correctAnswer: "Parliament’s amendment power",
+      explanation: "Parliament cannot amend the Constitution in a way that destroys its core features."
+    },
+
+    {
+      id: "ci-aq3",
+      question: "Which feature is MOST closely linked with constitutional supremacy?",
+      type: "mcq",
+      options: [
+        "Cabinet system",
+        "Judicial review",
+        "Parliamentary sovereignty",
+        "Emergency provisions"
+      ],
+      correctAnswer: "Judicial review",
+      explanation: "Judicial review ensures all laws and actions conform to the Constitution."
+    },
+
+    {
+      id: "ci-aq4",
+      question: "Why are Fundamental Rights sometimes reasonably restricted?",
+      type: "mcq",
+      options: [
+        "To weaken democracy",
+        "To maintain public order, morality, and security",
+        "To favor the executive",
+        "To remove judicial control"
+      ],
+      correctAnswer: "To maintain public order, morality, and security",
+      explanation: "Rights are balanced with collective interests and societal stability."
+    },
+
+    {
+      id: "ci-aq5",
+      question: "Constitutional morality requires institutions to:",
+      type: "mcq",
+      options: [
+        "Follow public opinion at all times",
+        "Act strictly on political instructions",
+        "Uphold constitutional values even against popular pressure",
+        "Avoid judicial interpretation"
+      ],
+      correctAnswer: "Uphold constitutional values even against popular pressure",
+      explanation: "Constitutional morality prioritizes dignity, equality, and rule of law over majoritarian impulses."
+    }
+
+  ]
+},
+
+// Indian Laws & Citizen Awareness
+{
+  id: "indian-laws-citizen-awareness",
+  title: "Indian Laws & Citizen Awareness",
+  description: "Test your knowledge of Indian laws, citizen rights, duties, and legal procedures",
+  icon: "Gavel",
+  color: "from-red-500 to-orange-500",
+  questions: [
+    {
+      id: "ilca-q1",
+      question: "What does the 'Rule of Law' principle mean in India?",
+      type: "mcq",
+      options: [
+        "Only government officials must follow laws",
+        "No one is above the law, including officials and wealthy people",
+        "Laws apply differently to rich and poor",
+        "Police can enforce laws selectively"
+      ],
+      correctAnswer: "No one is above the law, including officials and wealthy people",
+      explanation: "The Rule of Law ensures that everyone must obey the same rules, and legal processes must be fair and transparent. Even government officials, police, or wealthy individuals are not above the law."
+    },
+    {
+      id: "ilca-q2",
+      question: "The Supreme Court of India is located in Mumbai.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "The Supreme Court of India is located in New Delhi, not Mumbai. It is the highest court in the country and hears appeals from High Courts."
+    },
+    {
+      id: "ilca-q3",
+      question: "Which court handles most cases including civil disputes, crimes, and family matters at the local level?",
+      type: "mcq",
+      options: ["Supreme Court", "High Court", "District Court", "National Green Tribunal"],
+      correctAnswer: "District Court",
+      explanation: "District Courts are at the bottom of the court hierarchy and handle most cases including civil disputes, crimes, and family matters in every district."
+    },
+    {
+      id: "ilca-q4",
+      question: "What is FIR in the context of criminal law?",
+      type: "mcq",
+      options: [
+        "Final Investigation Report",
+        "First Information Report",
+        "Forensic Inquiry Record",
+        "Federal Inspection Report"
+      ],
+      correctAnswer: "First Information Report",
+      explanation: "FIR stands for First Information Report. It is a written complaint to police about a cognizable crime and must be filed immediately at the nearest police station."
+    },
+    {
+      id: "ilca-q5",
+      question: "Police can refuse to register an FIR for serious cognizable crimes.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "Police cannot refuse to register an FIR for serious cognizable crimes. They are legally bound to register it immediately, and citizens are entitled to a free copy of the FIR."
+    },
+    {
+      id: "ilca-q6",
+      question: "What is the national helpline number for women in distress in India?",
+      type: "mcq",
+      options: ["100", "181", "1098", "1930"],
+      correctAnswer: "181",
+      explanation: "181 is the women helpline number in India. Other important numbers include 1098 (Childline), 112 (emergency), and 1930 (cybercrime helpline)."
+    },
+    {
+      id: "ilca-q7",
+      question: "How many weeks of paid maternity leave are women entitled to under Indian law?",
+      type: "mcq",
+      options: ["12 weeks", "18 weeks", "26 weeks", "52 weeks"],
+      correctAnswer: "26 weeks",
+      explanation: "Women are entitled to 26 weeks of paid maternity leave under Indian law. This ensures protection for working mothers during and after childbirth."
+    },
+    {
+      id: "ilca-q8",
+      question: "Children under 14 years can work in non-hazardous jobs in India.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "No child under 14 years can work in any job in India. Children aged 14-18 are banned from hazardous work only. This is to ensure children's right to education and protection."
+    },
+    {
+      id: "ilca-q9",
+      question: "What is the emergency helpline number for reporting cybercrimes in India?",
+      type: "mcq",
+      options: ["100", "181", "1098", "1930"],
+      correctAnswer: "1930",
+      explanation: "1930 is the national cybercrime helpline number. Citizens can also report cybercrimes through the portal cybercrime.gov.in within 24 hours for best results."
+    },
+    {
+      id: "ilca-q10",
+      question: "Drunk driving with 30mg or more alcohol is a criminal offence in India.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Yes, drunk driving with 30mg or more alcohol is a criminal offence. First-time offenders face 6 months jail and ₹10,000 fine, with immediate license suspension."
+    },
+    {
+      id: "ilca-q11",
+      question: "How many consumer rights are guaranteed under the Consumer Protection Act?",
+      type: "mcq",
+      options: ["4", "6", "8", "10"],
+      correctAnswer: "6",
+      explanation: "There are 6 consumer rights: right to safety, information, choice, be heard, redressal, and education. These protect consumers in all transactions."
+    },
+    {
+      id: "ilca-q12",
+      question: "What is the maximum working hours per week under Indian labour laws?",
+      type: "mcq",
+      options: ["40 hours", "44 hours", "48 hours", "56 hours"],
+      correctAnswer: "48 hours",
+      explanation: "The maximum working hours are 48 hours per week (9 hours per day) with one weekly holiday. Overtime must be paid at double the normal rate."
+    },
+    {
+      id: "ilca-q13",
+      question: "Single-use plastic below 50 microns is banned in most Indian states.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Yes, single-use plastic below 50 microns is banned in most Indian states. Shops cannot give thin plastic bags, and cloth or paper alternatives are promoted."
+    },
+    {
+      id: "ilca-q14",
+      question: "What is the fee for filing an RTI (Right to Information) application?",
+      type: "mcq",
+      options: ["Free", "₹10", "₹50", "₹100"],
+      correctAnswer: "₹10",
+      explanation: "The fee for filing an RTI application is only ₹10 (free for BPL cardholders). This makes it an affordable tool for citizens to seek information from government offices."
+    },
+    {
+      id: "ilca-q15",
+      question: "Within how many days must a public authority respond to an RTI application?",
+      type: "mcq",
+      options: ["15 days", "30 days", "45 days", "60 days"],
+      correctAnswer: "30 days",
+      explanation: "Public authorities must respond to RTI applications within 30 days. For matters related to life or liberty, the response time is reduced to just 48 hours."
+    },
+    {
+      id: "ilca-q16",
+      question: "What is the emergency number that connects all services in India?",
+      type: "mcq",
+      options: ["100", "108", "112", "181"],
+      correctAnswer: "112",
+      explanation: "112 is the unified emergency number in India that connects to police, ambulance, and fire services. It works across the country."
+    },
+    {
+      id: "ilca-q17",
+      question: "Lok Adalats are settlement courts where awards can be appealed.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "Awards from Lok Adalats cannot be appealed. These settlement courts resolve disputes instantly, and their awards have the same legal force as court decrees."
+    },
+    {
+      id: "ilca-q18",
+      question: "What is the national helpline number for free legal aid in India?",
+      type: "mcq",
+      options: ["1091", "14420", "15100", "16111"],
+      correctAnswer: "15100",
+      explanation: "15100 is the national helpline for free legal aid provided by NALSA (National Legal Services Authority). Poor and defenseless citizens can get free lawyers through this service."
+    },
+    {
+      id: "ilca-q19",
+      question: "Police can arrest anyone at night without any restrictions.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "Police need proper grounds for arrest and must inform the person of the reason. When arresting or searching women, women police officers must be present."
+    },
+    {
+      id: "ilca-q20",
+      question: "What is the maximum security deposit a landlord can charge for rental accommodation?",
+      type: "mcq",
+      options: ["1 month's rent", "2 months' rent", "3 months' rent", "6 months' rent"],
+      correctAnswer: "2 months' rent",
+      explanation: "The maximum security deposit is 2 months' rent. Landlords cannot demand more, and they cannot evict tenants without a court order."
+    },
+    {
+      id: "ilca-q21",
+      question: "A rent agreement of less than 11 months does not need to be registered.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Rent agreements for less than 11 months do not require registration. However, agreements for 11 months or more must be registered with the authorities."
+    },
+    {
+      id: "ilca-q22",
+      question: "What does POSH stand for in Indian workplace laws?",
+      type: "mcq",
+      options: [
+        "Prevention of Sexual Harassment",
+        "Protection of Service Hours",
+        "Policy on Safe Handling",
+        "Prevention of Staff Hostility"
+      ],
+      correctAnswer: "Prevention of Sexual Harassment",
+      explanation: "POSH stands for Prevention of Sexual Harassment. The law mandates that employers form Internal Complaints Committees (ICC) to investigate harassment complaints within 90 days."
+    },
+    {
+      id: "ilca-q23",
+      question: "Which act protects children under 18 from sexual abuse in India?",
+      type: "mcq",
+      options: ["RTE Act", "POCSO Act", "JJ Act", "IPC Section 377"],
+      correctAnswer: "POCSO Act",
+      explanation: "The POCSO (Protection of Children from Sexual Offences) Act protects children under 18 from sexual abuse. It provides for special courts and child-friendly procedures."
+    },
+    {
+      id: "ilca-q24",
+      question: "PIL (Public Interest Litigation) can only be filed by lawyers.",
+      type: "true_false",
+      correctAnswer: "false",
+      explanation: "Anyone can file a PIL in High Court or Supreme Court for public issues. Even a letter or postcard can be treated as PIL. The court fee is only ₹50."
+    },
+    {
+      id: "ilca-q25",
+      question: "What is the age for full retirement under Social Security in India?",
+      type: "mcq",
+      options: ["60 years", "62 years", "65 years", "67 years"],
+      correctAnswer: "67 years",
+      explanation: "The full retirement age for Social Security is 67 for people born in 1960 or later, though reduced benefits can be claimed as early as age 62."
+    }
+  ]
+},
+
+// Economy & Economics
+{
+  id: "economy-economics-questions",
+  title: "Economy & Economics – Practice Questions",
+  description: "Conceptual, analytical, and application-based questions on economics and Indian economy",
+  icon: "TrendingUp",
+  color: "from-green-500 to-emerald-600",
+  questions: [
+
+    // ================= BEGINNER =================
+
+    {
+      id: "ee-q1",
+      question: "Economics is mainly the study of:",
+      type: "mcq",
+      options: [
+        "Money and banking only",
+        "Business management",
+        "Choice under scarcity",
+        "Government policies only"
+      ],
+      correctAnswer: "Choice under scarcity",
+      explanation: "Economics focuses on how limited resources are allocated to meet unlimited wants."
+    },
+
+    {
+      id: "ee-q2",
+      question: "The central problem of economics arises because:",
+      type: "mcq",
+      options: [
+        "Resources are unlimited",
+        "Wants are limited",
+        "Resources are limited and wants are unlimited",
+        "Prices are controlled by government"
+      ],
+      correctAnswer: "Resources are limited and wants are unlimited",
+      explanation: "Scarcity forces individuals and societies to make choices."
+    },
+
+    {
+      id: "ee-q3",
+      question: "Which type of economy does India follow?",
+      type: "mcq",
+      options: [
+        "Command economy",
+        "Market economy",
+        "Traditional economy",
+        "Mixed economy"
+      ],
+      correctAnswer: "Mixed economy",
+      explanation: "India combines market freedom with government regulation and welfare."
+    },
+
+    {
+      id: "ee-q4",
+      question: "Which sector contributes the largest share to India's GDP?",
+      type: "mcq",
+      options: [
+        "Primary sector",
+        "Secondary sector",
+        "Tertiary sector",
+        "Household sector"
+      ],
+      correctAnswer: "Tertiary sector",
+      explanation: "Services contribute around 55% of India's GDP."
+    },
+
+    {
+      id: "ee-q5",
+      question: "Money primarily helps to overcome which problem of barter?",
+      type: "mcq",
+      options: [
+        "Inflation",
+        "Scarcity",
+        "Double coincidence of wants",
+        "Unemployment"
+      ],
+      correctAnswer: "Double coincidence of wants",
+      explanation: "Money removes the need for both parties wanting each other's goods simultaneously."
+    },
+
+    // ================= INTERMEDIATE =================
+
+    {
+      id: "ee-q6",
+      question: "Opportunity cost refers to:",
+      type: "mcq",
+      options: [
+        "Total cost of production",
+        "Cost paid in money terms",
+        "Value of the next best alternative forgone",
+        "Extra cost due to inflation"
+      ],
+      correctAnswer: "Value of the next best alternative forgone",
+      explanation: "Choosing one option means giving up the benefit of the next best alternative."
+    },
+
+    {
+      id: "ee-q7",
+      question: "Which institution is responsible for controlling inflation in India?",
+      type: "mcq",
+      options: [
+        "Ministry of Finance",
+        "State Governments",
+        "Reserve Bank of India",
+        "NITI Aayog"
+      ],
+      correctAnswer: "Reserve Bank of India",
+      explanation: "RBI uses monetary policy tools to keep inflation within target range."
+    },
+
+    {
+      id: "ee-q8",
+      question: "Which of the following is a direct tax?",
+      type: "mcq",
+      options: [
+        "GST",
+        "Custom duty",
+        "Income tax",
+        "Excise duty"
+      ],
+      correctAnswer: "Income tax",
+      explanation: "Direct taxes are paid directly by individuals or companies to the government."
+    },
+
+    {
+      id: "ee-q9",
+      question: "Fiscal deficit indicates:",
+      type: "mcq",
+      options: [
+        "Export-import gap",
+        "Government borrowing requirement",
+        "Inflation level",
+        "Unemployment rate"
+      ],
+      correctAnswer: "Government borrowing requirement",
+      explanation: "Fiscal deficit shows how much the government needs to borrow in a year."
+    },
+
+    {
+      id: "ee-q10",
+      question: "Which sector employs the maximum workforce in India?",
+      type: "mcq",
+      options: [
+        "Agriculture",
+        "Manufacturing",
+        "IT services",
+        "Banking"
+      ],
+      correctAnswer: "Agriculture",
+      explanation: "Nearly 45% of India's workforce is still dependent on agriculture."
+    },
+
+    // ================= ADVANCED (LOCKED) =================
+
+    {
+      id: "ee-aq1",
+      question: "Why is moderate inflation considered desirable for economic growth?",
+      type: "mcq",
+      options: [
+        "It increases poverty",
+        "It discourages production",
+        "It encourages spending and investment",
+        "It reduces government revenue"
+      ],
+      correctAnswer: "It encourages spending and investment",
+      explanation: "Moderate inflation prevents hoarding of money and supports economic activity."
+    },
+
+    {
+      id: "ee-aq2",
+      question: "Which reform marked the beginning of liberalization in India?",
+      type: "mcq",
+      options: [
+        "Bank nationalization",
+        "Green Revolution",
+        "1991 New Economic Policy",
+        "GST implementation"
+      ],
+      correctAnswer: "1991 New Economic Policy",
+      explanation: "The LPG reforms ended license raj and opened the economy to global markets."
+    },
+
+    {
+      id: "ee-aq3",
+      question: "The term 'demographic dividend' refers to:",
+      type: "mcq",
+      options: [
+        "High population growth",
+        "Large elderly population",
+        "Large working-age population",
+        "High fertility rate"
+      ],
+      correctAnswer: "Large working-age population",
+      explanation: "A higher proportion of working-age people can boost economic growth if skilled."
+    },
+
+    {
+      id: "ee-aq4",
+      question: "Which indicator best measures overall economic development?",
+      type: "mcq",
+      options: [
+        "GDP",
+        "Per capita income",
+        "Human Development Index",
+        "Fiscal deficit"
+      ],
+      correctAnswer: "Human Development Index",
+      explanation: "HDI combines income, health, and education for a holistic view of development."
+    },
+
+    {
+      id: "ee-aq5",
+      question: "Why is India often called a service-led economy?",
+      type: "mcq",
+      options: [
+        "Manufacturing dominates GDP",
+        "Agriculture dominates GDP",
+        "Services contribute the highest share to GDP",
+        "Public sector dominates employment"
+      ],
+      correctAnswer: "Services contribute the highest share to GDP",
+      explanation: "Over half of India's GDP comes from the service sector."
+    }
+
+  ]
+}, 
+
+// Animals, Birds & Living World
+{
+  id: "animals-birds-living-world-questions",
+  title: "Animals, Birds & Living World – Practice Questions",
+  description: "Extensive question bank covering animals, birds, plants, insects, aquatic life, ecology, and biodiversity",
+  icon: "PawPrint",
+  color: "from-emerald-500 to-teal-500",
+  questions: [
+
+    // ================== ANIMALS: BASICS ==================
+
+    {
+      id: "ablw-q1",
+      question: "Which of the following best describes a wild animal?",
+      type: "mcq",
+      options: [
+        "Lives under human care",
+        "Bred for milk or wool",
+        "Lives freely in natural habitats",
+        "Used mainly for transport"
+      ],
+      correctAnswer: "Lives freely in natural habitats",
+      explanation: "Wild animals survive in natural ecosystems without human interference."
+    },
+
+    {
+      id: "ablw-q2",
+      question: "Animals that eat only plants are called:",
+      type: "mcq",
+      options: ["Carnivores", "Omnivores", "Herbivores", "Scavengers"],
+      correctAnswer: "Herbivores",
+      explanation: "Herbivores depend on plants for energy and nutrients."
+    },
+
+    {
+      id: "ablw-q3",
+      question: "Which group contains the largest number of animal species?",
+      type: "mcq",
+      options: ["Mammals", "Birds", "Reptiles", "Insects"],
+      correctAnswer: "Insects",
+      explanation: "Insects form about 80% of all animal species."
+    },
+
+    {
+      id: "ablw-q4",
+      question: "Vertebrates are animals that:",
+      type: "mcq",
+      options: [
+        "Have six legs",
+        "Have an exoskeleton",
+        "Possess a backbone",
+        "Live only on land"
+      ],
+      correctAnswer: "Possess a backbone",
+      explanation: "Vertebrates include mammals, birds, reptiles, amphibians, and fish."
+    },
+
+    {
+      id: "ablw-q5",
+      question: "True or False: Invertebrates make up about 97% of all animal species.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Most animal species lack a backbone, especially insects and worms."
+    },
+
+    // ================== HABITATS & ADAPTATIONS ==================
+
+    {
+      id: "ablw-q6",
+      question: "Which animal is best adapted to desert conditions?",
+      type: "mcq",
+      options: ["Polar bear", "Camel", "Yak", "Penguin"],
+      correctAnswer: "Camel",
+      explanation: "Camels store fat and conserve water, allowing survival in deserts."
+    },
+
+    {
+      id: "ablw-q7",
+      question: "Camouflage helps animals mainly to:",
+      type: "mcq",
+      options: [
+        "Move faster",
+        "Hide from predators or prey",
+        "Store food",
+        "Regulate temperature"
+      ],
+      correctAnswer: "Hide from predators or prey",
+      explanation: "Camouflage allows animals to blend with surroundings."
+    },
+
+    {
+      id: "ablw-q8",
+      question: "Which animal is known for long-distance migration of about 4500 km?",
+      type: "mcq",
+      options: ["Elephant", "Monarch butterfly", "Penguin", "Kangaroo"],
+      correctAnswer: "Monarch butterfly",
+      explanation: "Monarch butterflies migrate between Canada and Mexico."
+    },
+
+    {
+      id: "ablw-q9",
+      question: "Hibernation mainly helps animals to:",
+      type: "mcq",
+      options: [
+        "Grow faster",
+        "Avoid predators",
+        "Survive harsh winter conditions",
+        "Reproduce quickly"
+      ],
+      correctAnswer: "Survive harsh winter conditions",
+      explanation: "Hibernation reduces metabolism and conserves energy."
+    },
+
+    // ================== ANIMAL BEHAVIOR ==================
+
+    {
+      id: "ablw-q10",
+      question: "Which animal uses tools to open shellfish?",
+      type: "mcq",
+      options: ["Otter", "Dog", "Deer", "Horse"],
+      correctAnswer: "Otter",
+      explanation: "Otters use rocks as tools to break open shells."
+    },
+
+    {
+      id: "ablw-q11",
+      question: "True or False: Dolphins use unique whistles to identify each other.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Each dolphin has a signature whistle functioning like a name."
+    },
+
+    {
+      id: "ablw-q12",
+      question: "Which animal shows male pregnancy?",
+      type: "mcq",
+      options: ["Penguin", "Seahorse", "Frog", "Ostrich"],
+      correctAnswer: "Seahorse",
+      explanation: "Male seahorses carry and give birth to young ones."
+    },
+
+    // ================== BIRDS ==================
+
+    {
+      id: "ablw-q13",
+      question: "Which feature is unique to birds?",
+      type: "mcq",
+      options: ["Scales", "Feathers", "Fur", "Gills"],
+      correctAnswer: "Feathers",
+      explanation: "Feathers are exclusive to birds."
+    },
+
+    {
+      id: "ablw-q14",
+      question: "The fastest flying bird in a dive is:",
+      type: "mcq",
+      options: ["Eagle", "Falcon", "Hawk", "Albatross"],
+      correctAnswer: "Falcon",
+      explanation: "The peregrine falcon can dive at over 240 mph."
+    },
+
+    {
+      id: "ablw-q15",
+      question: "Which bird migrates the longest distance annually?",
+      type: "mcq",
+      options: ["Swan", "Arctic tern", "Crane", "Goose"],
+      correctAnswer: "Arctic tern",
+      explanation: "It migrates about 44,000 miles every year."
+    },
+
+    {
+      id: "ablw-q16",
+      question: "True or False: Hummingbirds are the only birds that can fly backward.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Their unique wing rotation allows backward flight."
+    },
+
+    // ================== AQUATIC LIFE ==================
+
+    {
+      id: "ablw-q17",
+      question: "Which is the largest animal that has ever lived on Earth?",
+      type: "mcq",
+      options: ["African elephant", "Blue whale", "Dinosaur", "Colossal squid"],
+      correctAnswer: "Blue whale",
+      explanation: "Blue whales can weigh over 200 tons."
+    },
+
+    {
+      id: "ablw-q18",
+      question: "Which organism produces about 70% of Earth's oxygen?",
+      type: "mcq",
+      options: ["Forests", "Seaweed", "Phytoplankton", "Coral reefs"],
+      correctAnswer: "Phytoplankton",
+      explanation: "Microscopic marine plants are major oxygen producers."
+    },
+
+    {
+      id: "ablw-q19",
+      question: "True or False: Most of the ocean is still unexplored.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "About 95% of the ocean remains unexplored."
+    },
+
+    // ================== INSECTS ==================
+
+    {
+      id: "ablw-q20",
+      question: "How many legs does an insect have?",
+      type: "mcq",
+      options: ["4", "6", "8", "10"],
+      correctAnswer: "6",
+      explanation: "Insects have three pairs of legs."
+    },
+
+    {
+      id: "ablw-q21",
+      question: "Which insect is most important for pollination?",
+      type: "mcq",
+      options: ["Ant", "Butterfly", "Bee", "Mosquito"],
+      correctAnswer: "Bee",
+      explanation: "Bees pollinate about 75% of food crops."
+    },
+
+    {
+      id: "ablw-q22",
+      question: "True or False: Mosquitoes are responsible for more human deaths than any other animal.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "They spread diseases like malaria and dengue."
+    },
+
+    // ================== PLANTS ==================
+
+    {
+      id: "ablw-q23",
+      question: "Which part of the plant performs photosynthesis?",
+      type: "mcq",
+      options: ["Root", "Stem", "Leaf", "Flower"],
+      correctAnswer: "Leaf",
+      explanation: "Leaves contain chlorophyll which traps sunlight."
+    },
+
+    {
+      id: "ablw-q24",
+      question: "India's national tree is:",
+      type: "mcq",
+      options: ["Peepal", "Neem", "Banyan", "Mango"],
+      correctAnswer: "Banyan",
+      explanation: "The banyan symbolizes longevity and shelter."
+    },
+
+    // ================== ENVIRONMENT & CONSERVATION ==================
+
+    {
+      id: "ablw-q25",
+      question: "Which rule states that only 10% energy is transferred between trophic levels?",
+      type: "mcq",
+      options: [
+        "Law of conservation",
+        "10% law",
+        "Energy pyramid rule",
+        "Food chain law"
+      ],
+      correctAnswer: "10% law",
+      explanation: "Most energy is lost as heat at each trophic level."
+    },
+
+    {
+      id: "ablw-q26",
+      question: "Project Tiger was launched in India in:",
+      type: "mcq",
+      options: ["1965", "1973", "1985", "1992"],
+      correctAnswer: "1973",
+      explanation: "It helped double India's tiger population."
+    },
+
+    {
+      id: "ablw-q27",
+      question: "True or False: Habitat loss is the biggest cause of species extinction.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Destruction of habitats is responsible for most extinctions."
+    },
+
+    // 🔒 Advanced / Assertion-Reason / Case-based can be added next
+    {
+      id: "ablw-adv-q1",
+      question: "Binomial nomenclature ensures:",
+      type: "mcq",
+      options: [
+        "Local naming of species",
+        "Same name for different species",
+        "Universal scientific identification of organisms",
+        "Classification based on habitat only"
+      ],
+      correctAnswer: "Universal scientific identification of organisms",
+      explanation: "Binomial nomenclature gives each species a unique two-part Latin name, avoiding confusion across languages and regions."
+    },
+
+    {
+      id: "ablw-adv-q2",
+      question: "Which phylum contains the maximum number of animal species?",
+      type: "mcq",
+      options: ["Chordata", "Mollusca", "Arthropoda", "Annelida"],
+      correctAnswer: "Arthropoda",
+      explanation: "Arthropods (especially insects) constitute nearly 80% of all known animal species."
+    },
+
+    // ================= EVOLUTION & ADAPTATION =================
+
+    {
+      id: "ablw-adv-q4",
+      question: "Which of the following is an example of convergent evolution?",
+      type: "mcq",
+      options: [
+        "Human arm and bat wing",
+        "Shark and dolphin streamlined bodies",
+        "Bird and reptile scales",
+        "Horse and donkey reproduction"
+      ],
+      correctAnswer: "Shark and dolphin streamlined bodies",
+      explanation: "Sharks (fish) and dolphins (mammals) evolved similar body shapes due to similar aquatic environments, not common ancestry."
+    },
+
+    {
+      id: "ablw-adv-q5",
+      question: "Vestigial organs indicate:",
+      type: "mcq",
+      options: [
+        "Future evolution",
+        "Evolutionary ancestry",
+        "Present usefulness",
+        "Artificial selection"
+      ],
+      correctAnswer: "Evolutionary ancestry",
+      explanation: "Vestigial organs are remnants of structures that were functional in ancestors but lost function over time."
+    },
+
+    
+    // ================= BIRDS (ADVANCED) =================
+
+    {
+      id: "ablw-adv-q7",
+      question: "The silent flight of owls is mainly due to:",
+      type: "mcq",
+      options: [
+        "Lightweight bones",
+        "Soft serrated feathers",
+        "Hollow skull",
+        "Reduced wing size"
+      ],
+      correctAnswer: "Soft serrated feathers",
+      explanation: "Serrated edges on owl feathers reduce air turbulence, enabling silent flight."
+    },
+
+    {
+      id: "ablw-adv-q8",
+      question: "Which bird uses Earth's magnetic field for navigation?",
+      type: "mcq",
+      options: ["Peacock", "Pigeon", "Crow", "Ostrich"],
+      correctAnswer: "Pigeon",
+      explanation: "Pigeons have magnetoreceptors that help them sense Earth’s magnetic field during navigation."
+    },
+
+    // ================= AQUATIC LIFE =================
+
+    {
+      id: "ablw-adv-q10",
+      question: "Why do deep-sea organisms often exhibit bioluminescence?",
+      type: "mcq",
+      options: [
+        "For photosynthesis",
+        "To regulate body temperature",
+        "For communication, hunting, or defense",
+        "To attract sunlight"
+      ],
+      correctAnswer: "For communication, hunting, or defense",
+      explanation: "Bioluminescence helps organisms survive in dark deep-sea environments."
+    },
+
+    {
+      id: "ablw-adv-q11",
+      question: "Which adaptation allows whales to dive for long durations?",
+      type: "mcq",
+      options: [
+        "Gills",
+        "Air sacs",
+        "High oxygen storage in blood and muscles",
+        "Cold-blooded metabolism"
+      ],
+      correctAnswer: "High oxygen storage in blood and muscles",
+      explanation: "Whales store oxygen in hemoglobin and myoglobin, enabling long dives."
+    },
+
+    
+
+    // ================= INSECTS =================
+
+    {
+      id: "ablw-adv-q13",
+      question: "Complete metamorphosis differs from incomplete metamorphosis because:",
+      type: "mcq",
+      options: [
+        "Larva resembles adult",
+        "Pupa stage is absent",
+        "Body structure changes entirely",
+        "Egg stage is skipped"
+      ],
+      correctAnswer: "Body structure changes entirely",
+      explanation: "In complete metamorphosis, larva, pupa, and adult are structurally different."
+    },
+
+    {
+      id: "ablw-adv-q14",
+      question: "Why are insects considered the most successful animals evolutionarily?",
+      type: "mcq",
+      options: [
+        "Large body size",
+        "Long lifespan",
+        "High adaptability and reproduction",
+        "Advanced intelligence"
+      ],
+      correctAnswer: "High adaptability and reproduction",
+      explanation: "Rapid reproduction and adaptability allow insects to survive changing environments."
+    },
+
+    // ================= PLANTS & ECOLOGY =================
+
+    {
+      id: "ablw-adv-q15",
+      question: "Which plant tissue is responsible for downward transport of food?",
+      type: "mcq",
+      options: ["Xylem", "Cambium", "Phloem", "Cortex"],
+      correctAnswer: "Phloem",
+      explanation: "Phloem transports sugars produced during photosynthesis to all plant parts."
+    },
+
+    // ================= FOOD CHAINS & BIODIVERSITY =================
+
+    {
+      id: "ablw-adv-q17",
+      question: "Removal of apex predators usually results in:",
+      type: "mcq",
+      options: [
+        "Increased biodiversity",
+        "Stable ecosystem",
+        "Trophic cascade",
+        "No ecological impact"
+      ],
+      correctAnswer: "Trophic cascade",
+      explanation: "Loss of top predators disrupts food webs, causing population imbalance."
+    },
+
+    {
+      id: "ablw-adv-q18",
+      question: "Why are biodiversity hotspots conservation priorities?",
+      type: "mcq",
+      options: [
+        "They have many deserts",
+        "They contain high endemism and habitat loss",
+        "They are densely populated",
+        "They are climatically stable"
+      ],
+      correctAnswer: "They contain high endemism and habitat loss",
+      explanation: "Hotspots have many unique species but face severe threats."
+    },
+
+    // ================= CONSERVATION =================
+
+    {
+      id: "ablw-adv-q19",
+      question: "Which international agreement regulates trade in endangered species?",
+      type: "mcq",
+      options: ["Ramsar Convention", "CITES", "Kyoto Protocol", "Montreal Protocol"],
+      correctAnswer: "CITES",
+      explanation: "CITES controls international trade to prevent species extinction."
+    },
+  ]
+},
 
 
 
