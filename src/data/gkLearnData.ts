@@ -2016,7 +2016,8 @@ export const gkCategories: GKCategory[] = [
 },
 
 // ancient civilizations
- {
+ 
+{
   id: "ancient-civilizations",
   title: "Ancient Civilizations (World)",
   description: "Travel back in time to explore the rise of the first cities, empires, and the foundations of modern human society.",
@@ -3646,7 +3647,7 @@ export const gkCategories: GKCategory[] = [
   ]
   },
 
-  // Human Body 
+// Human Body 
 {
   id: "human-body",
   title: "Human Body",
