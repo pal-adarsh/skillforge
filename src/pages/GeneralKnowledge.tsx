@@ -596,7 +596,7 @@ const GeneralKnowledge = () => {
     const progress = ((currentQuestionIndex + 1) / selectedTestCategory.questions.length) * 100;
 
     return (
-      <div className="space-y-6 max-w-3xl mx-auto">
+      <div className="space-y-6 max-w-6xl mx-auto">
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={handleBackToTestCategories}>
             <ArrowLeft className="h-5 w-5" />
@@ -664,7 +664,7 @@ const GeneralKnowledge = () => {
                           : "bg-muted/30 border-transparent opacity-50"
                         : selectedAnswer === option
                         ? "bg-primary/10 border-primary shadow-sm"
-                        : "bg-card border-border hover:border-blue-500/50 hover:bg-blue-50/50"
+                        : "bg-card border-border hover:bg-primary/10 hover:border-primary/60"
                     }`}
                     onClick={() => handleAnswerSelect(option)}
                     disabled={showResult}
@@ -756,7 +756,7 @@ const GeneralKnowledge = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-background/50 relative">
+    <div className="min-h-screen pt-16 pb-12 bg-background/50 relative">
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none -z-10" />
       
       <div className="container mx-auto px-4 max-w-7xl">
@@ -768,8 +768,10 @@ const GeneralKnowledge = () => {
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 mb-4 pb-1">
             General Knowledge
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-4xl mx-auto">
             Expand your horizons with our curated learning materials and challenge yourself with interactive quizzes.
+            <br />
+            <strong>A chronological GK journey tracing knowledge from the birth of the universe to today’s world.</strong>
           </p>
         </motion.div>
 
