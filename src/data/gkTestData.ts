@@ -585,6 +585,360 @@ export const gkTestCategories: GKTestCategory[] = [
   ]
 },
 
+// Life on earth
+{
+  id: "life-on-earth-quiz",
+  title: "Life on Earth",
+  description: "Test your understanding of how life began, evolved, and diversified on Earth",
+  icon: "Leaf",
+  color: "from-green-500 to-emerald-600",
+  questions: [
+
+    // =========================
+    // WHAT IS LIFE
+    // =========================
+
+    {
+      id: "le-q1",
+      question: "Which of the following is NOT a characteristic of living organisms?",
+      type: "mcq",
+      options: [
+        "Metabolism",
+        "Reproduction",
+        "Response to stimuli",
+        "Crystallization"
+      ],
+      correctAnswer: "Crystallization",
+      explanation: "Living organisms show metabolism, growth, reproduction, response, and adaptation. Crystallization is a non-living process."
+    },
+
+    {
+      id: "le-q2",
+      question: "All living organisms are made up of cells.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Cells are the basic structural and functional units of all known living organisms."
+    },
+
+    {
+      id: "le-q3",
+      question: "Which elements are essential for life and summarized as CHNOPS?",
+      type: "mcq",
+      options: [
+        "Carbon, Hydrogen, Nitrogen, Oxygen, Phosphorus, Sulfur",
+        "Calcium, Helium, Neon, Oxygen, Potassium, Sulfur",
+        "Carbon, Helium, Nitrogen, Oxygen, Phosphorus, Silicon",
+        "Chlorine, Hydrogen, Nitrogen, Oxygen, Phosphorus, Sulfur"
+      ],
+      correctAnswer: "Carbon, Hydrogen, Nitrogen, Oxygen, Phosphorus, Sulfur",
+      explanation: "CHNOPS elements form the basic chemical foundation of life."
+    },
+
+    // =========================
+    // CONDITIONS FOR LIFE
+    // =========================
+
+    {
+      id: "le-q4",
+      question: "Why is liquid water essential for life?",
+      type: "mcq",
+      options: [
+        "It reflects sunlight",
+        "It dissolves nutrients and supports chemical reactions",
+        "It blocks radiation",
+        "It stores oxygen"
+      ],
+      correctAnswer: "It dissolves nutrients and supports chemical reactions",
+      explanation: "Water is an excellent solvent, allowing biochemical reactions necessary for life."
+    },
+
+    {
+      id: "le-q5",
+      question: "Without the greenhouse effect, Earth’s average temperature would be approximately:",
+      type: "mcq",
+      options: [
+        "15°C",
+        "-18°C",
+        "0°C",
+        "50°C"
+      ],
+      correctAnswer: "-18°C",
+      explanation: "The natural greenhouse effect keeps Earth warm enough for liquid water and life."
+    },
+
+    {
+      id: "le-q6",
+      question: "Which protects Earth from harmful solar wind?",
+      type: "mcq",
+      options: [
+        "Ozone layer",
+        "Atmosphere",
+        "Magnetic field",
+        "Cloud cover"
+      ],
+      correctAnswer: "Magnetic field",
+      explanation: "Earth’s magnetic field deflects charged particles from the Sun."
+    },
+
+    // =========================
+    // ORIGIN OF LIFE
+    // =========================
+
+    {
+      id: "le-q7",
+      question: "Life on Earth is believed to have originated approximately:",
+      type: "mcq",
+      options: [
+        "1 billion years ago",
+        "2.4 billion years ago",
+        "3.8–4.1 billion years ago",
+        "6 billion years ago"
+      ],
+      correctAnswer: "3.8–4.1 billion years ago",
+      explanation: "Evidence suggests life appeared relatively soon after Earth cooled."
+    },
+
+    {
+      id: "le-q8",
+      question: "The Miller–Urey experiment demonstrated that:",
+      type: "mcq",
+      options: [
+        "Life requires oxygen",
+        "Cells formed directly from chemicals",
+        "Organic molecules can form naturally",
+        "DNA was the first molecule of life"
+      ],
+      correctAnswer: "Organic molecules can form naturally",
+      explanation: "The experiment showed amino acids could form under early Earth-like conditions."
+    },
+
+    {
+      id: "le-q9",
+      question: "RNA is considered a strong candidate for the first self-replicating molecule because it can:",
+      type: "mcq",
+      options: [
+        "Store energy",
+        "Act as both information carrier and catalyst",
+        "Create membranes",
+        "Produce oxygen"
+      ],
+      correctAnswer: "Act as both information carrier and catalyst",
+      explanation: "RNA can store genetic information and catalyze chemical reactions."
+    },
+
+    // =========================
+    // FIRST LIFE & OXYGEN
+    // =========================
+
+    {
+      id: "le-q10",
+      question: "The earliest life forms on Earth were:",
+      type: "mcq",
+      options: [
+        "Multicellular organisms",
+        "Plants",
+        "Single-celled prokaryotes",
+        "Animals"
+      ],
+      correctAnswer: "Single-celled prokaryotes",
+      explanation: "The first organisms were bacteria-like cells without nuclei."
+    },
+
+    {
+      id: "le-q11",
+      question: "Which organisms caused the Great Oxidation Event?",
+      type: "mcq",
+      options: [
+        "Algae",
+        "Plants",
+        "Cyanobacteria",
+        "Fungi"
+      ],
+      correctAnswer: "Cyanobacteria",
+      explanation: "Cyanobacteria released oxygen through photosynthesis, transforming Earth’s atmosphere."
+    },
+
+    {
+      id: "le-q12",
+      question: "Oxygen was initially toxic to early life forms.",
+      type: "true_false",
+      correctAnswer: "true",
+      explanation: "Early organisms evolved in oxygen-free conditions, so oxygen was deadly to many."
+    },
+
+    // =========================
+    // EVOLUTION & MULTICELLULAR LIFE
+    // =========================
+
+    {
+      id: "le-q13",
+      question: "Evolution occurs when:",
+      type: "mcq",
+      options: [
+        "Individuals change during their lifetime",
+        "Populations change over generations",
+        "Organisms consciously adapt",
+        "Strong species survive"
+      ],
+      correctAnswer: "Populations change over generations",
+      explanation: "Evolution acts on populations, not individuals."
+    },
+
+    {
+      id: "le-q14",
+      question: "Which process explains how mitochondria originated?",
+      type: "mcq",
+      options: [
+        "Natural selection",
+        "Mutation",
+        "Endosymbiosis",
+        "Photosynthesis"
+      ],
+      correctAnswer: "Endosymbiosis",
+      explanation: "Mitochondria were once free-living bacteria that formed a symbiotic relationship."
+    },
+
+    {
+      id: "le-q15",
+      question: "Multicellular life emerged approximately:",
+      type: "mcq",
+      options: [
+        "600 million years ago",
+        "2.1 billion years ago",
+        "3.5 billion years ago",
+        "66 million years ago"
+      ],
+      correctAnswer: "2.1 billion years ago",
+      explanation: "Multicellularity evolved when cells began cooperating and specializing."
+    },
+
+    // =========================
+    // PLANTS & ANIMALS
+    // =========================
+
+    {
+      id: "le-q16",
+      question: "Which process produces oxygen and glucose?",
+      type: "mcq",
+      options: [
+        "Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      correctAnswer: "Photosynthesis",
+      explanation: "Photosynthesis converts sunlight, CO₂, and water into glucose and oxygen."
+    },
+
+    {
+      id: "le-q17",
+      question: "The Cambrian Explosion refers to:",
+      type: "mcq",
+      options: [
+        "The extinction of dinosaurs",
+        "Rapid diversification of animal life",
+        "Origin of plants on land",
+        "Formation of oceans"
+      ],
+      correctAnswer: "Rapid diversification of animal life",
+      explanation: "Most major animal groups appeared in a short geological time."
+    },
+
+    // =========================
+    // ECOSYSTEMS & BIODIVERSITY
+    // =========================
+
+    {
+      id: "le-q18",
+      question: "Which organisms recycle nutrients back into the ecosystem?",
+      type: "mcq",
+      options: [
+        "Producers",
+        "Primary consumers",
+        "Decomposers",
+        "Predators"
+      ],
+      correctAnswer: "Decomposers",
+      explanation: "Bacteria and fungi break down dead matter and return nutrients to the soil."
+    },
+
+    {
+      id: "le-q19",
+      question: "Only about what percentage of energy transfers to the next trophic level?",
+      type: "mcq",
+      options: [
+        "50%",
+        "25%",
+        "10%",
+        "1%"
+      ],
+      correctAnswer: "10%",
+      explanation: "Most energy is lost as heat or used for life processes."
+    },
+
+    {
+      id: "le-q20",
+      question: "Which acronym summarizes major threats to biodiversity?",
+      type: "mcq",
+      options: [
+        "CLIMATE",
+        "H.I.P.P.O.",
+        "GREEN",
+        "EXTINCT"
+      ],
+      correctAnswer: "H.I.P.P.O.",
+      explanation: "Habitat loss, Invasive species, Pollution, Population, Overharvesting."
+    },
+
+    // =========================
+    // EXTINCTION & HUMANS
+    // =========================
+
+    {
+      id: "le-q21",
+      question: "How many major mass extinctions have occurred in Earth's history?",
+      type: "mcq",
+      options: [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      correctAnswer: "Five",
+      explanation: "Five major mass extinctions reshaped life on Earth."
+    },
+
+    {
+      id: "le-q22",
+      question: "Humans are considered a 'Super-Keystone Species' because:",
+      type: "mcq",
+      options: [
+        "We are the strongest species",
+        "We dominate food chains",
+        "We have a disproportionately large environmental impact",
+        "We are the most intelligent"
+      ],
+      correctAnswer: "We have a disproportionately large environmental impact",
+      explanation: "Human activity alters ecosystems on a global scale. (Extra conceptual question)"
+    },
+
+    {
+      id: "le-q23",
+      question: "The proposed geological epoch dominated by human activity is called:",
+      type: "mcq",
+      options: [
+        "Holocene",
+        "Anthropocene",
+        "Cenozoic",
+        "Quaternary"
+      ],
+      correctAnswer: "Anthropocene",
+      explanation: "The Anthropocene highlights humanity’s dominant influence on Earth systems."
+    }
+
+  ]
+},
+
 
   {
     id: "current-affairs",
