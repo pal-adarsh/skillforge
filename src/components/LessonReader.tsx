@@ -258,7 +258,7 @@ export const LessonReader = ({ lesson, onBack, onComplete }: LessonReaderProps) 
         )}
       </AnimatePresence>
 
-      <div className="container mx-auto px-4 max-w-4xl relative">
+      <div className="container mx-auto px-4 max-w-6xl relative">
         
         {/* Navigation & Controls */}
         <motion.div 
