@@ -402,7 +402,7 @@ Five seconds of putting things back saves minutes of searching later.
     difficulty: "Beginner" as const, 
     duration: "20 min", 
     points: 120,
-    image: "https://images.unsplash.com/photo-1581578731117-10d52b43c12c?w=800",
+    image: "https://plus.unsplash.com/premium_vector-1682306928835-d723950f7d84?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tags: ["cleaning", "chores", "maintenance"],
     content: `
 # Basic Cleaning Skills

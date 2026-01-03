@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useNetworkStatus } from "@/hooks/useNetworkStatus";
 import { useAntiCheat } from "@/hooks/useAntiCheat";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -385,8 +386,8 @@ const GeneralKnowledge = () => {
     if (!selectedTopic || !selectedLearnCategory) return null;
     const isCompleted = completedTopics.includes(selectedTopic.id);
 
-    return (
-      <div className="space-y-6">
+      return (
+        <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Button variant="ghost" className="hover:scale-125 hover:text-primary" size="icon" onClick={handleBackToLearnCategories}>
             <ArrowLeft className="h-5 w-5" />
@@ -422,10 +423,38 @@ const GeneralKnowledge = () => {
           </p>
         );
       },
-                    img: ({ src, alt }) => (
-                      // fixed size for images inside content
-                      <img src={src ?? ''} alt={alt ?? ''} className="w-48 h-32 object-cover rounded-md mx-auto" />
-                    ),
+                    img: ({ src, alt }) => {
+                      const ContentImage = ({ src, alt }: { src?: string; alt?: string }) => {
+                        const { isOnline } = useNetworkStatus();
+                        const [hasError, setHasError] = useState(false);
+
+                        // Don't render images when offline
+                        if (!isOnline) {
+                          return null;
+                        }
+
+                        if (hasError) {
+                          return (
+                            <div className="w-48 h-32 rounded-md mx-auto overflow-hidden bg-muted/10 flex items-center justify-center">
+                              <div className="text-xs text-muted-foreground text-center">Image not available</div>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <div className="w-48 h-32 rounded-md mx-auto overflow-hidden bg-muted/10">
+                            <img 
+                              src={src ?? ''} 
+                              alt={alt ?? ''} 
+                              className="w-full h-full object-cover" 
+                              onError={() => setHasError(true)}
+                            />
+                          </div>
+                        );
+                      };
+
+                      return <ContentImage src={src ?? ''} alt={alt ?? ''} />;
+                    },
     }}
   >
     {selectedTopic.content}

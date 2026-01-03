@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNetworkStatus } from "@/hooks/useNetworkStatus";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti"; // Make sure to install this!
 import { Button } from "@/components/ui/button";
@@ -79,25 +80,46 @@ const CodeBlock = ({ language, children }: { language: string, children: string 
 
 // --- Sub-Component: Zoomable Image ---
 const ZoomableImage = ({ src, alt, ...props }: any) => {
+  const { isOnline } = useNetworkStatus();
+  const [imageAvailable, setImageAvailable] = useState<boolean>(true); // Assume available by default
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    if (!src || !isOnline) {
+      setImageAvailable(false);
+    }
+  }, [src, isOnline]);
+
+  // Don't render anything when offline
+  if (!isOnline) {
+    return null;
+  }
+
   return (
     <div className="group relative flex justify-center my-8">
       <div className="relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-black/20">
         <img
+          ref={imgRef}
           src={src}
           alt={alt}
           loading="lazy"
+          onError={() => setImageAvailable(false)}
           {...props}
-          className="
-            max-w-full 
-            h-auto 
-            max-h-[500px] 
-            object-contain
-            transition-transform 
-            duration-500 
-            ease-out
-            group-hover:scale-[1.05]
-          "
+          className="max-w-full h-auto max-h-[500px] object-contain transition-transform duration-500 ease-out group-hover:scale-[1.05]"
         />
+
+        {/* Show placeholder only on error */}
+        {!imageAvailable && (
+          <div className="absolute inset-0 flex items-center justify-center p-8 text-center bg-muted/10">
+            <div>
+              <div className="inline-flex items-center justify-center p-3 rounded-md bg-muted/20 mb-2">
+                <BookOpen className="h-5 w-5 text-muted-foreground" />
+              </div>
+              <div className="text-sm font-medium text-muted-foreground">{alt || 'Image'}</div>
+              <div className="text-[11px] text-muted-foreground/70">Image not available</div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
