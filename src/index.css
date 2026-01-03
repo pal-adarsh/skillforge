@@ -496,3 +496,16 @@
   background: hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));
 }
+
+/* Shaking fix */
+/* Add this to your global CSS or the LessonReader module */
+.lesson-content img {
+  width: 100%;
+  height: auto;
+  /* Crucial: Reserve space for images before they load to prevent jumps */
+  aspect-ratio: 16 / 9; 
+  object-fit: cover;
+  background-color: #f3f4f6; /* A grey placeholder color */
+  border-radius: 0.5rem;
+  display: block;
+}

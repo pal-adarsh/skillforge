@@ -73,6 +73,7 @@ const iconMap: Record<string, any> = {
 type ViewMode = "skills" | "topics" | "lessons" | "all-lessons";
 
 export default function Lessons() {
+  const isOnline = typeof navigator !== "undefined" && navigator.onLine;
   const { classId } = useParams();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
@@ -122,11 +123,14 @@ export default function Lessons() {
   };
 
   const getImageForLesson = (lessonCategory: string) => {
-    const categoryLower = lessonCategory.toLowerCase();
-    if (categoryLower.includes("digital") || categoryLower.includes("critical")) return codingImage;
-    if (categoryLower.includes("health") || categoryLower.includes("fitness")) return scienceImage;
-    return generalImage;
-  };
+  if (!isOnline) return undefined;
+
+  const categoryLower = lessonCategory.toLowerCase();
+  if (categoryLower.includes("digital") || categoryLower.includes("critical")) return codingImage;
+  if (categoryLower.includes("health") || categoryLower.includes("fitness")) return scienceImage;
+  return generalImage;
+};
+
 
   const displayLessonsForTopic = (topic: Subject) => {
     return topic.lessonIds
