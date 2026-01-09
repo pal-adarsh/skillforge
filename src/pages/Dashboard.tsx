@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { LessonCard } from "@/components/ui/lesson-card";
+import { QuickAccessWidgets } from "@/components/dashboard/QuickAccessWidgets";
 import { useProgressTracking } from "@/hooks/useProgressTracking";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProfile } from "@/hooks/useProfile";
@@ -285,6 +286,20 @@ export default function Dashboard() {
               </motion.div>
             ))}
           </div>
+        </motion.section>
+
+        {/* Quick Access - Notes & Pomodoro */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+          className="mb-12"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Zap className="h-5 w-5 text-primary" />
+            <h2 className="text-xl font-display font-bold">Quick Access</h2>
+          </div>
+          <QuickAccessWidgets />
         </motion.section>
 
         {/* Featured Skill Areas */}

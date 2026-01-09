@@ -16,6 +16,9 @@ import NotFound from "./pages/NotFound";
 import Leaderboard from "./pages/Leaderboard";
 import Rewards from "./pages/Rewards";
 import GeneralKnowledge from "./pages/GeneralKnowledge";
+import Notes from "./pages/Notes";
+import Pomodoro from "./pages/Pomodoro";
+import PDFAnalyzer from "./pages/PDFAnalyzer";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +72,21 @@ const App = () => (
               <Route path="/gk" element={
                 <ProtectedRoute>
                   <GeneralKnowledge />
+                </ProtectedRoute>
+              } />
+              <Route path="/notes" element={
+                <ProtectedRoute>
+                  <Notes />
+                </ProtectedRoute>
+              } />
+              <Route path="/pomodoro" element={
+                <ProtectedRoute>
+                  <Pomodoro />
+                </ProtectedRoute>
+              } />
+              <Route path="/pdf" element={
+                <ProtectedRoute>
+                  <PDFAnalyzer />
                 </ProtectedRoute>
               } />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
