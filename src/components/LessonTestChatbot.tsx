@@ -16,8 +16,8 @@ import {
   Trophy,
   RotateCcw
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface Question {
   id: number;
@@ -58,39 +58,116 @@ export const LessonTestChatbot = ({
     setShowResults(false);
 
     try {
-      const { data, error } = await supabase.functions.invoke('generate-test', {
-        body: {
-          lessonTitle,
-          lessonContent: lessonContent.substring(0, 4000),
-          difficulty: lessonDifficulty
-        }
-      });
-
-      if (error) {
-        // Check if it's a rate limit error
-        if (error.message?.includes('429') || error.context?.status === 429) {
-          throw new Error('API is busy. Please wait a moment and try again.');
-        }
-        throw error;
-      }
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       
-      if (data?.error) {
-        throw new Error(data.isRateLimit 
-          ? 'API is busy. Please wait a moment and try again.' 
-          : data.error
-        );
+      if (!apiKey) {
+        throw new Error('API key not configured');
       }
 
-      setTestData(data);
+      const prompt = `Generate 5 quiz questions about "${lessonTitle}" (${lessonDifficulty} level).
+
+Return valid JSON only:
+{
+  "testTitle": "Quiz: ${lessonTitle}",
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq",
+      "question": "Question text?",
+      "options": ["A) Answer 1", "B) Answer 2", "C) Answer 3", "D) Answer 4"],
+      "correctAnswer": "A",
+      "explanation": "Why this is correct"
+    },
+    {
+      "id": 2,
+      "type": "truefalse",
+      "question": "Statement?",
+      "correctAnswer": "true",
+      "explanation": "Explanation"
+    }
+  ]
+}
+
+Rules: 
+- MCQ correctAnswer: letter only (A/B/C/D)
+- True/False correctAnswer: "true" or "false"
+- No markdown, just JSON`;
+
+      // Step 1: Discover available models for this API key
+      const listModelsResponse = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`
+      );
+
+      if (!listModelsResponse.ok) {
+        throw new Error('Failed to connect to Gemini API. Check your API key.');
+      }
+
+      const modelsData = await listModelsResponse.json();
+      console.log('All models from API:', modelsData);
+      
+      // Find models that support generateContent
+      const availableModels = modelsData.models?.filter((model: any) => 
+        model.supportedGenerationMethods?.includes('generateContent')
+      ) || [];
+
+      console.log('Filtered models for generation:', availableModels.map((m: any) => m.name));
+
+      if (availableModels.length === 0) {
+        throw new Error('No models available. Your API key may not have access to Gemini models. Please check Google AI Studio.');
+      }
+
+      // Pick the first available model (they're usually ordered by capability)
+      const selectedModel = availableModels[0].name;
+      console.log('✓ Selected model:', selectedModel);
+
+      // Step 2: Generate content with the discovered model
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/${selectedModel}:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }]
+          })
+        }
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error?.message || 'Failed to generate content');
+      }
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      
+      if (!text) {
+        throw new Error('No response from AI');
+      }
+
+      // Parse JSON response
+      let cleanContent = text.trim();
+      if (cleanContent.startsWith('```json')) {
+        cleanContent = cleanContent.slice(7);
+      } else if (cleanContent.startsWith('```')) {
+        cleanContent = cleanContent.slice(3);
+      }
+      if (cleanContent.endsWith('```')) {
+        cleanContent = cleanContent.slice(0, -3);
+      }
+      cleanContent = cleanContent.trim();
+
+      const testDataResponse: TestData = JSON.parse(cleanContent);
+
+      setTestData(testDataResponse);
       toast({
         title: "Questions Generated!",
-        description: `${data.questions?.length || 5} questions ready for you.`,
+        description: `${testDataResponse.questions?.length || 5} questions ready.`,
       });
     } catch (error) {
-      console.error('Error generating test:', error);
+      console.error('Generation error:', error);
       toast({
         title: "Error",
-        description: "Failed to generate Questions. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to generate questions",
         variant: "destructive",
       });
     } finally {
@@ -339,14 +416,14 @@ export const LessonTestChatbot = ({
               {/* Footer */}
               {testData && !showResults && (
                 <div className="p-4 border-t border-border">
-                  {/* <Button 
+                  <Button 
                     onClick={submitTest} 
                     className="w-full"
                     disabled={!allAnswered}
                   >
                     <CheckCircle className="h-4 w-4 mr-2" />
                     Submit Test ({Object.keys(answers).length}/{testData.questions.length} answered)
-                  </Button> */}
+                  </Button>
                 </div>
               )}
 
