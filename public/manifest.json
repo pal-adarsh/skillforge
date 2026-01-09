@@ -10,14 +10,7 @@
   "scope": "/",
   "lang": "en",
   "categories": ["education", "productivity"],
-  "screenshots": [
-    {
-      "src": "https://lovable.dev/opengraph-image-p98pqg.png",
-      "type": "image/png",
-      "sizes": "1200x630",
-      "form_factor": "wide"
-    }
-  ],
+  "screenshots": [],
   "icons": [
     {
       "src": "/favicon.ico",

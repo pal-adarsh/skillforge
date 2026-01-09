@@ -17,7 +17,8 @@ import {
   RotateCcw
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { rateLimiter, RATE_LIMITS } from "@/lib/rate-limiter";
+import { sanitizeAnswer, sanitizeJsonInput } from "@/lib/sanitize";
 
 interface Question {
   id: number;
@@ -58,17 +59,27 @@ export const LessonTestChatbot = ({
     setShowResults(false);
 
     try {
+      // Rate limiting check
+      if (!rateLimiter.check('gemini-api', RATE_LIMITS.GEMINI_API)) {
+        throw new Error('Too many requests. Please wait a minute before trying again.');
+      }
+
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       
       if (!apiKey) {
         throw new Error('API key not configured');
       }
 
-      const prompt = `Generate 5 quiz questions about "${lessonTitle}" (${lessonDifficulty} level).
+      // Sanitize inputs
+      const safeTitle = sanitizeJsonInput(lessonTitle);
+      const safeContent = sanitizeJsonInput(lessonContent.substring(0, 3000));
+      const safeDifficulty = sanitizeJsonInput(lessonDifficulty);
+
+      const prompt = `Generate 5 quiz questions about "${safeTitle}" (${safeDifficulty} level).
 
 Return valid JSON only:
 {
-  "testTitle": "Quiz: ${lessonTitle}",
+  "testTitle": "Quiz: ${safeTitle}",
   "questions": [
     {
       "id": 1,
@@ -176,7 +187,9 @@ Rules:
   };
 
   const handleAnswerChange = (questionId: number, answer: string) => {
-    setAnswers(prev => ({ ...prev, [questionId]: answer }));
+    // Sanitize user input
+    const sanitizedAnswer = sanitizeAnswer(answer);
+    setAnswers(prev => ({ ...prev, [questionId]: sanitizedAnswer }));
   };
 
   const calculateScore = () => {
