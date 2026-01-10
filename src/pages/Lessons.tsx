@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -25,7 +25,10 @@ import {
   Flame,
   Target,
   Zap,
-  Activity
+  Activity,
+  Bookmark,
+  BookmarkCheck,
+  Filter
 } from "lucide-react";
 import codingImage from "@/assets/coding-category.jpg";
 import scienceImage from "@/assets/science-category.jpg";
@@ -35,6 +38,7 @@ import { standards, Standard, Subject, getStandardById } from "@/data/standards"
 import { LessonReader } from "@/components/LessonReader";
 import { useProgressTracking } from "@/hooks/useProgressTracking";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBookmarks } from "@/hooks/useBookmarks";
 import { translations } from "@/data/translations";
 import { getTranslatedLesson } from "@/data/lessonTranslations";
 
@@ -70,7 +74,7 @@ const iconMap: Record<string, any> = {
   Laptop: Brain
 };
 
-type ViewMode = "skills" | "topics" | "lessons" | "all-lessons";
+type ViewMode = "skills" | "topics" | "lessons" | "all-lessons" | "bookmarks";
 
 export default function Lessons() {
   const { classId } = useParams();
@@ -82,6 +86,7 @@ export default function Lessons() {
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null);
   const { getLessonProgress, updateLessonProgress } = useProgressTracking();
   const { language } = useLanguage();
+  const { bookmarks, isBookmarked, getBookmarksCount } = useBookmarks();
   const t: Record<string, string> = translations[language] as unknown as Record<string, string>;
 
   useEffect(() => {
@@ -119,6 +124,10 @@ export default function Lessons() {
 
   const handleViewAllLessons = () => {
     setViewMode("all-lessons");
+  };
+
+  const handleViewBookmarks = () => {
+    setViewMode("bookmarks");
   };
 
   const getImageForLesson = (lessonCategory: string) => {
@@ -177,6 +186,11 @@ export default function Lessons() {
     return matchesSearch;
   });
 
+  // Bookmarked lessons
+  const bookmarkedLessons = useMemo(() => {
+    return allLessons.filter(lesson => isBookmarked(lesson.id));
+  }, [allLessons, isBookmarked, bookmarks]);
+
   if (selectedLesson) {
     const lesson = lessons.find(l => l.id === selectedLesson);
     if (lesson) {
@@ -206,7 +220,7 @@ export default function Lessons() {
               <Button
                 variant="outline"
                 size="icon"
-                onClick={viewMode === "topics" ? handleBackToSkills : handleBackToTopics}
+                onClick={viewMode === "topics" ? handleBackToSkills : viewMode === "bookmarks" ? handleBackToSkills : handleBackToTopics}
                 className="hover:border-primary/50"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -222,6 +236,7 @@ export default function Lessons() {
                   {viewMode === "topics" && t.topics}
                   {viewMode === "lessons" && t.lessons}
                   {viewMode === "all-lessons" && t.library}
+                  {viewMode === "bookmarks" && "Saved Lessons"}
                 </span>
               </div>
               <h1 className="text-3xl md:text-4xl font-display font-bold">
@@ -229,12 +244,14 @@ export default function Lessons() {
                 {viewMode === "topics" && selectedSkill?.displayName}
                 {viewMode === "lessons" && selectedTopic?.name}
                 {viewMode === "all-lessons" && t.allLessons}
+                {viewMode === "bookmarks" && "Your Bookmarks"}
               </h1>
               <p className="text-muted-foreground mt-2">
                 {viewMode === "skills" && t.chooseSkillArea}
                 {viewMode === "topics" && selectedSkill?.description}
                 {viewMode === "lessons" && `${selectedTopic?.lessonIds.length || 0} ${t.lessonsCount}`}
                 {viewMode === "all-lessons" && t.browseAllLessons}
+                {viewMode === "bookmarks" && `${bookmarkedLessons.length} saved lessons`}
               </p>
             </div>
           </div>
@@ -274,10 +291,16 @@ export default function Lessons() {
                 <Sparkles className="h-5 w-5 text-primary" />
                 <h2 className="text-xl font-display font-bold">{t.skillAreas}</h2>
               </div>
-              <Button onClick={handleViewAllLessons} variant="outline" className="hover:border-primary/50">
-                <BookOpen className="h-4 w-4 mr-2" />
-                {t.viewAllLessons}
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button onClick={handleViewBookmarks} variant="outline" className="hover:border-primary/50">
+                  <Bookmark className="h-4 w-4 mr-2" />
+                  Saved ({getBookmarksCount()})
+                </Button>
+                <Button onClick={handleViewAllLessons} variant="outline" className="hover:border-primary/50">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  {t.viewAllLessons}
+                </Button>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -447,10 +470,16 @@ export default function Lessons() {
                 <h2 className="text-xl font-display font-bold">{t.allLessons}</h2>
                 <Badge variant="default">{filteredAllLessons.length}</Badge>
               </div>
-              <Button onClick={handleBackToSkills} variant="outline" className="hover:border-primary/50">
-                <Sparkles className="h-4 w-4 mr-2" />
-                Back to Skills
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button onClick={handleViewBookmarks} variant="outline" className="hover:border-primary/50">
+                  <Bookmark className="h-4 w-4 mr-2" />
+                  Saved ({getBookmarksCount()})
+                </Button>
+                <Button onClick={handleBackToSkills} variant="outline" className="hover:border-primary/50">
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  Back to Skills
+                </Button>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -463,6 +492,7 @@ export default function Lessons() {
                 >
                   <LessonCard 
                     {...lesson} 
+                    isBookmarked={isBookmarked(lesson.id)}
                     onClick={() => setSelectedLesson(lesson.id)}
                   />
                 </motion.div>
@@ -482,6 +512,70 @@ export default function Lessons() {
                 <p className="text-muted-foreground">
                   Try adjusting your search query
                 </p>
+              </motion.div>
+            )}
+          </motion.section>
+        )}
+
+        {/* Bookmarks View */}
+        {viewMode === "bookmarks" && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <BookmarkCheck className="h-5 w-5 text-primary" />
+                <h2 className="text-xl font-display font-bold">Saved Lessons</h2>
+                <Badge variant="default">{bookmarkedLessons.length}</Badge>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button onClick={handleViewAllLessons} variant="outline" className="hover:border-primary/50">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Browse All
+                </Button>
+                <Button onClick={handleBackToSkills} variant="outline" className="hover:border-primary/50">
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  Back to Skills
+                </Button>
+              </div>
+            </div>
+            
+            {bookmarkedLessons.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {bookmarkedLessons.map((lesson, index) => (
+                  <motion.div
+                    key={lesson.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + index * 0.05 }}
+                  >
+                    <LessonCard 
+                      {...lesson}
+                      isBookmarked={true}
+                      onClick={() => setSelectedLesson(lesson.id)}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-16"
+              >
+                <div className="p-4 rounded-full bg-muted/30 w-fit mx-auto mb-4">
+                  <Bookmark className="h-10 w-10 text-muted-foreground" />
+                </div>
+                <h3 className="text-lg font-display font-semibold mb-2">No saved lessons yet</h3>
+                <p className="text-muted-foreground mb-6">
+                  Bookmark lessons while reading to find them quickly here
+                </p>
+                <Button onClick={handleViewAllLessons} className="glow-primary">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Browse Lessons
+                </Button>
               </motion.div>
             )}
           </motion.section>

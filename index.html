@@ -2,16 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>SkillForge - Elite Learning Platform</title>
-    <meta name="description" content="Master real-world skills with our premium AI-powered learning platform featuring interactive lessons and immersive quizzes." />
+    <meta name="description" content="Master real-world skills with our premium AI-powered learning platform featuring interactive lessons, quizzes, PDF analysis, and personalized learning paths." />
     <meta name="author" content="SkillForge" />
-    <meta name="keywords" content="skill learning, life skills, emotional intelligence, critical thinking, career development, premium education" />
+    <meta name="keywords" content="skill learning, life skills, emotional intelligence, critical thinking, career development, premium education, online learning, AI-powered education" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     
-    <!-- Fonts -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://skillforge-learn.vercel.app/" />
+    
+    <!-- Fonts - Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- PWA Settings -->
     <meta name="theme-color" content="#0a0a0f" />
@@ -19,6 +28,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="SkillForge" />
     <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="SkillForge" />
+    <meta name="msapplication-TileColor" content="#0a0a0f" />
 
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="SkillForge - Elite Learning Platform" />
@@ -30,22 +42,68 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="SkillForge - Elite Learning Platform" />
     <meta property="og:site_name" content="SkillForge" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SkillForge - Elite Learning Platform" />
     <meta name="twitter:description" content="Master real-world skills with our premium AI-powered learning platform" />
     <meta name="twitter:image" content="https://skillforge-learn.vercel.app/og-image.png" />
+    <meta name="twitter:site" content="@skillforge" />
     
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" />
+    
+    <!-- Content Security Policy (relaxed for development) -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob:;
+      connect-src 'self' https://*.supabase.co https://generativelanguage.googleapis.com wss://*.supabase.co;
+      frame-ancestors 'none';
+      form-action 'self';
+      base-uri 'self';
+    " />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SkillForge",
+      "description": "Master real-world skills with our premium AI-powered learning platform.",
+      "url": "https://skillforge-learn.vercel.app",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "SkillForge"
+      }
+    }
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Noscript fallback -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+        <h1>SkillForge</h1>
+        <p>JavaScript is required to run this application. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
   </body>
 </html>

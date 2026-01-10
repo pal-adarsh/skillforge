@@ -354,5 +354,90 @@ export const validators = {
   isSafeFilename: (filename: string): boolean => {
     const unsafePatterns = /[<>:"/\\|?*\x00-\x1f]/;
     return !unsafePatterns.test(filename) && filename.length <= 255;
+  },
+  
+  isValidJSON: (value: string): boolean => {
+    try {
+      JSON.parse(value);
+      return true;
+    } catch {
+      return false;
+    }
+  },
+  
+  containsNoXSS: (value: string): boolean => {
+    const xssPatterns = [
+      /<script\b/i,
+      /javascript:/i,
+      /on\w+\s*=/i,
+      /<iframe\b/i,
+      /data:text\/html/i,
+    ];
+    return !xssPatterns.some(pattern => pattern.test(value));
+  }
+};
+
+// Debounce utility for rate limiting UI actions
+export function debounce<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number
+): (...args: Parameters<T>) => void {
+  let timeout: NodeJS.Timeout | null = null;
+  
+  return function executedFunction(...args: Parameters<T>) {
+    const later = () => {
+      timeout = null;
+      func(...args);
+    };
+    
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Throttle utility for rate limiting continuous events
+export function throttle<T extends (...args: any[]) => any>(
+  func: T,
+  limit: number
+): (...args: Parameters<T>) => void {
+  let inThrottle = false;
+  
+  return function executedFunction(...args: Parameters<T>) {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Safe local storage wrapper with error handling
+export const safeStorage = {
+  get: <T>(key: string, defaultValue: T): T => {
+    try {
+      const item = localStorage.getItem(key);
+      if (!item) return defaultValue;
+      return JSON.parse(item) as T;
+    } catch {
+      return defaultValue;
+    }
+  },
+  
+  set: <T>(key: string, value: T): boolean => {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      return true;
+    } catch {
+      return false;
+    }
+  },
+  
+  remove: (key: string): boolean => {
+    try {
+      localStorage.removeItem(key);
+      return true;
+    } catch {
+      return false;
+    }
   }
 };

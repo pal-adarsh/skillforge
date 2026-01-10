@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Play, Lock, CheckCircle, Clock } from "lucide-react";
+import { Play, Lock, CheckCircle, Clock, Bookmark } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/data/translations";
 import { useNetworkStatus } from "@/hooks/useNetworkStatus";
@@ -17,6 +17,7 @@ export interface LessonCardProps {
   progress: number;
   isLocked: boolean;
   isCompleted: boolean;
+  isBookmarked?: boolean;
   image?: string;
   category: string;
   onClick?: () => void;
@@ -30,6 +31,7 @@ export const LessonCard = ({
   progress,
   isLocked,
   isCompleted,
+  isBookmarked = false,
   image,
   category,
   onClick
@@ -113,7 +115,12 @@ export const LessonCard = ({
             </Badge>
 
             {/* Status Icon */}
-            <div className="absolute top-3 right-3">
+            <div className="absolute top-3 right-3 flex items-center gap-2">
+              {isBookmarked && (
+                <div className="p-2 rounded-full bg-primary/20 backdrop-blur-sm">
+                  <Bookmark className="h-4 w-4 text-primary fill-primary" />
+                </div>
+              )}
               {isLocked ? (
                 <div className="p-2 rounded-full bg-muted/20 backdrop-blur-sm">
                   <Lock className="h-4 w-4 text-muted-foreground" />

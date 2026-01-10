@@ -1,13 +1,25 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { NotePage, Block } from './types';
+import { 
+  processDocumentForRAG, 
+  generateRAGResponse, 
+  RAGDocument,
+  chunkText,
+  searchChunks
+} from '@/lib/rag-engine';
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyDJC5a882ruaC4XL6ejY3h_uJzpga-yLLA';
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
+// Cache for processed RAG documents
+const ragNotesCache = new Map<string, RAGDocument>();
+
 export interface GeminiResponse {
   text: string;
   error?: string;
+  sources?: { source: string; relevance: string }[];
+  confidence?: number;
 }
 
 export interface FlowchartData {
@@ -59,36 +71,60 @@ export function pageToText(page: NotePage): string {
   return text;
 }
 
-// Ask Gemini about the notes (RAG-style)
+/**
+ * Process notes for RAG (with caching)
+ */
+function getRAGDocumentsFromNotes(pages: NotePage[]): RAGDocument[] {
+  return pages.map(page => {
+    // Check cache
+    if (ragNotesCache.has(page.id)) {
+      const cached = ragNotesCache.get(page.id)!;
+      // Check if content changed by comparing title
+      if (cached.name === page.title) {
+        return cached;
+      }
+    }
+    
+    // Process and cache
+    const content = pageToText(page);
+    const ragDoc = processDocumentForRAG(page.id, page.title, content);
+    ragNotesCache.set(page.id, ragDoc);
+    return ragDoc;
+  });
+}
+
+// Ask Gemini about the notes (Advanced RAG with chunking)
 export async function askGeminiAboutNotes(
   query: string,
   pages: NotePage[],
   language: string = 'en'
 ): Promise<GeminiResponse> {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    // Use advanced RAG engine
+    const ragDocuments = getRAGDocumentsFromNotes(pages);
+    const ragResponse = await generateRAGResponse(query, ragDocuments, language);
     
-    // Create context from all pages
-    const context = pages.map(page => pageToText(page)).join('\n\n---\n\n');
+    if (ragResponse.error) {
+      return { text: '', error: ragResponse.error };
+    }
     
-    const languageInstruction = language !== 'en' 
-      ? `Please respond in ${getLanguageName(language)}. ` 
-      : '';
+    // Format sources
+    const sources = ragResponse.sources.map(s => ({
+      source: s.chunk.source,
+      relevance: s.relevance
+    }));
     
-    const prompt = `You are a helpful assistant that answers questions based on the user's notes. 
-${languageInstruction}
-Here are the user's notes:
-
-${context}
-
-User's question: ${query}
-
-Please provide a helpful and accurate answer based on the notes above. If the information isn't in the notes, say so clearly.`;
-
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
+    // Add confidence indicator
+    let responseText = ragResponse.answer;
+    if (!ragResponse.grounded && ragResponse.confidence < 30) {
+      responseText = `⚠️ *Low confidence - This question may not be directly covered in your notes.*\n\n${responseText}`;
+    }
     
-    return { text: response.text() };
+    return { 
+      text: responseText,
+      sources,
+      confidence: ragResponse.confidence
+    };
   } catch (error) {
     console.error('Gemini API Error:', error);
     return { 

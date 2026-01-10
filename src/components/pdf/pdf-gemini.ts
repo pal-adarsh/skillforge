@@ -1,13 +1,26 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { PDFDocument } from './pdf-utils';
+import { 
+  processDocumentForRAG, 
+  generateRAGResponse, 
+  RAGDocument,
+  RAGResponse,
+  chunkText,
+  searchChunks
+} from '@/lib/rag-engine';
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyDJC5a882ruaC4XL6ejY3h_uJzpga-yLLA';
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
+// Cache for processed RAG documents
+const ragDocumentCache = new Map<string, RAGDocument>();
+
 export interface GeminiResponse {
   text: string;
   error?: string;
+  sources?: { source: string; relevance: string }[];
+  confidence?: number;
 }
 
 export interface FlowchartData {
@@ -42,7 +55,24 @@ function getLanguageName(code: string): string {
 }
 
 /**
- * Ask Gemini about uploaded PDFs (RAG-style)
+ * Process PDFs for RAG (caches results)
+ */
+function getRAGDocuments(pdfs: PDFDocument[]): RAGDocument[] {
+  return pdfs.map(pdf => {
+    // Check cache first
+    if (ragDocumentCache.has(pdf.id)) {
+      return ragDocumentCache.get(pdf.id)!;
+    }
+    
+    // Process and cache
+    const ragDoc = processDocumentForRAG(pdf.id, pdf.name, pdf.text);
+    ragDocumentCache.set(pdf.id, ragDoc);
+    return ragDoc;
+  });
+}
+
+/**
+ * Ask Gemini about uploaded PDFs (Advanced RAG with chunking)
  */
 export async function askGeminiAboutPDF(
   query: string,
@@ -50,31 +80,31 @@ export async function askGeminiAboutPDF(
   language: string = 'en'
 ): Promise<GeminiResponse> {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    // Use advanced RAG engine
+    const ragDocuments = getRAGDocuments(pdfs);
+    const ragResponse = await generateRAGResponse(query, ragDocuments, language);
     
-    // Create context from all PDFs
-    const context = pdfs.map(pdf => 
-      `=== Document: ${pdf.name} ===\n${pdf.text}`
-    ).join('\n\n---\n\n');
+    if (ragResponse.error) {
+      return { text: '', error: ragResponse.error };
+    }
     
-    const languageInstruction = language !== 'en' 
-      ? `Please respond in ${getLanguageName(language)}. ` 
-      : '';
+    // Format sources for display
+    const sources = ragResponse.sources.map(s => ({
+      source: s.chunk.source,
+      relevance: s.relevance
+    }));
     
-    const prompt = `You are a helpful assistant that answers questions based on uploaded PDF documents. 
-${languageInstruction}
-Here are the contents of the uploaded PDF documents:
-
-${context}
-
-User's question: ${query}
-
-Please provide a helpful and accurate answer based on the PDF content above. If the information isn't in the documents, say so clearly. When referencing information, mention which document it came from.`;
-
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
+    // Add confidence indicator if not grounded
+    let responseText = ragResponse.answer;
+    if (!ragResponse.grounded && ragResponse.confidence < 30) {
+      responseText = `⚠️ *Low confidence response - The question may not be directly addressed in the documents.*\n\n${responseText}`;
+    }
     
-    return { text: response.text() };
+    return { 
+      text: responseText,
+      sources,
+      confidence: ragResponse.confidence
+    };
   } catch (error) {
     console.error('Gemini API Error:', error);
     return { 

@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useNetworkStatus } from "@/hooks/useNetworkStatus";
 import { motion, AnimatePresence } from "framer-motion";
-import confetti from "canvas-confetti"; // Make sure to install this!
+import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,8 +19,13 @@ import {
   Copy,
   Check,
   Type,
-  Settings
+  Settings,
+  Bookmark,
+  BookmarkCheck,
+  Minus,
+  Plus
 } from "lucide-react";
+import { useBookmarks } from "@/hooks/useBookmarks";
 import { 
   DropdownMenu,
   DropdownMenuContent,
@@ -134,13 +139,33 @@ export const LessonReader = ({ lesson, onBack, onComplete }: LessonReaderProps) 
   const [readingTime, setReadingTime] = useState(0);
   const [isReading, setIsReading] = useState(false);
   const [showStickyHeader, setShowStickyHeader] = useState(false);
-  const [fontSize, setFontSize] = useState<'sm' | 'base' | 'lg'>('base');
+  const [fontSize, setFontSize] = useState<'sm' | 'base' | 'lg' | 'xl'>(() => {
+    // Load saved font size preference
+    const saved = localStorage.getItem('lesson_font_size');
+    return (saved as 'sm' | 'base' | 'lg' | 'xl') || 'base';
+  });
   
   // Hooks
   const { updateLessonProgress, getLessonProgress } = useProgressTracking();
   const { language } = useLanguage();
+  const { isBookmarked, toggleBookmark } = useBookmarks();
   const t = translations[language];
   const translatedLesson = getTranslatedLesson(lesson.id, language);
+  
+  // Save font size preference
+  useEffect(() => {
+    localStorage.setItem('lesson_font_size', fontSize);
+  }, [fontSize]);
+  
+  // Font size configurations
+  const fontSizeConfig = useMemo(() => ({
+    sm: { prose: 'prose-sm', text: 'text-sm', lineHeight: 'leading-relaxed' },
+    base: { prose: 'prose-base', text: 'text-base', lineHeight: 'leading-relaxed' },
+    lg: { prose: 'prose-lg', text: 'text-lg', lineHeight: 'leading-loose' },
+    xl: { prose: 'prose-xl', text: 'text-xl', lineHeight: 'leading-loose' },
+  }), []);
+  
+  const currentFontConfig = fontSizeConfig[fontSize];
 
   // Load Initial Progress
   useEffect(() => {
@@ -222,9 +247,20 @@ export const LessonReader = ({ lesson, onBack, onComplete }: LessonReaderProps) 
   };
 
   const proseSizeClass = {
-    sm: "prose-sm",
-    base: "prose-lg",
-    lg: "prose-xl"
+    sm: "prose-sm text-sm",
+    base: "prose-base text-base",
+    lg: "prose-lg text-lg",
+    xl: "prose-xl text-xl"
+  };
+  
+  const handleFontSizeChange = (direction: 'increase' | 'decrease') => {
+    const sizes: ('sm' | 'base' | 'lg' | 'xl')[] = ['sm', 'base', 'lg', 'xl'];
+    const currentIndex = sizes.indexOf(fontSize);
+    if (direction === 'increase' && currentIndex < sizes.length - 1) {
+      setFontSize(sizes[currentIndex + 1]);
+    } else if (direction === 'decrease' && currentIndex > 0) {
+      setFontSize(sizes[currentIndex - 1]);
+    }
   };
 
   return (
@@ -276,47 +312,95 @@ export const LessonReader = ({ lesson, onBack, onComplete }: LessonReaderProps) 
           </Button>
 
           {/* Reading Controls */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-2">
-                <Settings className="h-4 w-4" />
-                <span className="hidden sm:inline">Display</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              <div className="p-2">
-                <p className="text-xs font-medium text-muted-foreground mb-2 flex items-center gap-2">
-                  <Type className="h-3 w-3" /> Text Size
-                </p>
-                <div className="flex gap-1 bg-secondary/30 p-1 rounded-md">
-                  <Button 
-                    variant={fontSize === 'sm' ? 'secondary' : 'ghost'} 
-                    size="sm" 
-                    className="flex-1 h-8 text-xs"
-                    onClick={() => setFontSize('sm')}
-                  >
-                    A
-                  </Button>
-                  <Button 
-                    variant={fontSize === 'base' ? 'secondary' : 'ghost'} 
-                    size="sm" 
-                    className="flex-1 h-8 text-sm"
-                    onClick={() => setFontSize('base')}
-                  >
-                    A
-                  </Button>
-                  <Button 
-                    variant={fontSize === 'lg' ? 'secondary' : 'ghost'} 
-                    size="sm" 
-                    className="flex-1 h-8 text-lg font-bold"
-                    onClick={() => setFontSize('lg')}
-                  >
-                    A
-                  </Button>
+          <div className="flex items-center gap-2">
+            {/* Bookmark Button */}
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => toggleBookmark(lesson.id)}
+              className={`gap-2 ${isBookmarked(lesson.id) ? 'text-primary border-primary bg-primary/10' : ''}`}
+            >
+              {isBookmarked(lesson.id) ? (
+                <BookmarkCheck className="h-4 w-4" />
+              ) : (
+                <Bookmark className="h-4 w-4" />
+              )}
+              <span className="hidden sm:inline">{isBookmarked(lesson.id) ? 'Saved' : 'Save'}</span>
+            </Button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Settings className="h-4 w-4" />
+                  <span className="hidden sm:inline">Display</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <div className="p-3">
+                  <p className="text-xs font-medium text-muted-foreground mb-3 flex items-center gap-2">
+                    <Type className="h-3 w-3" /> Text Size
+                  </p>
+                  <div className="flex items-center justify-between gap-2">
+                    <Button 
+                      variant="outline" 
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => handleFontSizeChange('decrease')}
+                      disabled={fontSize === 'sm'}
+                    >
+                      <Minus className="h-3 w-3" />
+                    </Button>
+                    <div className="flex-1 flex gap-1 bg-secondary/30 p-1 rounded-md">
+                      <Button 
+                        variant={fontSize === 'sm' ? 'secondary' : 'ghost'} 
+                        size="sm" 
+                        className="flex-1 h-7 text-xs px-1"
+                        onClick={() => setFontSize('sm')}
+                      >
+                        S
+                      </Button>
+                      <Button 
+                        variant={fontSize === 'base' ? 'secondary' : 'ghost'} 
+                        size="sm" 
+                        className="flex-1 h-7 text-sm px-1"
+                        onClick={() => setFontSize('base')}
+                      >
+                        M
+                      </Button>
+                      <Button 
+                        variant={fontSize === 'lg' ? 'secondary' : 'ghost'} 
+                        size="sm" 
+                        className="flex-1 h-7 text-base px-1"
+                        onClick={() => setFontSize('lg')}
+                      >
+                        L
+                      </Button>
+                      <Button 
+                        variant={fontSize === 'xl' ? 'secondary' : 'ghost'} 
+                        size="sm" 
+                        className="flex-1 h-7 text-lg font-bold px-1"
+                        onClick={() => setFontSize('xl')}
+                      >
+                        XL
+                      </Button>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => handleFontSizeChange('increase')}
+                      disabled={fontSize === 'xl'}
+                    >
+                      <Plus className="h-3 w-3" />
+                    </Button>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground mt-2 text-center">
+                    Current: {fontSize.toUpperCase()}
+                  </p>
                 </div>
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </motion.div>
 
         {/* Hero Section */}

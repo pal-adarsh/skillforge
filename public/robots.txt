@@ -1,3 +1,6 @@
+# SkillForge Robots.txt
+# https://skillforge-learn.vercel.app
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,23 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://skillforge-learn.vercel.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow sensitive paths
+Disallow: /api/
+Disallow: /_*
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
