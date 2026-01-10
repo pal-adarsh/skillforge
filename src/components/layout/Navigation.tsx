@@ -18,6 +18,7 @@ export const Navigation = () => {
   const navItems = [
     { name: t.dashboard, icon: Brain, path: "/dashboard" },
     { name: t.lessons, icon: BookOpen, path: "/lessons" },
+    { name: "GK", icon: Globe, path: "/gk" },
     { name: "Notes", icon: FileText, path: "/notes" },
     { name: "PDF", icon: FileUp, path: "/pdf" },
     { name: "Pomodoro", icon: Timer, path: "/pomodoro" },

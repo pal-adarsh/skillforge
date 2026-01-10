@@ -129,8 +129,8 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({
       <motion.div
         className={`relative border-2 border-dashed rounded-xl p-8 transition-all duration-200 ${
           isDragging
-            ? 'border-indigo-500 bg-indigo-500/10'
-            : 'border-white/20 hover:border-white/40 bg-white/5'
+            ? 'border-primary bg-primary/10'
+            : 'border-border hover:border-primary/50 bg-muted/30'
         } ${isProcessing ? 'pointer-events-none opacity-60' : 'cursor-pointer'}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -209,12 +209,12 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({
             className="space-y-2"
           >
             <div className="flex items-center justify-between">
-              <span className="text-sm text-white/60">
+              <span className="text-sm text-muted-foreground">
                 {pdfs.length} PDF{pdfs.length > 1 ? 's' : ''} uploaded
               </span>
               <button
                 onClick={clearAll}
-                className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1"
+                className="text-xs text-destructive hover:text-destructive/80 flex items-center gap-1"
               >
                 <Trash2 className="w-3 h-3" />
                 Clear all
@@ -229,15 +229,15 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ delay: index * 0.05 }}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10 group hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 border border-border group hover:bg-muted/50 transition-colors"
                 >
-                  <div className="p-2 rounded-lg bg-indigo-500/20">
-                    <FileText className="w-5 h-5 text-indigo-400" />
+                  <div className="p-2 rounded-lg bg-primary/20">
+                    <FileText className="w-5 h-5 text-primary" />
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <p className="text-white font-medium truncate">{pdf.name}</p>
-                    <p className="text-xs text-white/50">
+                    <p className="font-medium truncate">{pdf.name}</p>
+                    <p className="text-xs text-muted-foreground">
                       {pdf.pageCount} pages • {formatFileSize(pdf.size)} • ~{estimateReadingTime(pdf.text)} min read
                     </p>
                   </div>
@@ -247,7 +247,7 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({
                       e.stopPropagation();
                       removePDF(pdf.id);
                     }}
-                    className="p-2 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-red-500/20 text-white/60 hover:text-red-400 transition-all"
+                    className="p-2 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-destructive/20 text-muted-foreground hover:text-destructive transition-all"
                   >
                     <X className="w-4 h-4" />
                   </button>

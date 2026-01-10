@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { 
   Brain, 
   Heart, 
@@ -14,7 +15,24 @@ import {
   Clock,
   Star,
   Zap,
-  ChevronRight
+  ChevronRight,
+  BookOpen,
+  Trophy,
+  TrendingUp,
+  FileText,
+  Timer,
+  FileUp,
+  Globe,
+  Coffee,
+  Flame,
+  Award,
+  Users,
+  BarChart,
+  Gift,
+  Code,
+  Pen,
+  BookMarked,
+  GraduationCap
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -26,6 +44,123 @@ export default function Landing() {
   const { user } = useAuth();
   const { language } = useLanguage();
   const t = translations[language];
+
+  const features = [
+    {
+      icon: BookOpen,
+      title: "Interactive Lessons",
+      description: "176+ engaging lessons across 11 skill areas designed for real-world application",
+      color: "from-blue-500 to-cyan-500",
+      glow: "shadow-[0_0_30px_hsl(195_80%_50%_/_0.3)]",
+      link: "/lessons"
+    },
+    {
+      icon: Trophy,
+      title: "Quiz & Assessments",
+      description: "Test your knowledge with interactive quizzes and track your progress",
+      color: "from-amber-500 to-orange-500",
+      glow: "shadow-[0_0_30px_hsl(25_95%_55%_/_0.3)]",
+      link: "/quiz"
+    },
+    {
+      icon: Globe,
+      title: "General Knowledge",
+      description: "Expand your horizons with comprehensive general knowledge content",
+      color: "from-green-500 to-emerald-500",
+      glow: "shadow-[0_0_30px_hsl(150_80%_45%_/_0.3)]",
+      link: "/gk"
+    },
+    {
+      icon: FileText,
+      title: "Smart Notes",
+      description: "Create, organize, and visualize your notes with AI-powered features",
+      color: "from-purple-500 to-violet-500",
+      glow: "shadow-[0_0_30px_hsl(270_90%_65%_/_0.3)]",
+      link: "/notes"
+    },
+    {
+      icon: FileUp,
+      title: "PDF Analyzer",
+      description: "Upload PDFs and chat with them using AI. Summarize, translate, and extract key insights",
+      color: "from-indigo-500 to-blue-500",
+      glow: "shadow-[0_0_30px_hsl(220_90%_55%_/_0.3)]",
+      link: "/pdf"
+    },
+    {
+      icon: Timer,
+      title: "Pomodoro Timer",
+      description: "Boost productivity with customizable focus sessions and smart break reminders",
+      color: "from-red-500 to-pink-500",
+      glow: "shadow-[0_0_30px_hsl(350_90%_60%_/_0.3)]",
+      link: "/pomodoro"
+    },
+    {
+      icon: TrendingUp,
+      title: "Leaderboard",
+      description: "Compete with learners worldwide and climb the ranks",
+      color: "from-teal-500 to-cyan-500",
+      glow: "shadow-[0_0_30px_hsl(180_80%_50%_/_0.3)]",
+      link: "/leaderboard"
+    },
+    {
+      icon: Gift,
+      title: "Rewards & Achievements",
+      description: "Earn badges, unlock achievements, and celebrate your learning milestones",
+      color: "from-yellow-500 to-amber-500",
+      glow: "shadow-[0_0_30px_hsl(45_95%_55%_/_0.3)]",
+      link: "/rewards"
+    }
+  ];
+
+  const aiFeatures = [
+    {
+      icon: Sparkles,
+      title: "AI-Powered PDF Chat",
+      description: "Ask questions, get summaries, and extract insights from your PDFs using Gemini AI",
+      color: "text-purple-500"
+    },
+    {
+      icon: Brain,
+      title: "Smart Note Assistant",
+      description: "AI helps organize, summarize, and create mind maps from your notes",
+      color: "text-blue-500"
+    },
+    {
+      icon: Code,
+      title: "Mermaid Flowcharts",
+      description: "Visualize complex concepts with auto-generated flowcharts and diagrams",
+      color: "text-green-500"
+    },
+    {
+      icon: BookMarked,
+      title: "Personalized Learning",
+      description: "Adaptive content that adjusts to your learning pace and preferences",
+      color: "text-orange-500"
+    }
+  ];
+
+  const gamificationFeatures = [
+    {
+      icon: Award,
+      title: "Achievement System",
+      description: "Unlock 50+ unique badges as you progress through your learning journey"
+    },
+    {
+      icon: Flame,
+      title: "Learning Streaks",
+      description: "Build and maintain daily learning streaks to stay motivated"
+    },
+    {
+      icon: BarChart,
+      title: "Progress Tracking",
+      description: "Detailed analytics and insights into your learning patterns"
+    },
+    {
+      icon: Users,
+      title: "Global Competition",
+      description: "Compete with learners worldwide on real-time leaderboards"
+    }
+  ];
 
   const skillAreas = [
     {
@@ -205,6 +340,194 @@ export default function Landing() {
             <motion.div className="w-1.5 h-1.5 rounded-full bg-primary" />
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Platform Features Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-transparent to-muted/20" />
+        
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="mb-4 text-sm font-mono uppercase tracking-wider">
+              <Zap className="h-3 w-3 mr-2" />
+              All-in-One Platform
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+              Everything You Need to Excel
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A complete suite of tools designed to enhance your learning experience
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
+              >
+                <Card className={`glass-card p-6 h-full hover:border-primary/50 transition-all duration-500 ${feature.glow}`}>
+                  <div className="relative">
+                    {/* Animated gradient on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
+                    
+                    <div className={`inline-flex items-center justify-center p-3 rounded-xl bg-gradient-to-r ${feature.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      {feature.description}
+                    </p>
+                    <div className="flex items-center text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      Explore <ArrowRight className="h-4 w-4 ml-1" />
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Features Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="mb-4 text-sm font-mono uppercase tracking-wider">
+              <Sparkles className="h-3 w-3 mr-2" />
+              AI-Powered Learning
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+              Learn Smarter with AI
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Leverage cutting-edge AI technology powered by Google Gemini to supercharge your learning
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {aiFeatures.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <Card className="glass-card p-8 h-full hover:border-primary/30 transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className={`p-3 rounded-xl bg-muted/50 ${feature.color} group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gamification Features */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
+        
+        <div className="container mx-auto px-4 relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Badge className="mb-4 text-sm font-mono uppercase tracking-wider">
+                <Trophy className="h-3 w-3 mr-2" />
+                Gamification
+              </Badge>
+              <h2 className="text-4xl font-display font-bold mb-6">
+                Stay Motivated & Track Progress
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Turn learning into an exciting adventure with our comprehensive gamification system
+              </p>
+              
+              <div className="space-y-4">
+                {gamificationFeatures.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-4 group"
+                  >
+                    <div className="p-2 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
+                      <feature.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">{feature.title}</h4>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: Award, label: "50+ Badges", value: "50+", color: "from-yellow-500 to-orange-500" },
+                  { icon: Flame, label: "Daily Streaks", value: "🔥", color: "from-red-500 to-pink-500" },
+                  { icon: Trophy, label: "Achievements", value: "100%", color: "from-blue-500 to-cyan-500" },
+                  { icon: Star, label: "Points", value: "∞", color: "from-purple-500 to-violet-500" }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                    whileHover={{ scale: 1.05, rotate: 2 }}
+                    className="group"
+                  >
+                    <Card className="glass-card p-6 text-center hover:border-primary/50 transition-all duration-300">
+                      <div className={`inline-flex items-center justify-center p-3 rounded-xl bg-gradient-to-r ${stat.color} mb-3 group-hover:scale-110 transition-transform`}>
+                        <stat.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="text-3xl font-bold mb-1">{stat.value}</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Skill Areas Section */}

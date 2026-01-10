@@ -22,7 +22,9 @@ import {
   ChevronDown,
   ChevronUp,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  Bell,
+  BellOff
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
@@ -37,6 +39,7 @@ interface PomodoroSettings {
   autoStartBreaks: boolean;
   autoStartFocus: boolean;
   soundEnabled: boolean;
+  notificationsEnabled: boolean;
 }
 
 const DEFAULT_SETTINGS: PomodoroSettings = {
@@ -47,6 +50,7 @@ const DEFAULT_SETTINGS: PomodoroSettings = {
   autoStartBreaks: false,
   autoStartFocus: false,
   soundEnabled: true,
+  notificationsEnabled: true,
 };
 
 const TIMER_MODES: Record<TimerMode, { label: string; icon: React.ElementType; color: string; bgColor: string }> = {
@@ -69,6 +73,19 @@ export function PomodoroTimer() {
   const [showSettings, setShowSettings] = useState(false);
   const [dailyGoal, setDailyGoal] = useState(4);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [notificationPermission, setNotificationPermission] = useState<NotificationPermission>('default');
+
+  // Request notification permission on mount
+  useEffect(() => {
+    if ('Notification' in window) {
+      setNotificationPermission(Notification.permission);
+      if (Notification.permission === 'default' && settings.notificationsEnabled) {
+        Notification.requestPermission().then(permission => {
+          setNotificationPermission(permission);
+        });
+      }
+    }
+  }, [settings.notificationsEnabled]);
 
   const getCurrentDuration = useCallback((currentMode: TimerMode) => {
     switch (currentMode) {
@@ -100,6 +117,18 @@ export function PomodoroTimer() {
     }
   }, [settings.soundEnabled]);
 
+  const showNotification = useCallback((title: string, body: string) => {
+    if (settings.notificationsEnabled && 'Notification' in window && Notification.permission === 'granted') {
+      new Notification(title, {
+        body,
+        icon: '/icon-192.png',
+        badge: '/icon-192.png',
+        tag: 'pomodoro-timer',
+        requireInteraction: false,
+      });
+    }
+  }, [settings.notificationsEnabled]);
+
   const switchMode = useCallback((newMode: TimerMode, autoStart = false) => {
     setMode(newMode);
     setTimeLeft(getCurrentDuration(newMode));
@@ -114,10 +143,14 @@ export function PomodoroTimer() {
       setCompletedSessions(newCompletedSessions);
       setTotalFocusTime(prev => prev + settings.focusDuration);
       
+      const message = `You've completed ${newCompletedSessions} sessions today.`;
+      
       toast({
         title: "🎉 Focus session complete!",
-        description: `You've completed ${newCompletedSessions} sessions today.`,
+        description: message,
       });
+      
+      showNotification("🎉 Focus Session Complete!", message);
 
       if (newCompletedSessions % settings.sessionsUntilLongBreak === 0) {
         switchMode('longBreak', settings.autoStartBreaks);
@@ -125,13 +158,17 @@ export function PomodoroTimer() {
         switchMode('shortBreak', settings.autoStartBreaks);
       }
     } else {
+      const message = "Ready for another focus session?";
+      
       toast({
         title: "☕ Break time over!",
-        description: "Ready for another focus session?",
+        description: message,
       });
+      
+      showNotification("☕ Break Time Over!", message);
       switchMode('focus', settings.autoStartFocus);
     }
-  }, [mode, completedSessions, settings, toast, playNotificationSound, switchMode]);
+  }, [mode, completedSessions, settings, toast, playNotificationSound, showNotification, switchMode]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
@@ -478,6 +515,31 @@ export function PomodoroTimer() {
                     <Switch
                       checked={settings.soundEnabled}
                       onCheckedChange={(checked) => setSettings(s => ({ ...s, soundEnabled: checked }))}
+                    />
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      {settings.notificationsEnabled ? <Bell className="h-4 w-4" /> : <BellOff className="h-4 w-4" />}
+                      <Label>Browser Notifications</Label>
+                    </div>
+                    <Switch
+                      checked={settings.notificationsEnabled}
+                      onCheckedChange={(checked) => {
+                        setSettings(s => ({ ...s, notificationsEnabled: checked }));
+                        if (checked && 'Notification' in window && Notification.permission === 'default') {
+                          Notification.requestPermission().then(permission => {
+                            setNotificationPermission(permission);
+                            if (permission !== 'granted') {
+                              toast({
+                                title: "Notifications Blocked",
+                                description: "Please enable notifications in your browser settings.",
+                                variant: "destructive",
+                              });
+                            }
+                          });
+                        }
+                      }}
                     />
                   </div>
                 </div>

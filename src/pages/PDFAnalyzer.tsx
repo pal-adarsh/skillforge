@@ -8,6 +8,7 @@ import {
   Bot,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import PDFUploader from '../components/pdf/PDFUploader';
 import PDFAIPanel from '../components/pdf/PDFAIPanel';
 import { PDFDocument } from '../components/pdf/pdf-utils';
@@ -19,48 +20,48 @@ const PDFAnalyzer: React.FC = () => {
   const [showAIPanel, setShowAIPanel] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900">
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8 pt-24">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="p-2 rounded-lg hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+                className="p-2 rounded-lg hover:bg-muted transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600">
-                  <FileText className="w-6 h-6 text-white" />
+                <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
+                  <FileText className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-white">PDF Analyzer</h1>
-                  <p className="text-sm text-white/60">AI-powered PDF analysis & Q&A</p>
+                  <h1 className="text-3xl font-bold">PDF Analyzer</h1>
+                  <p className="text-muted-foreground">AI-powered PDF analysis & Q&A</p>
                 </div>
               </div>
             </div>
 
             {pdfs.length > 0 && (
-              <button
+              <Button
                 onClick={() => setShowAIPanel(!showAIPanel)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
-                  showAIPanel
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white/10 text-white hover:bg-white/20'
-                }`}
+                variant={showAIPanel ? "default" : "outline"}
+                className="gap-2"
               >
-                <Bot className="w-5 h-5" />
+                <Bot className="w-4 h-4" />
                 {showAIPanel ? 'Hide AI Panel' : 'Show AI Panel'}
-              </button>
+              </Button>
             )}
           </div>
-        </div>
-      </header>
+        </motion.div>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto">
         <div className={`grid ${showAIPanel && pdfs.length > 0 ? 'grid-cols-1 lg:grid-cols-2 gap-6' : 'grid-cols-1'}`}>
           {/* Left Side - Upload and PDFs */}
           <motion.div
@@ -71,13 +72,13 @@ const PDFAnalyzer: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6"
+              className="glass-card rounded-xl p-6"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-indigo-500/20">
-                  <Upload className="w-5 h-5 text-indigo-400" />
+                <div className="p-2 rounded-lg bg-primary/20">
+                  <Upload className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-lg font-semibold text-white">Upload PDFs</h2>
+                <h2 className="text-lg font-semibold">Upload PDFs</h2>
               </div>
               <PDFUploader pdfs={pdfs} onPDFsChange={setPdfs} maxFiles={5} maxSizeMB={20} />
             </motion.div>
@@ -88,13 +89,13 @@ const PDFAnalyzer: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 backdrop-blur-xl border border-white/10 p-6"
+                className="glass-card rounded-xl p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
-                    <Sparkles className="w-5 h-5 text-white" />
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
+                    <Sparkles className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <h2 className="text-lg font-semibold text-white">AI-Powered Features</h2>
+                  <h2 className="text-lg font-semibold">AI-Powered Features</h2>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -113,10 +114,10 @@ const PDFAnalyzer: React.FC = () => {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.2 + idx * 0.05 }}
-                      className="p-4 rounded-xl bg-white/5 border border-white/10"
+                      className="p-4 rounded-xl bg-muted/50 border border-border"
                     >
-                      <h3 className="text-white font-medium">{feature.title}</h3>
-                      <p className="text-sm text-white/60 mt-1">{feature.desc}</p>
+                      <h3 className="font-medium">{feature.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">{feature.desc}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -128,30 +129,30 @@ const PDFAnalyzer: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6"
+                className="glass-card rounded-xl p-6"
               >
-                <h2 className="text-lg font-semibold text-white mb-4">Uploaded Documents</h2>
+                <h2 className="text-lg font-semibold mb-4">Uploaded Documents</h2>
                 <div className="space-y-3">
                   {pdfs.map((pdf) => (
                     <motion.div
                       key={pdf.id}
                       layoutId={pdf.id}
-                      className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer"
+                      className="p-4 rounded-xl bg-muted/50 border border-border hover:bg-muted transition-colors cursor-pointer"
                       onClick={() => {
                         setSelectedPDF(pdf);
                         setShowAIPanel(true);
                       }}
                     >
                       <div className="flex items-start gap-3">
-                        <div className="p-2 rounded-lg bg-indigo-500/20">
-                          <FileText className="w-5 h-5 text-indigo-400" />
+                        <div className="p-2 rounded-lg bg-primary/20">
+                          <FileText className="w-5 h-5 text-primary" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-white font-medium truncate">{pdf.name}</h3>
-                          <p className="text-sm text-white/60 mt-1">
+                          <h3 className="font-medium truncate">{pdf.name}</h3>
+                          <p className="text-sm text-muted-foreground mt-1">
                             {pdf.pageCount} pages • {pdf.text.split(/\s+/).length.toLocaleString()} words
                           </p>
-                          <p className="text-xs text-white/40 mt-2 line-clamp-2">
+                          <p className="text-xs text-muted-foreground mt-2 line-clamp-2">
                             {pdf.text.slice(0, 200)}...
                           </p>
                         </div>
@@ -160,13 +161,13 @@ const PDFAnalyzer: React.FC = () => {
                   ))}
                 </div>
                 
-                <button
+                <Button
                   onClick={() => setShowAIPanel(true)}
-                  className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium hover:from-indigo-700 hover:to-purple-700 transition-all"
+                  className="w-full mt-4 gap-2"
                 >
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="w-4 h-4" />
                   Analyze with AI
-                </button>
+                </Button>
               </motion.div>
             )}
           </motion.div>
@@ -176,7 +177,7 @@ const PDFAnalyzer: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden"
+              className="glass-card rounded-xl overflow-hidden"
               style={{ height: 'calc(100vh - 180px)' }}
             >
               <PDFAIPanel
@@ -188,6 +189,7 @@ const PDFAnalyzer: React.FC = () => {
           )}
         </div>
       </main>
+      </div>
     </div>
   );
 };
