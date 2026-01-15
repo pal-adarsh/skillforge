@@ -29,10 +29,11 @@ export const usePWAInstall = () => {
       setDeferredPrompt(e);
       setIsInstallable(true);
       
-      // Show install prompt after a delay on dashboard
+      // Show install prompt after a delay (once per session)
       setTimeout(() => {
-        if (!isInstalled && !localStorage.getItem('pwa-install-dismissed')) {
+        if (!isInstalled && !sessionStorage.getItem('pwa-install-shown')) {
           setShowInstallPrompt(true);
+          sessionStorage.setItem('pwa-install-shown', 'true');
         }
       }, 3000);
     };
@@ -67,11 +68,12 @@ export const usePWAInstall = () => {
         setIsInstalled(true);
         setShowInstallPrompt(false);
         setDeferredPrompt(null);
+        sessionStorage.setItem('pwa-install-shown', 'true');
         return true;
       } else {
         setShowInstallPrompt(false);
-        // Remember that user dismissed it
-        localStorage.setItem('pwa-install-dismissed', 'true');
+        // Remember that user dismissed it for this session
+        sessionStorage.setItem('pwa-install-shown', 'true');
         return false;
       }
     } catch (error) {
@@ -82,11 +84,11 @@ export const usePWAInstall = () => {
 
   const dismissPrompt = () => {
     setShowInstallPrompt(false);
-    localStorage.setItem('pwa-install-dismissed', 'true');
+    sessionStorage.setItem('pwa-install-shown', 'true');
   };
 
   const resetDismissal = () => {
-    localStorage.removeItem('pwa-install-dismissed');
+    sessionStorage.removeItem('pwa-install-shown');
   };
 
   return {

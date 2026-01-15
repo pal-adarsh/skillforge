@@ -1,7 +1,7 @@
 {
-  "name": "LearnAI - Offline Learning App",
-  "short_name": "LearnAI", 
-  "description": "AI-powered offline learning platform with interactive lessons and quizzes",
+  "name": "SkillForge - Elite Learning Platform",
+  "short_name": "SkillForge", 
+  "description": "Master real-world skills through interactive lessons, quizzes, and AI-powered learning",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
@@ -32,8 +32,9 @@
   ],
   "features": [
     "Cross Platform",
-    "fast",
-    "simple"
+    "Offline Support",
+    "Progressive Web App",
+    "AI-Powered Learning"
   ],
   "prefer_related_applications": false,
   "shortcuts": [
@@ -41,7 +42,38 @@
       "name": "Dashboard", 
       "short_name": "Dashboard",
       "description": "Go to your learning dashboard",
-      "url": "/",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Lessons",
+      "short_name": "Lessons",
+      "description": "Browse interactive lessons",
+      "url": "/lessons",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Quiz",
+      "short_name": "Quiz",
+      "description": "Take a quiz",
+      "url": "/quiz",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
       "icons": [
         {
           "src": "/placeholder.svg",

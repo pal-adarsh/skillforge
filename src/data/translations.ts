@@ -9,7 +9,7 @@ export const translations = {
       signInCta: "Sign In",
       skillAreas: "SKILL AREAS",
       topics: "TOPICS",
-      lessons: "LESSONS",
+      lessons: "Lessons",
       realWorld: "REAL-WORLD",
       featuredSkills: "Featured Skills",
       skillsThatMatter: "Skills That Matter",
@@ -51,8 +51,12 @@ export const translations = {
       "Creativity & Innovation": "Creativity & Innovation",
     // Navigation
     dashboard: "Dashboard",
+    home: "Home",
     appName: "SkillForge",
     // lessons: "Lessons", // removed duplicate
+    notes: "Notes",
+    pdf: "PDF",
+    pomodoro: "Pomodoro",
     quiz: "Quiz",
     profile: "Profile",
     signOut: "Sign Out",

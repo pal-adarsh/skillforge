@@ -1,8 +1,8 @@
 // Enhanced LearnAI Service Worker for PWA Offline Functionality
-const CACHE_NAME = 'learnai-v2';
-const STATIC_CACHE_NAME = 'learnai-static-v2';
-const API_CACHE_NAME = 'learnai-api-v2';
-const CONTENT_CACHE_NAME = 'learnai-content-v2';
+const CACHE_NAME = 'learnai-v3';
+const STATIC_CACHE_NAME = 'learnai-static-v3';
+const API_CACHE_NAME = 'learnai-api-v3';
+const CONTENT_CACHE_NAME = 'learnai-content-v3';
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
@@ -22,7 +22,10 @@ const APP_SHELL_ROUTES = [
   '/login',
   '/gk',
   '/leaderboard',
-  '/rewards'
+  '/rewards',
+  '/notes',
+  '/pomodoro',
+  '/pdf'
 ];
 
 // API endpoints to cache
@@ -344,7 +347,10 @@ function isAppShell(pathname) {
          pathname.startsWith('/profile') ||
          pathname.startsWith('/gk') ||
          pathname.startsWith('/leaderboard') ||
-         pathname.startsWith('/rewards');
+         pathname.startsWith('/rewards') ||
+         pathname.startsWith('/notes') ||
+         pathname.startsWith('/pomodoro') ||
+         pathname.startsWith('/pdf');
 }
 
 // Enhanced Offline page fallback

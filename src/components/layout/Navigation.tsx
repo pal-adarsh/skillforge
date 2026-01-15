@@ -16,15 +16,16 @@ export const Navigation = () => {
   const t = translations[language] as Record<string, string>;
 
   const navItems = [
-    { name: t.dashboard, icon: Brain, path: "/dashboard" },
-    { name: t.lessons, icon: BookOpen, path: "/lessons" },
-    { name: "GK", icon: Globe, path: "/gk" },
-    { name: "Notes", icon: FileText, path: "/notes" },
-    { name: "PDF", icon: FileUp, path: "/pdf" },
-    { name: "Pomodoro", icon: Timer, path: "/pomodoro" },
-    { name: t.quiz, icon: Trophy, path: "/quiz" },
+    { name: t.home || "Home", icon: Brain, path: "/dashboard" },
+    { name: t.lessons || "Lessons", icon: BookOpen, path: "/lessons" },
+    { name: t.gk || "GK", icon: Globe, path: "/gk" },
+    { name: t.notes || "Notes", icon: FileText, path: "/notes" },
+    { name: t.pdf || "PDF", icon: FileUp, path: "/pdf" },
+    { name: t.pomodoro || "Pomodoro", icon: Timer, path: "/pomodoro" },
+    { name: t.quiz || "Quiz", icon: Trophy, path: "/quiz" },
     { name: t.leaderboard || "Leaderboard", icon: TrendingUp, path: "/leaderboard" },
-    { name: t.profile, icon: User, path: "/profile" },
+    { name: t.challenges || "Rewards", icon: Gift, path: "/rewards" },
+    { name: t.profile || "Profile", icon: User, path: "/profile" },
   ];
 
   const isActivePath = (path: string) => location.pathname === path;
@@ -75,12 +76,25 @@ export const Navigation = () => {
                       : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <Link to={item.path} className="flex items-center space-x-2">
-                    <item.icon className={`h-4 w-4 transition-all duration-300 ${
-                      isActivePath(item.path) ? "text-primary" : "group-hover:text-primary"
-                    }`} />
-                    <span className="text-sm">{item.name}</span>
-                  </Link>
+                  {/* Profile item should be icon-only on desktop and reveal label on hover */}
+                  {item.path === "/profile" ? (
+                    <Link to={item.path} className="relative flex items-center justify-center">
+                      <item.icon className={`h-4 w-4 transition-all duration-300 ${
+                        isActivePath(item.path) ? "text-primary" : "group-hover:text-primary"
+                      }`} aria-hidden />
+                      <span className="sr-only">{item.name}</span>
+                      <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded-md bg-background/95 text-foreground px-2 py-1 text-xs shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-150 pointer-events-none">
+                        {item.name}
+                      </div>
+                    </Link>
+                  ) : (
+                    <Link to={item.path} className="flex items-center space-x-2">
+                      <item.icon className={`h-4 w-4 transition-all duration-300 ${
+                        isActivePath(item.path) ? "text-primary" : "group-hover:text-primary"
+                      }`} />
+                      <span className="text-sm">{item.name}</span>
+                    </Link>
+                  )}
                 </Button>
                 {isActivePath(item.path) && (
                   <motion.div
@@ -103,10 +117,13 @@ export const Navigation = () => {
                 <Button
                   variant="ghost"
                   onClick={signOut}
-                  className="flex items-center space-x-2 text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-all duration-300"
+                  className="p-2 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-all duration-300 group relative"
                 >
-                  <LogOut className="h-4 w-4" />
-                  <span className="text-sm">{t.signOut}</span>
+                  <LogOut className="h-4 w-4 transition-all duration-200 group-hover:text-destructive" aria-hidden />
+                  <span className="sr-only">{t.signOut}</span>
+                  <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded-md bg-background/95 text-foreground px-2 py-1 text-xs shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-150 pointer-events-none">
+                    {t.signOut}
+                  </div>
                 </Button>
               ) : (
                 <Button
