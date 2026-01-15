@@ -55,6 +55,7 @@ export const translations = {
     appName: "SkillForge",
     // lessons: "Lessons", // removed duplicate
     notes: "Notes",
+    docs: "Docs",
     pdf: "PDF",
     pomodoro: "Pomodoro",
     quiz: "Quiz",
@@ -479,6 +480,7 @@ export const translations = {
       home: "होम",
       appName: "SkillForge",
       notes: "नोट्स",
+      docs: "डॉक्स",
       pdf: "पीडीएफ",
       pomodoro: "पोमोडोरो",
       quiz: "प्रश्नोत्तरी",

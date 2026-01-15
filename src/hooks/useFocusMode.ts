@@ -67,6 +67,7 @@ export const useFocusMode = (): FocusModeReturn => {
           const data: FocusModeData = JSON.parse(stored);
           setScreenTimeData(data);
           setIsFocusModeEnabled(data.isEnabled);
+          setTabSwitchCount(data.tabSwitchCount || 0); // Initialize from stored data
           if (data.isEnabled) {
             focusModeStartRef.current = Date.now();
           }

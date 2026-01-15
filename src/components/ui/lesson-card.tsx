@@ -39,12 +39,16 @@ export const LessonCard = ({
   const { language } = useLanguage();
   const t = translations[language];
   const { isOnline } = useNetworkStatus();
-  const [imageAvailable, setImageAvailable] = useState<boolean>(true); // Start true for static imports
+  const [imageAvailable, setImageAvailable] = useState<boolean>(true);
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
-  // Only reset availability when offline
+  // Reset image state when online status or image changes
   useEffect(() => {
-    if (!isOnline || !image) {
+    if (isOnline && image) {
+      setImageAvailable(true);
+      setImageLoaded(false);
+    } else if (!image) {
       setImageAvailable(false);
     }
   }, [isOnline, image]);
@@ -84,29 +88,43 @@ export const LessonCard = ({
         onClick={!isLocked ? onClick : undefined}
       >
         {/* Image section: only render when online and image exists */}
-        {image && isOnline && (
-          <div className="relative h-48 overflow-hidden">
+        {image && isOnline && imageAvailable && (
+          <div className="relative h-48 overflow-hidden bg-muted/20">
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
+                <div className="text-center px-4">
+                  <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+                </div>
+              </div>
+            )}
             <img
               ref={imgRef}
               src={image}
               alt={title}
-              onError={() => setImageAvailable(false)}
-              className="w-full h-full object-cover"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setImageAvailable(false);
+                setImageLoaded(false);
+              }}
+              className={`w-full h-full object-cover transition-opacity duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              loading="lazy"
             />
+          </div>
+        )}
 
-            {/* Show placeholder only if error */}
-            {!imageAvailable && (
-              <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
-                <div className="text-center px-4">
-                  <div className="inline-flex items-center justify-center p-3 rounded-md bg-muted/20 mb-2">
-                    <Play className="h-5 w-5 text-muted-foreground" />
-                  </div>
-                  <div className="text-sm font-medium text-muted-foreground">{category}</div>
-                  <div className="text-[11px] text-muted-foreground/70">Image not available</div>
-                </div>
+        {/* Fallback when image not available */}
+        {(!image || !isOnline || !imageAvailable) && (
+          <div className="relative h-48 overflow-hidden bg-muted/20 flex items-center justify-center">
+            <div className="text-center px-4">
+              <div className="inline-flex items-center justify-center p-3 rounded-md bg-muted/20 mb-2">
+                <Play className="h-5 w-5 text-muted-foreground" />
               </div>
-            )}
-
+              <div className="text-sm font-medium text-muted-foreground">{category}</div>
+              <div className="text-[11px] text-muted-foreground/70">Image not available</div>
+            </div>
+            
             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent pointer-events-none" />
 
             {/* Category Badge */}

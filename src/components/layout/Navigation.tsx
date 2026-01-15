@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Brain, BookOpen, Trophy, User, Menu, X, LogIn, LogOut, Gift, TrendingUp, Zap, Globe, Timer, FileText, FileUp } from "lucide-react";
+import { Brain, BookOpen, Trophy, User, Menu, X, LogIn, LogOut, Gift, TrendingUp, Zap, Globe, Timer, FileText, FileUp, BookText } from "lucide-react";
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -22,7 +22,8 @@ export const Navigation = () => {
     { name: t.lessons || "Lessons", icon: BookOpen, path: "/lessons" },
     { name: t.gk || "GK", icon: Globe, path: "/gk" },
     { name: t.notes || "Notes", icon: FileText, path: "/notes" },
-    { name: t.pdf || "PDF", icon: FileUp, path: "/pdf" },
+    { name: t.docs || "Docs", icon: BookText, path: "/docs" },
+    // { name: t.pdf || "PDF", icon: FileUp, path: "/pdf" },
     { name: t.pomodoro || "Pomodoro", icon: Timer, path: "/pomodoro" },
     { name: t.quiz || "Quiz", icon: Trophy, path: "/quiz" },
     { name: t.leaderboard || "Leaderboard", icon: TrendingUp, path: "/leaderboard" },

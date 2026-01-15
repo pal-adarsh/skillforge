@@ -20,6 +20,7 @@ import GeneralKnowledge from "./pages/GeneralKnowledge";
 import Notes from "./pages/Notes";
 import Pomodoro from "./pages/Pomodoro";
 import PDFAnalyzer from "./pages/PDFAnalyzer";
+import Docs from "./pages/Docs";
 
 const queryClient = new QueryClient();
 
@@ -79,6 +80,11 @@ const App = () => (
               <Route path="/notes" element={
                 <ProtectedRoute>
                   <Notes />
+                </ProtectedRoute>
+              } />
+              <Route path="/docs" element={
+                <ProtectedRoute>
+                  <Docs />
                 </ProtectedRoute>
               } />
               <Route path="/pomodoro" element={
