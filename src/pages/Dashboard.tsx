@@ -37,6 +37,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { InstallPrompt } from "@/components/ui/install-prompt";
+import { useFocusMode } from "@/hooks/useFocusMode";
+import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
 
 export default function Dashboard() {
   const { language } = useLanguage();
@@ -47,6 +49,14 @@ export default function Dashboard() {
   const { lessonProgress, quizProgress, getProgressStats, loading: progressLoading } = useProgressTracking();
   const { showInstallPrompt, installApp, dismissPrompt } = usePWAInstall();
   const progressStats = getProgressStats();
+  const { 
+    isFocusModeEnabled, 
+    toggleFocusMode, 
+    screenTimeData, 
+    tabSwitchCount,
+    isFullscreen,
+    exitFullscreen
+  } = useFocusMode();
   
   // Calculate real data from Supabase
   const overallProgress = lessonProgress.length > 0 
@@ -146,6 +156,20 @@ export default function Dashboard() {
         onInstall={installApp}
         onDismiss={dismissPrompt}
       />
+      
+      {/* Focus Mode Toggle - Upper Right */}
+      <div className="fixed top-20 right-4 z-40">
+        <FocusModeToggle
+          isEnabled={isFocusModeEnabled}
+          onToggle={toggleFocusMode}
+          totalTime={screenTimeData.totalTime}
+          focusTime={screenTimeData.focusTime}
+          tabSwitchCount={tabSwitchCount}
+          isFullscreen={isFullscreen}
+          onExitFullscreen={exitFullscreen}
+        />
+      </div>
+      
       <div className="min-h-screen pt-20 pb-8">
       <div className="container mx-auto px-4">
         {/* Hero Section */}

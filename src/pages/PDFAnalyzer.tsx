@@ -12,15 +12,38 @@ import { Button } from '@/components/ui/button';
 import PDFUploader from '../components/pdf/PDFUploader';
 import PDFAIPanel from '../components/pdf/PDFAIPanel';
 import { PDFDocument } from '../components/pdf/pdf-utils';
+import { useFocusMode } from "@/hooks/useFocusMode";
+import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
 
 const PDFAnalyzer: React.FC = () => {
   const navigate = useNavigate();
+  const { 
+    isFocusModeEnabled, 
+    toggleFocusMode, 
+    screenTimeData, 
+    tabSwitchCount,
+    isFullscreen,
+    exitFullscreen
+  } = useFocusMode();
   const [pdfs, setPdfs] = useState<PDFDocument[]>([]);
   const [selectedPDF, setSelectedPDF] = useState<PDFDocument | null>(null);
   const [showAIPanel, setShowAIPanel] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Focus Mode Toggle - Upper Right */}
+      <div className="fixed top-20 right-4 z-40">
+        <FocusModeToggle
+          isEnabled={isFocusModeEnabled}
+          onToggle={toggleFocusMode}
+          totalTime={screenTimeData.totalTime}
+          focusTime={screenTimeData.focusTime}
+          tabSwitchCount={tabSwitchCount}
+          isFullscreen={isFullscreen}
+          onExitFullscreen={exitFullscreen}
+        />
+      </div>
+      
       <div className="container mx-auto px-4 py-8 pt-24">
         {/* Header Section */}
         <motion.div

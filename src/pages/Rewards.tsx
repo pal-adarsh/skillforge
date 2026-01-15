@@ -22,6 +22,8 @@ import {
 import * as LucideIcons from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
+import { useFocusMode } from "@/hooks/useFocusMode";
+import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
 
 const iconMap: { [key: string]: any } = {
   Shield,
@@ -39,6 +41,14 @@ export default function Rewards() {
   const { stats, rewards, userRewards, purchaseReward, loading } = useGamification();
   const { language } = useLanguage();
   const t: Record<string, string> = translations[language] as unknown as Record<string, string>;
+  const { 
+    isFocusModeEnabled, 
+    toggleFocusMode, 
+    screenTimeData, 
+    tabSwitchCount,
+    isFullscreen,
+    exitFullscreen
+  } = useFocusMode();
 
   const getIcon = (iconName: string) => {
     const Icon = iconMap[iconName] || Gift;
@@ -104,6 +114,19 @@ export default function Rewards() {
 
   return (
     <div className="container mx-auto px-4 py-20 max-w-7xl">
+      {/* Focus Mode Toggle - Upper Right */}
+      <div className="fixed top-20 right-4 z-40">
+        <FocusModeToggle
+          isEnabled={isFocusModeEnabled}
+          onToggle={toggleFocusMode}
+          totalTime={screenTimeData.totalTime}
+          focusTime={screenTimeData.focusTime}
+          tabSwitchCount={tabSwitchCount}
+          isFullscreen={isFullscreen}
+          onExitFullscreen={exitFullscreen}
+        />
+      </div>
+      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

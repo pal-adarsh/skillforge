@@ -33,11 +33,21 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useProfile } from "@/hooks/useProfile";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
+import { useFocusMode } from "@/hooks/useFocusMode";
+import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
 
 export default function Profile() {
   const { user } = useAuth();
   const { language } = useLanguage();
   const t: Record<string, string> = translations[language] as unknown as Record<string, string>;
+  const { 
+    isFocusModeEnabled, 
+    toggleFocusMode, 
+    screenTimeData, 
+    tabSwitchCount,
+    isFullscreen,
+    exitFullscreen
+  } = useFocusMode();
   const { lessonProgress, quizProgress, getProgressStats, loading } = useProgressTracking();
   const { profile, loading: profileLoading, saving: profileSaving, updateProfile } = useProfile();
   const progressStats = getProgressStats();
@@ -202,6 +212,19 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen pt-20 pb-8">
+      {/* Focus Mode Toggle - Upper Right */}
+      <div className="fixed top-20 right-4 z-40">
+        <FocusModeToggle
+          isEnabled={isFocusModeEnabled}
+          onToggle={toggleFocusMode}
+          totalTime={screenTimeData.totalTime}
+          focusTime={screenTimeData.focusTime}
+          tabSwitchCount={tabSwitchCount}
+          isFullscreen={isFullscreen}
+          onExitFullscreen={exitFullscreen}
+        />
+      </div>
+      
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div

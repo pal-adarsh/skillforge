@@ -36,6 +36,8 @@ import {
 } from "lucide-react";
 import { gkCategories, GKCategory, GKTopic } from "@/data/gkLearnData";
 import { gkTestCategories, GKTestCategory } from "@/data/gkTestData";
+import { useFocusMode } from "@/hooks/useFocusMode";
+import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Newspaper,
@@ -51,6 +53,14 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 const GeneralKnowledge = () => {
+  const { 
+    isFocusModeEnabled, 
+    toggleFocusMode, 
+    screenTimeData, 
+    tabSwitchCount,
+    isFullscreen,
+    exitFullscreen
+  } = useFocusMode();
   const [activeTab, setActiveTab] = useState<"learn" | "test">("learn");
   const [selectedLearnCategory, setSelectedLearnCategory] = useState<GKCategory | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<GKTopic | null>(null);
@@ -786,6 +796,19 @@ const GeneralKnowledge = () => {
 
   return (
     <div className="min-h-screen pt-16 pb-12 bg-background/50 relative">
+      {/* Focus Mode Toggle - Upper Right */}
+      <div className="fixed top-20 right-4 z-40">
+        <FocusModeToggle
+          isEnabled={isFocusModeEnabled}
+          onToggle={toggleFocusMode}
+          totalTime={screenTimeData.totalTime}
+          focusTime={screenTimeData.focusTime}
+          tabSwitchCount={tabSwitchCount}
+          isFullscreen={isFullscreen}
+          onExitFullscreen={exitFullscreen}
+        />
+      </div>
+      
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none -z-10" />
       
       <div className="container mx-auto px-4 max-w-7xl">

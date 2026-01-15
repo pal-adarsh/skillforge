@@ -14,6 +14,8 @@ export const Navigation = () => {
   const { user, signOut } = useAuth();
   const { language } = useLanguage();
   const t = translations[language] as Record<string, string>;
+  
+  
 
   const navItems = [
     { name: t.home || "Home", icon: Brain, path: "/dashboard" },
@@ -191,9 +193,9 @@ export const Navigation = () => {
             
             {/* Mobile Auth Section */}
             <div className="border-t border-border/30 pt-4 mt-4 space-y-2">
-              <div className="px-4">
-                <LanguageSelector />
-              </div>
+                <div className="px-4">
+                  <LanguageSelector />
+                </div>
               {user ? (
                 <Button
                   variant="ghost"

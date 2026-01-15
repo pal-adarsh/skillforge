@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { LessonCard } from "@/components/ui/lesson-card";
+import { FocusModeWrapper } from "@/components/ui/focus-mode-wrapper";
 import { 
   Search, 
   ChevronLeft,
@@ -207,7 +208,8 @@ export default function Lessons() {
   }
 
   return (
-    <div className="min-h-screen pt-20 pb-8">
+    <FocusModeWrapper>
+      <div className="min-h-screen pt-20 pb-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -582,5 +584,6 @@ export default function Lessons() {
         )}
       </div>
     </div>
+    </FocusModeWrapper>
   );
 }

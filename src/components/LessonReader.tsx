@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { FocusModeWrapper } from "@/components/ui/focus-mode-wrapper";
 import { 
   ArrowLeft, 
   BookOpen, 
@@ -264,7 +265,8 @@ export const LessonReader = ({ lesson, onBack, onComplete }: LessonReaderProps) 
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-16 bg-gradient-to-b from-background to-background/95">
+    <FocusModeWrapper>
+      <div className="min-h-screen pt-20 pb-16 bg-gradient-to-b from-background to-background/95">
       
       {/* Sticky Header (appears on scroll) */}
       <AnimatePresence>
@@ -573,5 +575,6 @@ export const LessonReader = ({ lesson, onBack, onComplete }: LessonReaderProps) 
         lessonDifficulty={lesson.difficulty}
       />
     </div>
+    </FocusModeWrapper>
   );
 };
