@@ -71,7 +71,7 @@ export async function generateSummary(content: string): Promise<string> {
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     const prompt = `Please provide a concise and comprehensive summary of the following content. Focus on the key points, main ideas, and important details:\n\n${content}\n\nSummary:`;
 
@@ -101,7 +101,7 @@ export async function generateQuestions(content: string): Promise<string[]> {
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     const prompt = `Based on the following content, generate 5-7 thoughtful questions that test understanding of the material. Include a mix of recall, comprehension, application and analysis questions. Provide ONLY the questions, one per line, without numbering or prefixes.\n\nContent:\n${content}\n\nQuestions:`;
 

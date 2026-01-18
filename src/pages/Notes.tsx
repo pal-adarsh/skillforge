@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { NotePage, createPage, createBlock } from '@/components/notes/types';
 import { PageSidebar } from '@/components/notes/PageSidebar';
 import { PageEditor } from '@/components/notes/PageEditor';
-import { AIAssistantPanel } from '@/components/notes/AIAssistantPanel';
+// import { AIAssistantPanel } from '@/components/notes/AIAssistantPanel';
 import { PageNavigationFlowchart } from '@/components/notes/MermaidFlowchart';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -71,7 +71,7 @@ export default function Notes() {
   });
   const [currentPageId, setCurrentPageId] = useState<string | null>(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [showAIPanel, setShowAIPanel] = useState(true);
+  // const [showAIPanel, setShowAIPanel] = useState(true);
   const [showFlowchartDialog, setShowFlowchartDialog] = useState(false);
 
   // Persist pages to localStorage
@@ -312,13 +312,13 @@ export default function Notes() {
             </DialogContent>
           </Dialog>
 
-          <Button
+          {/* <Button
             variant="ghost"
             size="icon"
             onClick={() => setShowAIPanel(!showAIPanel)}
           >
             {showAIPanel ? <PanelRightClose className="h-4 w-4" /> : <PanelRight className="h-4 w-4" />}
-          </Button>
+          </Button> */}
         </div>
       </div>
 
@@ -345,7 +345,7 @@ export default function Notes() {
           <ResizableHandle withHandle />
 
           {/* Editor */}
-          <ResizablePanel defaultSize={showAIPanel ? 55 : 80} minSize={40}>
+          <ResizablePanel defaultSize={80} minSize={40}>
             {currentPage ? (
               <PageEditor
                 page={currentPage}
@@ -370,7 +370,7 @@ export default function Notes() {
           </ResizablePanel>
 
           {/* AI Panel */}
-          {showAIPanel && (
+          {/* {showAIPanel && (
             <>
               <ResizableHandle withHandle />
               <ResizablePanel defaultSize={25} minSize={20} maxSize={40}>
@@ -383,7 +383,7 @@ export default function Notes() {
                 </div>
               </ResizablePanel>
             </>
-          )}
+          )} */}
         </ResizablePanelGroup>
       </div>
     </div>

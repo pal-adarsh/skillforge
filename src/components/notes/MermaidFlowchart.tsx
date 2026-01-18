@@ -39,21 +39,32 @@ export function MermaidFlowchart({ code, title, onRefresh, isLoading }: MermaidF
         // Dynamically import mermaid
         const mermaid = (await import('mermaid')).default;
         
+        // Detect if user prefers dark mode
+        const isDarkMode = document.documentElement.classList.contains('dark') ||
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
         mermaid.initialize({
           startOnLoad: false,
-          theme: 'dark',
+          theme: isDarkMode ? 'dark' : 'default',
           securityLevel: 'loose',
           flowchart: {
             htmlLabels: true,
             curve: 'basis',
           },
-          themeVariables: {
+          themeVariables: isDarkMode ? {
             primaryColor: '#7c3aed',
             primaryTextColor: '#fff',
             primaryBorderColor: '#5b21b6',
             lineColor: '#6366f1',
             secondaryColor: '#1e1b4b',
             tertiaryColor: '#312e81',
+          } : {
+            primaryColor: '#7c3aed',
+            primaryTextColor: '#000',
+            primaryBorderColor: '#5b21b6',
+            lineColor: '#6366f1',
+            secondaryColor: '#e0e7ff',
+            tertiaryColor: '#c7d2fe',
           },
         });
 
