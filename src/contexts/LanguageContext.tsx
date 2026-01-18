@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { translations } from '@/data/translations';
 
 type Language = 'en' | 'es' | 'fr' | 'hi';
 
@@ -22,9 +23,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const t = (key: string): string => {
-    // This will be used for UI translations
-    // Lesson content translations are handled separately
-    return key;
+    // Get translation from the translations object
+    const translation = translations[language]?.[key as keyof typeof translations.en];
+    // Return translation if found, otherwise return the key itself
+    return translation || key;
   };
 
   useEffect(() => {

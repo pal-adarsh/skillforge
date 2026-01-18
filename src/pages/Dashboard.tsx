@@ -339,7 +339,7 @@ export default function Dashboard() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Zap className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-display font-bold">Quick Access</h2>
+              <h2 className="text-xl font-display font-bold">{t.quickAccess}</h2>
             </div>
             <QuickAccessWidgets />
           </motion.section>
@@ -379,7 +379,7 @@ export default function Dashboard() {
                       <h3 className="font-display font-semibold mb-2 group-hover:text-primary transition-colors">{skill.name}</h3>
                       <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{skill.description}</p>
                       <Badge variant="outline" className="text-xs">
-                        {skill.subjects.reduce((acc, s) => acc + s.lessonIds.length, 0)} lessons
+                        {skill.subjects.reduce((acc, s) => acc + s.lessonIds.length, 0)} {t.lessonsCount}
                       </Badge>
                     </Card>
                   </Link>
@@ -403,7 +403,7 @@ export default function Dashboard() {
 
               <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground">
                 <Link to="/lessons" className="flex items-center gap-2">
-                  View All
+                  {t.viewAll}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -440,18 +440,18 @@ export default function Dashboard() {
                     <h3 className="font-display font-semibold">{t.learningStreak}</h3>
                   </div>
                   <Badge variant="default">
-                    {currentStreak} Days
+                    {currentStreak} {t.streakDays}
                   </Badge>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">{t.currentStreak}</span>
-                    <span className="font-display font-semibold">{currentStreak} days</span>
+                    <span className="font-display font-semibold">{currentStreak} {t.streakDays.toLowerCase()}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">{t.bestLabel}</span>
-                    <span className="font-display font-semibold">{Math.max(currentStreak, 23)} days</span>
+                    <span className="text-sm text-muted-foreground">{t.bestStreak}</span>
+                    <span className="font-display font-semibold">{Math.max(currentStreak, 23)} {t.streakDays.toLowerCase()}</span>
                   </div>
                   <div className="h-2 w-full bg-muted/30 rounded-full overflow-hidden">
                     <motion.div
@@ -462,7 +462,7 @@ export default function Dashboard() {
                     />
                   </div>
                   <p className="text-xs text-muted-foreground text-center">
-                    {30 - currentStreak} {t.change_streak}
+                    {30 - currentStreak} {t.daysLeft}
                   </p>
                 </div>
               </Card>

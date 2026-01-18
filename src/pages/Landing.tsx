@@ -48,64 +48,64 @@ export default function Landing() {
   const features = [
     {
       icon: BookOpen,
-      title: "Interactive Lessons",
-      description: "176+ engaging lessons across 11 skill areas designed for real-world application",
+      title: t.interactiveLessonsTitle,
+      description: t.interactiveLessonsDesc,
       color: "from-blue-500 to-cyan-500",
       glow: "shadow-[0_0_30px_hsl(195_80%_50%_/_0.3)]",
       link: "/lessons"
     },
     {
       icon: Trophy,
-      title: "Quiz & Assessments",
-      description: "Test your knowledge with interactive quizzes and track your progress",
+      title: t.quizAssessmentsTitle,
+      description: t.quizAssessmentsDesc,
       color: "from-amber-500 to-orange-500",
       glow: "shadow-[0_0_30px_hsl(25_95%_55%_/_0.3)]",
       link: "/quiz"
     },
     {
       icon: Globe,
-      title: "General Knowledge",
-      description: "Expand your horizons with comprehensive general knowledge content",
+      title: t.generalKnowledgeTitle,
+      description: t.generalKnowledgeDesc,
       color: "from-green-500 to-emerald-500",
       glow: "shadow-[0_0_30px_hsl(150_80%_45%_/_0.3)]",
       link: "/gk"
     },
     {
       icon: FileText,
-      title: "Smart Notes",
-      description: "Create, organize, and visualize your notes with AI-powered features",
+      title: t.smartNotesTitle,
+      description: t.smartNotesDesc,
       color: "from-purple-500 to-violet-500",
       glow: "shadow-[0_0_30px_hsl(270_90%_65%_/_0.3)]",
       link: "/notes"
     },
     {
       icon: FileUp,
-      title: "PDF Analyzer",
-      description: "Upload PDFs and chat with them using AI. Summarize, translate, and extract key insights",
+      title: t.pdfAnalyzerTitle,
+      description: t.pdfAnalyzerDesc,
       color: "from-indigo-500 to-blue-500",
       glow: "shadow-[0_0_30px_hsl(220_90%_55%_/_0.3)]",
       link: "/pdf"
     },
     {
       icon: Timer,
-      title: "Pomodoro Timer",
-      description: "Boost productivity with customizable focus sessions and smart break reminders",
+      title: t.pomodoroTimerTitle,
+      description: t.pomodoroTimerDesc,
       color: "from-red-500 to-pink-500",
       glow: "shadow-[0_0_30px_hsl(350_90%_60%_/_0.3)]",
       link: "/pomodoro"
     },
     {
       icon: TrendingUp,
-      title: "Leaderboard",
-      description: "Compete with learners worldwide and climb the ranks",
+      title: t.leaderboardTitleFeature,
+      description: t.leaderboardDescFeature,
       color: "from-teal-500 to-cyan-500",
       glow: "shadow-[0_0_30px_hsl(180_80%_50%_/_0.3)]",
       link: "/leaderboard"
     },
     {
       icon: Gift,
-      title: "Rewards & Achievements",
-      description: "Earn badges, unlock achievements, and celebrate your learning milestones",
+      title: t.rewardsAchievementsTitle,
+      description: t.rewardsAchievementsDesc,
       color: "from-yellow-500 to-amber-500",
       glow: "shadow-[0_0_30px_hsl(45_95%_55%_/_0.3)]",
       link: "/rewards"
@@ -115,26 +115,26 @@ export default function Landing() {
   const aiFeatures = [
     {
       icon: Sparkles,
-      title: "AI-Powered PDF Chat",
-      description: "Ask questions, get summaries, and extract insights from your PDFs using Gemini AI",
+      title: t.aiPoweredPDFChatTitle,
+      description: t.aiPoweredPDFChatDesc,
       color: "text-purple-500"
     },
     {
       icon: Brain,
-      title: "Smart Note Assistant",
-      description: "AI helps organize, summarize, and create mind maps from your notes",
+      title: t.smartNoteAssistantTitle,
+      description: t.smartNoteAssistantDesc,
       color: "text-blue-500"
     },
     {
       icon: Code,
-      title: "Mermaid Flowcharts",
-      description: "Visualize complex concepts with auto-generated flowcharts and diagrams",
+      title: t.mermaidFlowchartsTitle,
+      description: t.mermaidFlowchartsDesc,
       color: "text-green-500"
     },
     {
       icon: BookMarked,
-      title: "Personalized Learning",
-      description: "Adaptive content that adjusts to your learning pace and preferences",
+      title: t.personalizedLearningTitle,
+      description: t.personalizedLearningDesc,
       color: "text-orange-500"
     }
   ];
@@ -142,23 +142,23 @@ export default function Landing() {
   const gamificationFeatures = [
     {
       icon: Award,
-      title: "Achievement System",
-      description: "Unlock 50+ unique badges as you progress through your learning journey"
+      title: t.achievementSystemTitle,
+      description: t.achievementSystemDesc
     },
     {
       icon: Flame,
-      title: "Learning Streaks",
-      description: "Build and maintain daily learning streaks to stay motivated"
+      title: t.learningStreaksTitle,
+      description: t.learningStreaksDesc
     },
     {
       icon: BarChart,
-      title: "Progress Tracking",
-      description: "Detailed analytics and insights into your learning patterns"
+      title: t.progressTrackingTitle,
+      description: t.progressTrackingDesc
     },
     {
       icon: Users,
-      title: "Global Competition",
-      description: "Compete with learners worldwide on real-time leaderboards"
+      title: t.globalCompetitionTitle,
+      description: t.globalCompetitionDesc
     }
   ];
 
@@ -355,13 +355,13 @@ export default function Landing() {
           >
             <Badge className="mb-4 text-sm font-mono uppercase tracking-wider">
               <Zap className="h-3 w-3 mr-2" />
-              All-in-One Platform
+              {t.allInOnePlatform}
             </Badge>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Everything You Need to Excel
+              {t.everythingYouNeedToExcel}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A complete suite of tools designed to enhance your learning experience
+              {t.completeSuiteOfTools}
             </p>
           </motion.div>
 
@@ -389,7 +389,7 @@ export default function Landing() {
                       {feature.description}
                     </p>
                     <div className="flex items-center text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Explore <ArrowRight className="h-4 w-4 ml-1" />
+                      {t.explore} <ArrowRight className="h-4 w-4 ml-1" />
                     </div>
                   </div>
                 </Card>
@@ -410,13 +410,13 @@ export default function Landing() {
           >
             <Badge className="mb-4 text-sm font-mono uppercase tracking-wider">
               <Sparkles className="h-3 w-3 mr-2" />
-              AI-Powered Learning
+              {t.aiPoweredLearning}
             </Badge>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Learn Smarter with AI
+              {t.learnSmarterWithAI}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Leverage cutting-edge AI technology powered by Google Gemini to supercharge your learning
+              {t.leverageCuttingEdgeAI}
             </p>
           </motion.div>
 
@@ -462,13 +462,13 @@ export default function Landing() {
             >
               <Badge className="mb-4 text-sm font-mono uppercase tracking-wider">
                 <Trophy className="h-3 w-3 mr-2" />
-                Gamification
+                {t.gamification}
               </Badge>
               <h2 className="text-4xl font-display font-bold mb-6">
-                Stay Motivated & Track Progress
+                {t.stayMotivatedTrackProgress}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Turn learning into an exciting adventure with our comprehensive gamification system
+                {t.turnLearningIntoAdventure}
               </p>
               
               <div className="space-y-4">
@@ -501,10 +501,10 @@ export default function Landing() {
             >
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Award, label: "50+ Badges", value: "50+", color: "from-yellow-500 to-orange-500" },
-                  { icon: Flame, label: "Daily Streaks", value: "🔥", color: "from-red-500 to-pink-500" },
-                  { icon: Trophy, label: "Achievements", value: "100%", color: "from-blue-500 to-cyan-500" },
-                  { icon: Star, label: "Points", value: "∞", color: "from-purple-500 to-violet-500" }
+                  { icon: Award, label: t.badgesLabel, value: "50+", color: "from-yellow-500 to-orange-500" },
+                  { icon: Flame, label: t.dailyStreaksLabel, value: "🔥", color: "from-red-500 to-pink-500" },
+                  { icon: Trophy, label: t.achievementsLabelShort, value: "100%", color: "from-blue-500 to-cyan-500" },
+                  { icon: Star, label: t.pointsLabelShort, value: "∞", color: "from-purple-500 to-violet-500" }
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
