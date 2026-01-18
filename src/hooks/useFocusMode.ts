@@ -23,6 +23,10 @@ interface FocusModeReturn {
   exitFullscreen: () => void;
 }
 
+interface UseFocusModeProps {
+  userName?: string;
+}
+
 const STORAGE_KEY = 'skillforge_focus_mode';
 const INACTIVITY_TIMEOUT = 30000; // 30 seconds
 
@@ -35,7 +39,8 @@ const motivationalMessages = [
   "Back in action! Your future self will thank you 🎯",
 ];
 
-export const useFocusMode = (): FocusModeReturn => {
+export const useFocusMode = (props?: UseFocusModeProps): FocusModeReturn => {
+  const userName = props?.userName || 'User';
   const [isFocusModeEnabled, setIsFocusModeEnabled] = useState(false);
   const [showInactivityAlert, setShowInactivityAlert] = useState(false);
   const [showWelcomeBackMessage, setShowWelcomeBackMessage] = useState(false);
@@ -51,6 +56,7 @@ export const useFocusMode = (): FocusModeReturn => {
 
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [tabSwitchCount, setTabSwitchCount] = useState(0);
+  const [currentDisplayTime, setCurrentDisplayTime] = useState({ total: 0, focus: 0 });
 
   const inactivityTimerRef = useRef<NodeJS.Timeout | null>(null);
   const sessionStartRef = useRef<number>(Date.now());
@@ -60,16 +66,27 @@ export const useFocusMode = (): FocusModeReturn => {
 
   // Load data from localStorage
   useEffect(() => {
-    const loadFocusModeData = () => {
+    const loadFocusModeData = async () => {
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
           const data: FocusModeData = JSON.parse(stored);
           setScreenTimeData(data);
           setIsFocusModeEnabled(data.isEnabled);
-          setTabSwitchCount(data.tabSwitchCount || 0); // Initialize from stored data
+          setTabSwitchCount(data.tabSwitchCount || 0);
+
           if (data.isEnabled) {
             focusModeStartRef.current = Date.now();
+
+            // Re-enter fullscreen if focus mode was enabled
+            try {
+              if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+                await document.documentElement.requestFullscreen();
+                setIsFullscreen(true);
+              }
+            } catch (error) {
+              console.log('Fullscreen request failed on load:', error);
+            }
           }
         }
       } catch (error) {
@@ -79,14 +96,14 @@ export const useFocusMode = (): FocusModeReturn => {
 
     loadFocusModeData();
     sessionStartRef.current = Date.now();
-    
+
     // Track fullscreen changes
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
-    
+
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    
+
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
@@ -107,8 +124,8 @@ export const useFocusMode = (): FocusModeReturn => {
   const updateSessionTime = useCallback(() => {
     const now = Date.now();
     const sessionDuration = now - sessionStartRef.current;
-    const focusDuration = focusModeStartRef.current 
-      ? now - focusModeStartRef.current 
+    const focusDuration = focusModeStartRef.current
+      ? now - focusModeStartRef.current
       : 0;
 
     saveFocusModeData({
@@ -124,14 +141,33 @@ export const useFocusMode = (): FocusModeReturn => {
     }
   }, [screenTimeData, isFocusModeEnabled, saveFocusModeData]);
 
+  // Get current screen time (for real-time display)
+  const getCurrentScreenTime = useCallback(() => {
+    const now = Date.now();
+    const sessionDuration = now - sessionStartRef.current;
+    const focusDuration = focusModeStartRef.current
+      ? now - focusModeStartRef.current
+      : 0;
+
+    return {
+      total: screenTimeData.totalScreenTime + sessionDuration,
+      focus: screenTimeData.focusModeTime + focusDuration,
+    };
+  }, [screenTimeData]);
+
   // Toggle Focus Mode
   const toggleFocusMode = useCallback(async () => {
     const newState = !isFocusModeEnabled;
     setIsFocusModeEnabled(newState);
-    
+
     if (newState) {
       focusModeStartRef.current = Date.now();
-      
+
+      // Save focus mode enabled state to localStorage
+      saveFocusModeData({
+        isEnabled: true,
+      });
+
       // Enter fullscreen mode
       try {
         if (document.documentElement.requestFullscreen) {
@@ -151,7 +187,7 @@ export const useFocusMode = (): FocusModeReturn => {
         });
         focusModeStartRef.current = null;
       }
-      
+
       // Exit fullscreen mode
       if (document.fullscreenElement) {
         await document.exitFullscreen();
@@ -170,6 +206,38 @@ export const useFocusMode = (): FocusModeReturn => {
     }
   }, []);
 
+  // Play audio alert for inactivity
+  const playInactivityAudio = useCallback((userName: string) => {
+    try {
+      // Cancel any ongoing speech
+      window.speechSynthesis.cancel();
+
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = `Hello ${userName}! Are you still there? Please respond if you're listening.`;
+      speech.rate = 0.85; // Slower for better clarity
+      speech.pitch = 1.1; // Slightly higher pitch for friendlier tone
+      speech.volume = 1;
+      speech.lang = 'en-US';
+
+      // Try to use a better voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const preferredVoice = voices.find(voice =>
+        voice.name.includes('Google') ||
+        voice.name.includes('Microsoft') ||
+        voice.name.includes('Samantha') ||
+        voice.name.includes('Karen')
+      );
+
+      if (preferredVoice) {
+        speech.voice = preferredVoice;
+      }
+
+      window.speechSynthesis.speak(speech);
+    } catch (error) {
+      console.error('Failed to play audio alert:', error);
+    }
+  }, []);
+
   // Reset inactivity timer
   const resetInactivityTimer = useCallback(() => {
     if (!isFocusModeEnabled) return;
@@ -184,9 +252,11 @@ export const useFocusMode = (): FocusModeReturn => {
     inactivityTimerRef.current = setTimeout(() => {
       if (isVisibleRef.current && isFocusModeEnabled) {
         setShowInactivityAlert(true);
+        // Play audio alert
+        playInactivityAudio(userName);
       }
     }, INACTIVITY_TIMEOUT);
-  }, [isFocusModeEnabled]);
+  }, [isFocusModeEnabled, userName, playInactivityAudio]);
 
   // Track user activity
   useEffect(() => {
@@ -199,7 +269,7 @@ export const useFocusMode = (): FocusModeReturn => {
     }
 
     const activityEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
-    
+
     activityEvents.forEach(event => {
       window.addEventListener(event, resetInactivityTimer, { passive: true });
     });
@@ -232,24 +302,24 @@ export const useFocusMode = (): FocusModeReturn => {
       } else {
         // User returned to the page
         if (isFocusModeEnabled) {
-          // Increment tab switch count
-          const newTabSwitchCount = screenTimeData.tabSwitchCount + 1;
+          // Increment tab switch count and save to localStorage
+          const newTabSwitchCount = tabSwitchCount + 1;
           setTabSwitchCount(newTabSwitchCount);
           saveFocusModeData({ tabSwitchCount: newTabSwitchCount });
-          
+
           // Show welcome back message
           const randomMessage = motivationalMessages[
             Math.floor(Math.random() * motivationalMessages.length)
           ];
           setMotivationalMessage(randomMessage);
           setShowWelcomeBackMessage(true);
-          
+
           // Restart session tracking
           sessionStartRef.current = Date.now();
           if (focusModeStartRef.current !== null) {
             focusModeStartRef.current = Date.now();
           }
-          
+
           // Reset inactivity timer
           resetInactivityTimer();
         }
@@ -267,7 +337,7 @@ export const useFocusMode = (): FocusModeReturn => {
   useEffect(() => {
     const handleBeforeUnload = () => {
       updateSessionTime();
-      
+
       // Increment sessions count
       saveFocusModeData({
         sessionsCount: screenTimeData.sessionsCount + 1,
@@ -283,16 +353,25 @@ export const useFocusMode = (): FocusModeReturn => {
     };
   }, [updateSessionTime, saveFocusModeData, screenTimeData.sessionsCount]);
 
-  // Auto-save every minute
+  // Auto-save every minute - ALWAYS ACTIVE
   useEffect(() => {
     const saveInterval = setInterval(() => {
-      if (isFocusModeEnabled || sessionStartRef.current) {
-        updateSessionTime();
-      }
+      // Always save screen time, regardless of focus mode state
+      updateSessionTime();
     }, 60000); // Every minute
 
     return () => clearInterval(saveInterval);
-  }, [isFocusModeEnabled, updateSessionTime]);
+  }, [updateSessionTime]);
+
+  // Update display time every second for real-time tracking
+  useEffect(() => {
+    const displayInterval = setInterval(() => {
+      const currentTime = getCurrentScreenTime();
+      setCurrentDisplayTime(currentTime);
+    }, 1000); // Every second
+
+    return () => clearInterval(displayInterval);
+  }, [getCurrentScreenTime]);
 
   const dismissInactivityAlert = useCallback(() => {
     setShowInactivityAlert(false);
@@ -306,7 +385,11 @@ export const useFocusMode = (): FocusModeReturn => {
   return {
     isFocusModeEnabled,
     toggleFocusMode,
-    screenTimeData,
+    screenTimeData: {
+      ...screenTimeData,
+      totalScreenTime: currentDisplayTime.total,
+      focusModeTime: currentDisplayTime.focus,
+    },
     showInactivityAlert,
     dismissInactivityAlert,
     showWelcomeBackMessage,

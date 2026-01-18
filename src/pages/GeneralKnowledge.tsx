@@ -8,10 +8,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import ReactMarkdown from "react-markdown";
-import { 
-  BookOpen, 
-  GraduationCap, 
-  ArrowLeft, 
+import {
+  BookOpen,
+  GraduationCap,
+  ArrowLeft,
   ChevronRight,
   CheckCircle2,
   XCircle,
@@ -38,6 +38,7 @@ import { gkCategories, GKCategory, GKTopic } from "@/data/gkLearnData";
 import { gkTestCategories, GKTestCategory } from "@/data/gkTestData";
 import { useFocusMode } from "@/hooks/useFocusMode";
 import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
+import { InactivityAlert, WelcomeBackMessage } from "@/components/ui/focus-mode-alerts";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Newspaper,
@@ -53,22 +54,27 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 const GeneralKnowledge = () => {
-  const { 
-    isFocusModeEnabled, 
-    toggleFocusMode, 
-    screenTimeData, 
+  const {
+    isFocusModeEnabled,
+    toggleFocusMode,
+    screenTimeData,
     tabSwitchCount,
     isFullscreen,
-    exitFullscreen
-  } = useFocusMode();
+    exitFullscreen,
+    showInactivityAlert,
+    dismissInactivityAlert,
+    showWelcomeBackMessage,
+    dismissWelcomeBackMessage,
+    motivationalMessage
+  } = useFocusMode({ userName: 'User' });
   const [activeTab, setActiveTab] = useState<"learn" | "test">("learn");
   const [selectedLearnCategory, setSelectedLearnCategory] = useState<GKCategory | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<GKTopic | null>(null);
   const [selectedTestCategory, setSelectedTestCategory] = useState<GKTestCategory | null>(null);
-  
+
   // Track completed topics to unlock advanced levels
   const [completedTopics, setCompletedTopics] = useState<string[]>([]);
-  
+
   // Quiz states
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -88,22 +94,22 @@ const GeneralKnowledge = () => {
   };
 
   const isTopicLocked = (topic: GKTopic, category: GKCategory) => {
-  // Beginner and Intermediate topics are always unlocked
-  if (topic.difficulty === "Beginner" || topic.difficulty === "Intermediate") {
-    return false;
-  }
+    // Beginner and Intermediate topics are always unlocked
+    if (topic.difficulty === "Beginner" || topic.difficulty === "Intermediate") {
+      return false;
+    }
 
-  // Only Advanced topics are locked until all Beginner topics are completed
-  const beginnerTopics = category.topics.filter(
-    t => t.difficulty === "Beginner"
-  );
+    // Only Advanced topics are locked until all Beginner topics are completed
+    const beginnerTopics = category.topics.filter(
+      t => t.difficulty === "Beginner"
+    );
 
-  const allBeginnersCompleted = beginnerTopics.every(
-    t => completedTopics.includes(t.id)
-  );
+    const allBeginnersCompleted = beginnerTopics.every(
+      t => completedTopics.includes(t.id)
+    );
 
-  return !allBeginnersCompleted;
-};
+    return !allBeginnersCompleted;
+  };
 
 
   const handleSelectTopic = (topic: GKTopic) => {
@@ -149,7 +155,7 @@ const GeneralKnowledge = () => {
 
   const handleSubmitAnswer = () => {
     if (!selectedAnswer || !selectedTestCategory) return;
-    
+
     // stop any ongoing speech when submitting
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -158,11 +164,11 @@ const GeneralKnowledge = () => {
 
     const currentQuestion = selectedTestCategory.questions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
-    
+
     if (isCorrect) {
       setScore(score + 1);
     }
-    
+
     setAnswers({ ...answers, [currentQuestion.id]: selectedAnswer });
     setShowResult(true);
   };
@@ -174,7 +180,7 @@ const GeneralKnowledge = () => {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
-    
+
     if (currentQuestionIndex < selectedTestCategory.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedAnswer(null);
@@ -225,11 +231,12 @@ const GeneralKnowledge = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
           >
-            <Card 
-              className="h-full cursor-pointer hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border-border/50 hover:border-primary/30 group overflow-hidden relative"
+            <Card
+              className="h-full cursor-pointer cyber-glass-card group"
               onClick={() => handleSelectLearnCategory(category)}
             >
-              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${category.color} opacity-10 blur-3xl rounded-full transform translate-x-10 -translate-y-10 group-hover:opacity-20 transition-opacity`} />
+              {/* Neon glow background */}
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${category.color} opacity-10 blur-3xl rounded-full transform translate-x-10 -translate-y-10 group-hover:opacity-30 transition-opacity`} />
 
               {/* optional category image */}
               {category.image && (
@@ -239,18 +246,18 @@ const GeneralKnowledge = () => {
               )}
 
               <CardHeader className="pb-3 relative z-10">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 cyber-icon-glow`}>
                   <IconComponent className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">{category.title}</CardTitle>
-                <CardDescription className="text-sm leading-relaxed">{category.description}</CardDescription>
+                <CardTitle className="cyber-subtitle text-xl group-hover:text-[#ff0080] transition-colors">{category.title}</CardTitle>
+                <CardDescription className="text-sm leading-relaxed text-gray-400">{category.description}</CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
                 <div className="flex items-center justify-between mt-2">
-                  <Badge variant="secondary" className="bg-secondary/50 backdrop-blur-sm">
+                  <Badge variant="secondary" className="cyber-badge-purple">
                     {category.topics.length} Topics
                   </Badge>
-                  <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <div className="w-8 h-8 rounded-full bg-[#ff0080]/20 flex items-center justify-center group-hover:bg-[#ff0080] group-hover:text-white transition-all cyber-pulse">
                     <ChevronRight className="h-4 w-4" />
                   </div>
                 </div>
@@ -271,21 +278,21 @@ const GeneralKnowledge = () => {
         {/* Category Header Section */}
         <div className="relative overflow-hidden rounded-3xl bg-card border border-border/50 p-8 shadow-sm">
           <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${selectedLearnCategory.color} opacity-10 blur-3xl rounded-full transform translate-x-20 -translate-y-20`} />
-          
+
           <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
-            <Button 
-              variant="outline" 
-              size="icon" 
+            <Button
+              variant="outline"
+              size="icon"
               onClick={handleBackToLearnCategories}
               className="rounded-full h-10 w-10 bg-background/50 backdrop-blur-sm border-2 hover:bg-background"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
-            
+
             <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedLearnCategory.color} shadow-lg flex items-center justify-center`}>
               <IconComponent className="h-8 w-8 text-white" />
             </div>
-            
+
             <div className="space-y-1">
               <div className="flex items-center gap-2 text-sm text-muted-foreground uppercase tracking-wider font-semibold">
                 <Sparkles className="h-3 w-3 text-primary" />
@@ -310,10 +317,10 @@ const GeneralKnowledge = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Card 
+                <Card
                   className={`group h-full flex flex-col transition-all duration-300 overflow-hidden relative
-                    ${isLocked 
-                      ? 'bg-muted/30 border-dashed border-2 cursor-not-allowed opacity-75' 
+                    ${isLocked
+                      ? 'bg-muted/30 border-dashed border-2 cursor-not-allowed opacity-75'
                       : 'cursor-pointer hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40'
                     }
                   `}
@@ -360,7 +367,7 @@ const GeneralKnowledge = () => {
                       {topic.title}
                     </CardTitle>
                   </CardHeader>
-                  
+
                   <CardContent className="flex-grow">
                     <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                       {topic.content}
@@ -368,8 +375,8 @@ const GeneralKnowledge = () => {
                   </CardContent>
 
                   <CardFooter className="pt-0 pb-6">
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       disabled={isLocked}
                       className="w-full justify-between group-hover:bg-primary/5 group-hover:text-primary transition-all"
                     >
@@ -377,9 +384,9 @@ const GeneralKnowledge = () => {
                         {isCompleted ? "Read Again" : "Start Reading"}
                       </span>
                       {isLocked ? (
-                         <Lock className="h-4 w-4 text-muted-foreground/50" />
+                        <Lock className="h-4 w-4 text-muted-foreground/50" />
                       ) : (
-                         <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       )}
                     </Button>
                   </CardFooter>
@@ -396,8 +403,8 @@ const GeneralKnowledge = () => {
     if (!selectedTopic || !selectedLearnCategory) return null;
     const isCompleted = completedTopics.includes(selectedTopic.id);
 
-      return (
-        <div className="space-y-6">
+    return (
+      <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Button variant="ghost" className="hover:scale-125 hover:text-primary" size="icon" onClick={handleBackToLearnCategories}>
             <ArrowLeft className="h-5 w-5" />
@@ -415,63 +422,62 @@ const GeneralKnowledge = () => {
         <Card className="border-border/50 shadow-lg">
           <CardContent className="p-8 space-y-8">
             <div className="prose prose-slate dark:prose-invert max-w-none">
-  <ReactMarkdown
-    components={{
-      p: ({ children, node, ...props }) => {
-        const isFirstParagraph =
-          node?.position?.start?.offset === 0;
+              <ReactMarkdown
+                components={{
+                  p: ({ children, node, ...props }) => {
+                    const isFirstParagraph =
+                      node?.position?.start?.offset === 0;
 
-        return (
-          <p
-            className={`text-md leading-loose text-foreground/90 ${
-              isFirstParagraph
-                ? "first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left"
-                : ""
-            }`}
-          >
-            {children}
-          </p>
-        );
-      },
-                    img: ({ src, alt }) => {
-                      const ContentImage = ({ src, alt }: { src?: string; alt?: string }) => {
-                        const { isOnline } = useNetworkStatus();
-                        const [hasError, setHasError] = useState(false);
+                    return (
+                      <p
+                        className={`text-md leading-loose text-foreground/90 ${isFirstParagraph
+                          ? "first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left"
+                          : ""
+                          }`}
+                      >
+                        {children}
+                      </p>
+                    );
+                  },
+                  img: ({ src, alt }) => {
+                    const ContentImage = ({ src, alt }: { src?: string; alt?: string }) => {
+                      const { isOnline } = useNetworkStatus();
+                      const [hasError, setHasError] = useState(false);
 
-                        // Don't render images when offline
-                        if (!isOnline) {
-                          return null;
-                        }
+                      // Don't render images when offline
+                      if (!isOnline) {
+                        return null;
+                      }
 
-                        if (hasError) {
-                          return (
-                            <div className="w-48 h-32 rounded-md mx-auto overflow-hidden bg-muted/10 flex items-center justify-center">
-                              <div className="text-xs text-muted-foreground text-center">Image not available</div>
-                            </div>
-                          );
-                        }
-
+                      if (hasError) {
                         return (
-                          <div className="w-48 h-32 rounded-md mx-auto overflow-hidden bg-muted/10">
-                            <img 
-                              src={src ?? ''} 
-                              alt={alt ?? ''} 
-                              className="w-full h-full object-cover" 
-                              onError={() => setHasError(true)}
-                            />
+                          <div className="w-48 h-32 rounded-md mx-auto overflow-hidden bg-muted/10 flex items-center justify-center">
+                            <div className="text-xs text-muted-foreground text-center">Image not available</div>
                           </div>
                         );
-                      };
+                      }
 
-                      return <ContentImage src={src ?? ''} alt={alt ?? ''} />;
-                    },
-    }}
-  >
-    {selectedTopic.content}
-  </ReactMarkdown>
-</div>
+                      return (
+                        <div className="w-48 h-32 rounded-md mx-auto overflow-hidden bg-muted/10">
+                          <img
+                            src={src ?? ''}
+                            alt={alt ?? ''}
+                            className="w-full h-full object-cover"
+                            onError={() => setHasError(true)}
+                          />
+                        </div>
+                      );
+                    };
 
-            
+                    return <ContentImage src={src ?? ''} alt={alt ?? ''} />;
+                  },
+                }}
+              >
+                {selectedTopic.content}
+              </ReactMarkdown>
+            </div>
+
+
             {selectedTopic.keyPoints && selectedTopic.keyPoints.length > 0 && (
               <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
                 <h3 className="text-lg font-semibold text-primary flex items-center gap-2 mb-4">
@@ -480,7 +486,7 @@ const GeneralKnowledge = () => {
                 </h3>
                 <div className="grid gap-3">
                   {selectedTopic.keyPoints.map((point, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -524,15 +530,15 @@ const GeneralKnowledge = () => {
 
             <div className="pt-8 border-t flex justify-center">
               {!isCompleted ? (
-                 <Button size="lg" onClick={handleMarkTopicComplete} className="w-full sm:w-auto gap-2">
-                   <CheckCircle2 className="h-4 w-4" />
-                   Mark as Completed
-                 </Button>
+                <Button size="lg" onClick={handleMarkTopicComplete} className="w-full sm:w-auto gap-2">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Mark as Completed
+                </Button>
               ) : (
                 <Button size="lg" variant="outline" disabled className="w-full sm:w-auto gap-2 text-green-600 border-green-200 bg-green-50">
-                   <Check className="h-4 w-4" />
-                   Completed
-                 </Button>
+                  <Check className="h-4 w-4" />
+                  Completed
+                </Button>
               )}
             </div>
 
@@ -553,7 +559,7 @@ const GeneralKnowledge = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
           >
-            <Card 
+            <Card
               className="cursor-pointer hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/30 group overflow-hidden"
               onClick={() => handleSelectTestCategory(category)}
             >
@@ -595,7 +601,7 @@ const GeneralKnowledge = () => {
           <Card className="border-border/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-purple-600" />
             <CardContent className="p-12 text-center space-y-8">
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring" }}
@@ -603,20 +609,20 @@ const GeneralKnowledge = () => {
               >
                 <Medal className="h-16 w-16 text-primary" />
               </motion.div>
-              
+
               <div className="space-y-2">
                 <h3 className="text-4xl font-bold">
                   {score} <span className="text-muted-foreground text-2xl">/ {selectedTestCategory.questions.length}</span>
                 </h3>
                 <p className="text-lg text-muted-foreground max-w-md mx-auto">
-                  {score >= selectedTestCategory.questions.length * 0.8 
+                  {score >= selectedTestCategory.questions.length * 0.8
                     ? "Outstanding! You have a solid grasp of this topic."
                     : score >= selectedTestCategory.questions.length * 0.5
-                    ? "Good effort! Review the topics to score higher next time."
-                    : "Keep practicing! Don't give up, learning takes time."}
+                      ? "Good effort! Review the topics to score higher next time."
+                      : "Keep practicing! Don't give up, learning takes time."}
                 </p>
               </div>
-              
+
               <div className="flex gap-4 justify-center pt-4">
                 <Button variant="outline" size="lg" onClick={handleBackToTestCategories}>
                   Explore Other Topics
@@ -694,17 +700,16 @@ const GeneralKnowledge = () => {
                     key={index}
                     whileHover={{ scale: showResult ? 1 : 1.01 }}
                     whileTap={{ scale: showResult ? 1 : 0.99 }}
-                    className={`w-full p-4 rounded-xl text-left transition-all border-2 relative overflow-hidden ${
-                      showResult
-                        ? option === currentQuestion.correctAnswer
-                          ? "bg-green-500/10 border-green-500/50 text-green-700 dark:text-green-400"
-                          : option === selectedAnswer
+                    className={`w-full p-4 rounded-xl text-left transition-all border-2 relative overflow-hidden ${showResult
+                      ? option === currentQuestion.correctAnswer
+                        ? "bg-green-500/10 border-green-500/50 text-green-700 dark:text-green-400"
+                        : option === selectedAnswer
                           ? "bg-red-500/10 border-red-500/50 text-red-700 dark:text-red-400"
                           : "bg-muted/30 border-transparent opacity-50"
-                        : selectedAnswer === option
+                      : selectedAnswer === option
                         ? "bg-primary/10 border-primary shadow-sm"
                         : "bg-card border-border hover:bg-primary/10 hover:border-primary/60"
-                    }`}
+                      }`}
                     onClick={() => handleAnswerSelect(option)}
                     disabled={showResult}
                   >
@@ -725,21 +730,20 @@ const GeneralKnowledge = () => {
                     key={option}
                     whileHover={{ scale: showResult ? 1 : 1.01 }}
                     whileTap={{ scale: showResult ? 1 : 0.99 }}
-                    className={`w-full p-6 rounded-xl text-left transition-all border-2 ${
-                      showResult
-                        ? option === currentQuestion.correctAnswer
-                          ? "bg-green-500/10 border-green-500/50"
-                          : option === selectedAnswer
+                    className={`w-full p-6 rounded-xl text-left transition-all border-2 ${showResult
+                      ? option === currentQuestion.correctAnswer
+                        ? "bg-green-500/10 border-green-500/50"
+                        : option === selectedAnswer
                           ? "bg-red-500/10 border-red-500/50"
                           : "bg-muted/30 border-transparent opacity-50"
-                        : selectedAnswer === option
+                      : selectedAnswer === option
                         ? "bg-primary/10 border-primary"
                         : "bg-card border-border hover:border-blue-500/50 hover:bg-blue-50/50"
-                    }`}
+                      }`}
                     onClick={() => handleAnswerSelect(option)}
                     disabled={showResult}
                   >
-                     <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                       <span className="capitalize font-semibold text-lg">{option}</span>
                       {showResult && option === currentQuestion.correctAnswer && (
                         <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -795,46 +799,65 @@ const GeneralKnowledge = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 pb-12 bg-background/50 relative">
+    <div className="cyber-gk-page min-h-screen pt-16 pb-12 cyber-bg relative overflow-hidden">
+      {/* Cyberpunk Background Effects */}
+      <div className="cyber-gradient-overlay" />
+      <div className="cyber-grid" />
+
+      {/* Floating Orbs */}
+      <div className="cyber-orb cyber-orb-pink" />
+      <div className="cyber-orb cyber-orb-purple" />
+      <div className="cyber-orb cyber-orb-cyan" />
+
       {/* Focus Mode Toggle - Upper Right */}
       <div className="fixed top-20 right-4 z-40">
         <FocusModeToggle
           isEnabled={isFocusModeEnabled}
           onToggle={toggleFocusMode}
-          totalTime={screenTimeData.totalTime}
-          focusTime={screenTimeData.focusTime}
+          totalTime={screenTimeData.totalScreenTime}
+          focusTime={screenTimeData.focusModeTime}
           tabSwitchCount={tabSwitchCount}
           isFullscreen={isFullscreen}
           onExitFullscreen={exitFullscreen}
+          userName="User"
         />
       </div>
-      
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none -z-10" />
-      
-      <div className="container mx-auto px-4 max-w-7xl">
+
+      {/* Focus Mode Alerts */}
+      <InactivityAlert
+        show={showInactivityAlert}
+        onDismiss={dismissInactivityAlert}
+      />
+      <WelcomeBackMessage
+        show={showWelcomeBackMessage}
+        message={motivationalMessage}
+        onDismiss={dismissWelcomeBackMessage}
+      />
+
+      <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-10 text-center"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 mb-4 pb-1">
+          <h1 className="cyber-title text-4xl md:text-6xl mb-6">
             General Knowledge
           </h1>
-          <p className="text-muted-foreground text-lg max-w-4xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
             Expand your horizons with our curated learning materials and challenge yourself with interactive quizzes.
             <br />
-            <strong>A chronological GK journey tracing knowledge from the birth of the universe to today’s world.</strong>
+            <span className="cyber-text-glow font-semibold">A chronological GK journey tracing knowledge from the birth of the universe to today's world.</span>
           </p>
         </motion.div>
 
         <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "learn" | "test")} className="space-y-8">
           <div className="flex justify-center">
-            <TabsList className="grid w-full max-w-md grid-cols-2 p-1 bg-muted/50 backdrop-blur-sm border border-border/50">
-              <TabsTrigger value="learn" className="flex items-center gap-2 data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all">
+            <TabsList className="grid w-full max-w-md grid-cols-2 p-1 cyber-glass-card">
+              <TabsTrigger value="learn" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ff0080] data-[state=active]:to-[#8b5cf6] data-[state=active]:text-white transition-all font-['Orbitron'] font-semibold">
                 <BookOpen className="h-4 w-4" />
                 Learn
               </TabsTrigger>
-              <TabsTrigger value="test" className="flex items-center gap-2 data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all">
+              <TabsTrigger value="test" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ff0080] data-[state=active]:to-[#8b5cf6] data-[state=active]:text-white transition-all font-['Orbitron'] font-semibold">
                 <GraduationCap className="h-4 w-4" />
                 Test
               </TabsTrigger>

@@ -4,12 +4,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
-import { 
-  Gift, 
-  Coins, 
-  Shield, 
-  Sparkles, 
-  Star, 
+import {
+  Gift,
+  Coins,
+  Shield,
+  Sparkles,
+  Star,
   Flame,
   Moon,
   Palette,
@@ -24,6 +24,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/data/translations';
 import { useFocusMode } from "@/hooks/useFocusMode";
 import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
+import { InactivityAlert, WelcomeBackMessage } from "@/components/ui/focus-mode-alerts";
 
 const iconMap: { [key: string]: any } = {
   Shield,
@@ -41,14 +42,19 @@ export default function Rewards() {
   const { stats, rewards, userRewards, purchaseReward, loading } = useGamification();
   const { language } = useLanguage();
   const t: Record<string, string> = translations[language] as unknown as Record<string, string>;
-  const { 
-    isFocusModeEnabled, 
-    toggleFocusMode, 
-    screenTimeData, 
+  const {
+    isFocusModeEnabled,
+    toggleFocusMode,
+    screenTimeData,
     tabSwitchCount,
     isFullscreen,
-    exitFullscreen
-  } = useFocusMode();
+    exitFullscreen,
+    showInactivityAlert,
+    dismissInactivityAlert,
+    showWelcomeBackMessage,
+    dismissWelcomeBackMessage,
+    motivationalMessage
+  } = useFocusMode({ userName: 'User' });
 
   const getIcon = (iconName: string) => {
     const Icon = iconMap[iconName] || Gift;
@@ -119,14 +125,26 @@ export default function Rewards() {
         <FocusModeToggle
           isEnabled={isFocusModeEnabled}
           onToggle={toggleFocusMode}
-          totalTime={screenTimeData.totalTime}
-          focusTime={screenTimeData.focusTime}
+          totalTime={screenTimeData.totalScreenTime}
+          focusTime={screenTimeData.focusModeTime}
           tabSwitchCount={tabSwitchCount}
           isFullscreen={isFullscreen}
           onExitFullscreen={exitFullscreen}
+          userName="User"
         />
       </div>
-      
+
+      {/* Focus Mode Alerts */}
+      <InactivityAlert
+        show={showInactivityAlert}
+        onDismiss={dismissInactivityAlert}
+      />
+      <WelcomeBackMessage
+        show={showWelcomeBackMessage}
+        message={motivationalMessage}
+        onDismiss={dismissWelcomeBackMessage}
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -194,9 +212,8 @@ export default function Rewards() {
                           transition={{ delay: index * 0.05 }}
                         >
                           <Card
-                            className={`relative overflow-hidden transition-all hover:shadow-lg ${
-                              owned ? 'border-primary/50 bg-primary/5' : ''
-                            }`}
+                            className={`relative overflow-hidden transition-all hover:shadow-lg ${owned ? 'border-primary/50 bg-primary/5' : ''
+                              }`}
                           >
                             {owned && (
                               <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full p-2">

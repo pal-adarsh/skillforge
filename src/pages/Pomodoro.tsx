@@ -5,17 +5,23 @@ import { Badge } from '@/components/ui/badge';
 import { Timer, Brain, Coffee, Target, TrendingUp, Sparkles } from 'lucide-react';
 import { useFocusMode } from "@/hooks/useFocusMode";
 import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
+import { InactivityAlert, WelcomeBackMessage } from "@/components/ui/focus-mode-alerts";
 
 export default function Pomodoro() {
-  const { 
-    isFocusModeEnabled, 
-    toggleFocusMode, 
-    screenTimeData, 
+  const {
+    isFocusModeEnabled,
+    toggleFocusMode,
+    screenTimeData,
     tabSwitchCount,
     isFullscreen,
-    exitFullscreen
-  } = useFocusMode();
-  
+    exitFullscreen,
+    showInactivityAlert,
+    dismissInactivityAlert,
+    showWelcomeBackMessage,
+    dismissWelcomeBackMessage,
+    motivationalMessage
+  } = useFocusMode({ userName: 'User' });
+
   return (
     <div className="min-h-screen pt-20 pb-8">
       {/* Focus Mode Toggle - Upper Right */}
@@ -23,14 +29,26 @@ export default function Pomodoro() {
         <FocusModeToggle
           isEnabled={isFocusModeEnabled}
           onToggle={toggleFocusMode}
-          totalTime={screenTimeData.totalTime}
-          focusTime={screenTimeData.focusTime}
+          totalTime={screenTimeData.totalScreenTime}
+          focusTime={screenTimeData.focusModeTime}
           tabSwitchCount={tabSwitchCount}
           isFullscreen={isFullscreen}
           onExitFullscreen={exitFullscreen}
+          userName="User"
         />
       </div>
-      
+
+      {/* Focus Mode Alerts */}
+      <InactivityAlert
+        show={showInactivityAlert}
+        onDismiss={dismissInactivityAlert}
+      />
+      <WelcomeBackMessage
+        show={showWelcomeBackMessage}
+        message={motivationalMessage}
+        onDismiss={dismissWelcomeBackMessage}
+      />
+
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <motion.section
@@ -41,7 +59,7 @@ export default function Pomodoro() {
           <Card className="glass-card overflow-hidden relative">
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px]" />
-            
+
             <div className="relative p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 rounded-xl bg-primary/10 border border-primary/30">
@@ -52,7 +70,7 @@ export default function Pomodoro() {
                   <p className="text-muted-foreground">Stay focused and boost your productivity</p>
                 </div>
               </div>
-              
+
               <div className="flex flex-wrap gap-2 mt-4">
                 <Badge variant="outline" className="gap-1">
                   <Brain className="h-3 w-3" /> Deep Focus

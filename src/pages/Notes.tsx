@@ -20,10 +20,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { 
-  FileText, 
-  Plus, 
-  Sparkles, 
+import {
+  FileText,
+  Plus,
+  Sparkles,
   Network,
   BookOpen,
   PanelRightClose,
@@ -34,22 +34,30 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
+import { useProfile } from '@/hooks/useProfile';
 import { useFocusMode } from "@/hooks/useFocusMode";
 import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
+import { InactivityAlert, WelcomeBackMessage } from "@/components/ui/focus-mode-alerts";
 
 const STORAGE_KEY = 'skillforge_notes';
 
 export default function Notes() {
   const { user } = useAuth();
+  const { profile } = useProfile();
   const { toast } = useToast();
-  const { 
-    isFocusModeEnabled, 
-    toggleFocusMode, 
-    screenTimeData, 
+  const {
+    isFocusModeEnabled,
+    toggleFocusMode,
+    screenTimeData,
     tabSwitchCount,
     isFullscreen,
-    exitFullscreen
-  } = useFocusMode();
+    exitFullscreen,
+    showInactivityAlert,
+    dismissInactivityAlert,
+    showWelcomeBackMessage,
+    dismissWelcomeBackMessage,
+    motivationalMessage
+  } = useFocusMode({ userName: profile?.full_name || user?.email || 'User' });
   const [pages, setPages] = useState<NotePage[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -78,35 +86,35 @@ export default function Notes() {
   const getBreadcrumbs = useCallback((pageId: string): { id: string; title: string }[] => {
     const breadcrumbs: { id: string; title: string }[] = [];
     let current = pages.find(p => p.id === pageId);
-    
+
     while (current) {
       breadcrumbs.unshift({ id: current.id, title: current.title || 'Untitled' });
       current = current.parentId ? pages.find(p => p.id === current!.parentId) : undefined;
     }
-    
+
     return breadcrumbs;
   }, [pages]);
 
   const handleCreatePage = useCallback((parentId: string | null = null) => {
     const newPage = createPage('Untitled', parentId);
-    
+
     setPages(prev => {
       const updated = [...prev, newPage];
-      
+
       // If parent exists, update its children array
       if (parentId) {
-        return updated.map(p => 
-          p.id === parentId 
+        return updated.map(p =>
+          p.id === parentId
             ? { ...p, children: [...p.children, newPage.id] }
             : p
         );
       }
-      
+
       return updated;
     });
-    
+
     setCurrentPageId(newPage.id);
-    
+
     toast({
       title: 'Page created',
       description: 'New page has been created',
@@ -126,22 +134,22 @@ export default function Notes() {
       const children = pages.filter(p => p.parentId === id);
       return [id, ...children.flatMap(c => getDescendants(c.id))];
     };
-    
+
     const idsToDelete = new Set(getDescendants(pageId));
 
     setPages(prev => {
       // Remove deleted pages
       const remaining = prev.filter(p => !idsToDelete.has(p.id));
-      
+
       // Remove from parent's children array
       if (pageToDelete.parentId) {
-        return remaining.map(p => 
+        return remaining.map(p =>
           p.id === pageToDelete.parentId
             ? { ...p, children: p.children.filter(c => c !== pageId) }
             : p
         );
       }
-      
+
       return remaining;
     });
 
@@ -248,14 +256,26 @@ export default function Notes() {
         <FocusModeToggle
           isEnabled={isFocusModeEnabled}
           onToggle={toggleFocusMode}
-          totalTime={screenTimeData.totalTime}
-          focusTime={screenTimeData.focusTime}
+          totalTime={screenTimeData.totalScreenTime}
+          focusTime={screenTimeData.focusModeTime}
           tabSwitchCount={tabSwitchCount}
           isFullscreen={isFullscreen}
           onExitFullscreen={exitFullscreen}
+          userName={profile?.full_name || user?.email || 'User'}
         />
       </div>
-      
+
+      {/* Focus Mode Alerts */}
+      <InactivityAlert
+        show={showInactivityAlert}
+        onDismiss={dismissInactivityAlert}
+      />
+      <WelcomeBackMessage
+        show={showWelcomeBackMessage}
+        message={motivationalMessage}
+        onDismiss={dismissWelcomeBackMessage}
+      />
+
       {/* Header */}
       <div className="border-b px-4 py-2 flex items-center justify-between bg-background/95 backdrop-blur">
         <div className="flex items-center gap-2">
@@ -263,7 +283,7 @@ export default function Notes() {
           <span className="font-semibold">Notes</span>
           <Badge variant="secondary">{pages.length} pages</Badge>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Dialog open={showFlowchartDialog} onOpenChange={setShowFlowchartDialog}>
             <DialogTrigger asChild>
@@ -291,7 +311,7 @@ export default function Notes() {
               />
             </DialogContent>
           </Dialog>
-          
+
           <Button
             variant="ghost"
             size="icon"
@@ -306,8 +326,8 @@ export default function Notes() {
       <div className="flex-1 overflow-hidden">
         <ResizablePanelGroup direction="horizontal">
           {/* Sidebar */}
-          <ResizablePanel 
-            defaultSize={20} 
+          <ResizablePanel
+            defaultSize={20}
             minSize={sidebarCollapsed ? 3 : 15}
             maxSize={sidebarCollapsed ? 5 : 30}
           >

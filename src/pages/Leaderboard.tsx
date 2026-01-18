@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { useFocusMode } from "@/hooks/useFocusMode";
 import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
+import { InactivityAlert, WelcomeBackMessage } from "@/components/ui/focus-mode-alerts";
 
 interface LeaderboardEntry {
   user_id: string;
@@ -30,14 +31,19 @@ export default function Leaderboard() {
   const { getLeaderboard, stats } = useGamification();
   const { language } = useLanguage();
   const t: Record<string, string> = translations[language] as unknown as Record<string, string>;
-  const { 
-    isFocusModeEnabled, 
-    toggleFocusMode, 
-    screenTimeData, 
+  const {
+    isFocusModeEnabled,
+    toggleFocusMode,
+    screenTimeData,
     tabSwitchCount,
     isFullscreen,
-    exitFullscreen
-  } = useFocusMode();
+    exitFullscreen,
+    showInactivityAlert,
+    dismissInactivityAlert,
+    showWelcomeBackMessage,
+    dismissWelcomeBackMessage,
+    motivationalMessage
+  } = useFocusMode({ userName: 'User' });
   const [topUsers, setTopUsers] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [period, setPeriod] = useState<'all' | 'week' | 'month'>('all');
@@ -85,14 +91,26 @@ export default function Leaderboard() {
         <FocusModeToggle
           isEnabled={isFocusModeEnabled}
           onToggle={toggleFocusMode}
-          totalTime={screenTimeData.totalTime}
-          focusTime={screenTimeData.focusTime}
+          totalTime={screenTimeData.totalScreenTime}
+          focusTime={screenTimeData.focusModeTime}
           tabSwitchCount={tabSwitchCount}
           isFullscreen={isFullscreen}
           onExitFullscreen={exitFullscreen}
+          userName="User"
         />
       </div>
-      
+
+      {/* Focus Mode Alerts */}
+      <InactivityAlert
+        show={showInactivityAlert}
+        onDismiss={dismissInactivityAlert}
+      />
+      <WelcomeBackMessage
+        show={showWelcomeBackMessage}
+        message={motivationalMessage}
+        onDismiss={dismissWelcomeBackMessage}
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -126,13 +144,13 @@ export default function Leaderboard() {
                 <div className="text-right space-y-2">
                   <div className="flex items-center gap-2">
                     <Target className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">
+                    <span className="text-sm text-muted-foreground">
                       {stats.lessons_completed} {t.leaderboardLessonsCompleted}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Zap className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">
+                    <span className="text-sm text-muted-foreground">
                       {t.leaderboardDayStreak.replace('{count}', String(stats.current_streak))}
                     </span>
                   </div>
@@ -144,7 +162,7 @@ export default function Leaderboard() {
 
         {/* Tabs for different periods */}
         <Tabs value={period} onValueChange={(v) => setPeriod(v as any)} className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3">
             <TabsTrigger value="all">{t.leaderboardAllTime}</TabsTrigger>
             <TabsTrigger value="month">{t.leaderboardThisMonth}</TabsTrigger>
             <TabsTrigger value="week">{t.leaderboardThisWeek}</TabsTrigger>
@@ -251,7 +269,7 @@ export default function Leaderboard() {
 
             {/* Rest of leaderboard */}
             <Card>
-                <CardHeader>
+              <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <TrendingUp className="h-5 w-5" />
                   {t.leaderboardTopLearners}
@@ -270,22 +288,21 @@ export default function Leaderboard() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className={`flex items-center gap-4 p-4 rounded-lg transition-colors ${
-                        entry.user_id === user?.id
-                          ? 'bg-primary/10 border border-primary/50'
-                          : 'hover:bg-muted/50'
-                      }`}
+                      className={`flex items-center gap-4 p-4 rounded-lg transition-colors ${entry.user_id === user?.id
+                        ? 'bg-primary/10 border border-primary/50'
+                        : 'hover:bg-muted/50'
+                        }`}
                     >
                       <div className="flex items-center justify-center w-10 h-10">
                         {getRankIcon(index + 3)}
                       </div>
-                      
+
                       <Avatar className="h-12 w-12">
                         <AvatarFallback>
                           {getInitials(entry.profiles?.full_name)}
                         </AvatarFallback>
                       </Avatar>
-                      
+
                       <div className="flex-1">
                         <h4 className="font-semibold">
                           {entry.profiles?.full_name || t.leaderboardAnonymousUser}

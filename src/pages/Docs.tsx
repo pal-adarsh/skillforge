@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { 
-  FileText, 
-  Sparkles, 
-  Copy, 
+import {
+  FileText,
+  Sparkles,
+  Copy,
   CheckCheck,
   Loader2,
   FileQuestion,
@@ -18,6 +18,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/data/translations";
 import { useFocusMode } from "@/hooks/useFocusMode";
 import { FocusModeToggle } from "@/components/ui/focus-mode-toggle";
+import { InactivityAlert, WelcomeBackMessage } from "@/components/ui/focus-mode-alerts";
 // Local implementations for gemini-docs helpers (fallbacks / simple async mocks)
 const generateSummary = async (content: string): Promise<string> => {
   // simulate async processing
@@ -55,14 +56,19 @@ export default function Docs() {
   const { language } = useLanguage();
   const t: Record<string, string> = translations[language] as unknown as Record<string, string>;
   const { toast } = useToast();
-  const { 
-    isFocusModeEnabled, 
-    toggleFocusMode, 
-    screenTimeData, 
+  const {
+    isFocusModeEnabled,
+    toggleFocusMode,
+    screenTimeData,
     tabSwitchCount,
     isFullscreen,
-    exitFullscreen
-  } = useFocusMode();
+    exitFullscreen,
+    showInactivityAlert,
+    dismissInactivityAlert,
+    showWelcomeBackMessage,
+    dismissWelcomeBackMessage,
+    motivationalMessage
+  } = useFocusMode({ userName: 'User' });
 
   const [content, setContent] = useState("");
   const [summary, setSummary] = useState("");
@@ -155,17 +161,29 @@ export default function Docs() {
     <div className="min-h-screen pt-20 pb-8">
       {/* Focus Mode Toggle - Upper Right */}
       <div className="fixed top-20 right-4 z-40">
-          <FocusModeToggle
+        <FocusModeToggle
           isEnabled={isFocusModeEnabled}
           onToggle={toggleFocusMode}
-          totalTime={(screenTimeData as any).totalTime}
-          focusTime={(screenTimeData as any).focusTime}
+          totalTime={screenTimeData.totalScreenTime}
+          focusTime={screenTimeData.focusModeTime}
           tabSwitchCount={tabSwitchCount}
           isFullscreen={isFullscreen}
           onExitFullscreen={exitFullscreen}
+          userName="User"
         />
       </div>
-      
+
+      {/* Focus Mode Alerts */}
+      <InactivityAlert
+        show={showInactivityAlert}
+        onDismiss={dismissInactivityAlert}
+      />
+      <WelcomeBackMessage
+        show={showWelcomeBackMessage}
+        message={motivationalMessage}
+        onDismiss={dismissWelcomeBackMessage}
+      />
+
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
         <motion.div
@@ -201,7 +219,7 @@ export default function Docs() {
                 </div>
                 <Badge variant="outline">{content.length} characters</Badge>
               </div>
-              
+
               <Textarea
                 placeholder="Paste your content here... (articles, notes, documents, etc.)"
                 value={content}

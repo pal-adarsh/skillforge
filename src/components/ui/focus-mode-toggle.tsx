@@ -15,51 +15,33 @@ interface FocusModeToggleProps {
   tabSwitchCount?: number;
   isFullscreen?: boolean;
   onExitFullscreen?: () => void;
+  userName?: string;
 }
 
 const formatTime = (milliseconds: number): string => {
   const totalSeconds = Math.floor(milliseconds / 1000);
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
-  
+
   if (hours > 0) {
     return `${hours}h ${minutes}m`;
   }
   return `${minutes}m`;
 };
 
-export const FocusModeToggle = ({ 
-  isEnabled, 
-  onToggle, 
-  totalTime = 0, 
+export const FocusModeToggle = ({
+  isEnabled,
+  onToggle,
+  totalTime = 0,
   focusTime = 0,
   tabSwitchCount = 0,
   isFullscreen = false,
-  onExitFullscreen
+  onExitFullscreen,
+  userName = "User"
 }: FocusModeToggleProps) => {
   return (
     <div className="flex items-center gap-3">
-      {/* Screen Time Display */}
-      {(totalTime > 0 || focusTime > 0) && (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted/50 text-xs text-muted-foreground">
-              <Timer className="h-3.5 w-3.5" />
-              <span>
-                {focusTime > 0 ? formatTime(focusTime) : formatTime(totalTime)}
-              </span>
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <div className="text-xs space-y-1">
-              <p>Total Time: {formatTime(totalTime)}</p>
-              <p>Focus Time: {formatTime(focusTime)}</p>
-            </div>
-          </TooltipContent>
-        </Tooltip>
-      )}
-
-      {/* Tab Switch Count */}
+      {/* Tab Switch Count - LEFTMOST */}
       {tabSwitchCount > 0 && (
         <Tooltip>
           <TooltipTrigger asChild>
@@ -73,6 +55,24 @@ export const FocusModeToggle = ({
           </TooltipContent>
         </Tooltip>
       )}
+
+      {/* Screen Time Display - MIDDLE (ALWAYS VISIBLE) */}
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted/50 text-xs text-muted-foreground">
+            <Timer className="h-3.5 w-3.5" />
+            <span>
+              {isEnabled && focusTime > 0 ? formatTime(focusTime) : formatTime(totalTime)}
+            </span>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <div className="text-xs space-y-1">
+            <p>Total Time: {formatTime(totalTime)}</p>
+            {isEnabled && <p>Focus Time: {formatTime(focusTime)}</p>}
+          </div>
+        </TooltipContent>
+      </Tooltip>
 
       {/* Exit Fullscreen Button */}
       {isFullscreen && onExitFullscreen && (
@@ -94,18 +94,17 @@ export const FocusModeToggle = ({
         </Tooltip>
       )}
 
-      {/* Focus Mode Toggle */}
+      {/* Focus Mode Toggle - RIGHTMOST */}
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
             variant={isEnabled ? "default" : "outline"}
             size="sm"
             onClick={onToggle}
-            className={`relative flex items-center gap-2 transition-all duration-300 ${
-              isEnabled 
-                ? "bg-gradient-to-r from-primary to-accent hover:opacity-90 glow-primary" 
+            className={`relative flex items-center gap-2 transition-all duration-300 ${isEnabled
+                ? "bg-gradient-to-r from-primary to-accent hover:opacity-90 glow-primary"
                 : "hover:bg-muted"
-            }`}
+              }`}
           >
             <motion.div
               animate={{ rotate: isEnabled ? 360 : 0 }}
@@ -116,7 +115,7 @@ export const FocusModeToggle = ({
             <span className="hidden sm:inline font-medium">
               {isEnabled ? "Focus Mode ON" : "Focus Mode"}
             </span>
-            
+
             {/* Pulse effect when enabled */}
             {isEnabled && (
               <motion.div
@@ -136,8 +135,8 @@ export const FocusModeToggle = ({
         </TooltipTrigger>
         <TooltipContent>
           <p className="text-xs">
-            {isEnabled 
-              ? "Disable Focus Mode & exit fullscreen" 
+            {isEnabled
+              ? "Disable Focus Mode & exit fullscreen"
               : "Enable Focus Mode & enter fullscreen for distraction-free learning"}
           </p>
         </TooltipContent>
