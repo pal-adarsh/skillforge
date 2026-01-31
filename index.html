@@ -51,25 +51,10 @@
     <meta name="twitter:image" content="https://skillforge-learn.vercel.app/og-image.png" />
     <meta name="twitter:site" content="@skillforge" />
     
-    <!-- Security Headers -->
+    <!-- Security Headers (X-Frame-Options and CSP should be set via HTTP headers in vercel.json) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" />
-    
-    <!-- Content Security Policy (relaxed for development) -->
-    <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' data: https: blob:;
-      connect-src 'self' https://*.supabase.co https://generativelanguage.googleapis.com wss://*.supabase.co;
-      frame-ancestors 'none';
-      form-action 'self';
-      base-uri 'self';
-    " />
     
     <!-- Structured Data -->
     <script type="application/ld+json">

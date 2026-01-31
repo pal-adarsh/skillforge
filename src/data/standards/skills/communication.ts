@@ -148,8 +148,30 @@ Silence feels longer to you than to the listener.
 Confidence is often *heard before it is seen*.  
 Speak a little slower, pronounce words clearly, and trust pauses.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: The Recording Test
+Record yourself reading a paragraph. Listen for:
+- Pace (too fast/slow?)
+- Clarity (every word distinct?)
+- Filler words (count them)
+- Vocal variety (monotone or dynamic?)
+
+### Exercise 2: The 60-Second Pitch
+Explain a topic you love in 60 seconds. Practice until smooth without fillers.
+
+### Exercise 3: Volume Control
+Practice speaking the same sentence at 5 volume levels (whisper to stage voice).
+
+---
+
 > "Speak clearly, if you speak at all; carve every word before you let it fall."  
 — Oliver Wendell Holmes
+
+> "The way we communicate with others and with ourselves ultimately determines the quality of our lives."  
+— Tony Robbins
     `,
   },
   { 

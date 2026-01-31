@@ -652,19 +652,6 @@ export const translations = {
       "Social Awareness & Real-World Knowledge": "सामाजिक जागरूकता और वास्तविक दुनिया का ज्ञान",
       "Learning How to Learn": "सीखना कैसे सीखें",
       "Creativity & Innovation": "रचनात्मकता और नवाचार",
-    // Navigation
-    dashboard: "डैशबोर्ड",
-    // lessons: "पाठ", // removed duplicate
-    quiz: "प्रश्नोत्तरी",
-    profile: "प्रोफ़ाइल",
-    signOut: "साइन आउट",
-    signIn: "साइन इन",
-    leaderboard: "लीडरबोर्ड",
-    rewards: "पुरस्कार",
-    about: "हमारे बारे में",
-    privacy: "गोपनीयता",
-    terms: "नियम और शर्तें",
-    copyRight: "© 2026 SkillForge",
     
     // Lessons Page
     learningHub: "सीखने का केंद्र",

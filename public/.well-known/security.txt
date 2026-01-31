@@ -1,0 +1,27 @@
+Contact: mailto:security@questweave.io
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://questweave.io/.well-known/security.txt
+
+# Security Policy
+# Report security vulnerabilities responsibly
+# We take security seriously and appreciate your help
+
+# Scope
+# - All *.questweave.io domains
+# - Mobile applications
+# - API endpoints
+
+# Out of Scope
+# - Third-party integrations
+# - Physical security
+# - Social engineering
+
+# Safe Harbor
+# We support safe harbor for security researchers who:
+# - Make a good faith effort to avoid privacy violations
+# - Do not exploit vulnerabilities beyond necessary testing
+# - Report findings promptly
+# - Do not publicly disclose before we've had time to respond
+
+Acknowledgments: https://questweave.io/security/hall-of-fame

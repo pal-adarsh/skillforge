@@ -96,6 +96,21 @@ Turn this on everywhere (Email, Banking, Social Media).
 ## Key Takeaway
 Treat your passwords like your toothbrush: Don't share them, change them if they get dirty (leaked), and never reuse them.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: Password Audit
+Check if your email has been in a breach at haveibeenpwned.com. If yes, change that password immediately.
+
+### Exercise 2: Create a Strong Passphrase
+Generate a 4-word random passphrase using a method like Diceware. Practice remembering it.
+
+### Exercise 3: Enable 2FA
+Turn on two-factor authentication for your 3 most important accounts today.
+
+---
+
 > "Passwords are like underwear: you don't let people see it, you should change it often, and you shouldn't share it with strangers." - Chris Pirillo
     `
   },
@@ -154,6 +169,21 @@ You get a message from a friend's account: "I'm stuck in London, I lost my walle
 ## Key Takeaway
 Skepticism is your best antivirus. If an email or message triggers an intense emotion (panic or excitement), PAUSE.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: Phishing Identification
+Review the last 10 emails in your inbox. Identify which ones could be phishing attempts and why.
+
+### Exercise 2: Red Flag Checklist
+Create a personal checklist of 5 red flags to watch for in suspicious messages.
+
+### Exercise 3: Family Training
+Teach a family member (especially older relatives) about one type of scam and how to avoid it.
+
+---
+
 > "If it sounds too good to be true, it is."
     `
   },
@@ -208,6 +238,21 @@ Periodically check what your apps have access to:
 ## Key Takeaway
 Privacy isn't about hiding bad things; it's about protecting your autonomy. You should get to decide who knows what about you.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: Location Services Audit
+Check your phone's location settings. Change apps from "Always" to "While Using" where appropriate.
+
+### Exercise 2: Social Media Privacy Check
+Review the privacy settings on your most-used social platform. Tighten at least 3 settings.
+
+### Exercise 3: Browser Cleanup
+Install a privacy-focused extension like uBlock Origin or Privacy Badger on your browser.
+
+---
+
 > "Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say." - Edward Snowden
     `
   },
@@ -253,6 +298,21 @@ Browser extensions are powerful but risky.
 
 ## Key Takeaway
 The internet is permanent. Assume everything you do is being watched by someone (ISP, advertisers, or hackers), and browse accordingly.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: HTTPS Check
+Visit 5 websites you use regularly. Check if each uses HTTPS (lock icon). Note any that don't.
+
+### Exercise 2: Extension Audit
+Review all browser extensions you have installed. Remove any you don't recognize or use.
+
+### Exercise 3: VPN Research
+Research 3 reputable VPN services. Compare their features and privacy policies.
+
+---
 
 > "The internet is written in ink, not pencil."
     `
@@ -303,6 +363,21 @@ A "Troll" is someone who posts to annoy or harass others for fun.
 ## Key Takeaway
 Be the person online that you are offline. Kindness costs nothing but means everything.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: The Grandma Test
+Before your next 5 posts, ask: "Would I be comfortable showing this to my grandma?"
+
+### Exercise 2: Tone Check
+Re-read 3 recent messages you sent. Could any be misinterpreted? How might you rewrite them?
+
+### Exercise 3: Kindness Comment
+Leave one genuinely kind, supportive comment online today.
+
+---
+
 > "Remember the human."
     `
   },
@@ -345,6 +420,23 @@ Before posting, imagine putting that image or text on a massive billboard in the
 
 ## Key Takeaway
 You cannot delete your footprint, but you can curate it. Make sure your digital reputation reflects who you truly are.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Google Yourself
+Search your name. What comes up? Is there anything you'd want to change?
+
+### Exercise 2: Account Cleanup
+List all online accounts you have. Delete any you no longer use.
+
+### Exercise 3: Digital Footprint Audit
+Review your last 20 social media posts. Would you be proud if a future employer saw them?
+
+---
+
+> "Your reputation is built in thousands of tiny moments." - Unknown
     `
   },
   { 
@@ -386,6 +478,21 @@ Most people see bullying but do nothing because "someone else will handle it."
 
 ## Key Takeaway
 Your worth is not defined by a comment section. If you see something, say something.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Upstander Practice
+Think of 3 ways you could support someone being bullied online without escalating the situation.
+
+### Exercise 2: Evidence Documentation
+Learn how to screenshot on your device. Practice documenting a hypothetical bullying scenario.
+
+### Exercise 3: Resource List
+Create a list of 3 trusted adults and 2 online resources you could turn to if you or a friend experienced cyberbullying.
+
+---
 
 > "Blowing out someone else's candle doesn't make yours shine any brighter."
     `
@@ -435,6 +542,23 @@ Avoid sharing:
 
 ## Key Takeaway
 Your social media feed is a publication. Act like a responsible editor.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: T.H.I.N.K. Practice
+Before your next 5 shares, run each through the T.H.I.N.K. checklist.
+
+### Exercise 2: Consent Check
+Review the last 5 photos you posted. Did you have consent from everyone in them?
+
+### Exercise 3: Copyright Awareness
+Find 3 sources of free-to-use images (Creative Commons) for future use.
+
+---
+
+> "Share as if your reputation depends on it—because it does."
     `
   },
 
@@ -482,6 +606,21 @@ We can no longer trust our eyes. AI can generate photos and videos of people say
 ## Key Takeaway
 Don't be a "useful idiot." Verify before you amplify.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: Reverse Image Search
+Practice using Google Reverse Image Search on 3 images from social media. Are they what they claim to be?
+
+### Exercise 2: Headline Analysis
+Find a sensational headline. Read the full article. Does the content match the headline?
+
+### Exercise 3: Source Check
+Pick a news story. Find the same story from 3 different sources. Note the differences in framing.
+
+---
+
 > "A lie can travel halfway around the world while the truth is putting on its shoes." - Mark Twain
     `
   },
@@ -525,6 +664,23 @@ Algorithms show you what you *want* to see, not what is true.
 
 ## Key Takeaway
 Information is cheap; accurate information is expensive (it takes time to verify). Pay the price of time.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: CRAAP Test Application
+Pick an article you've read recently. Run it through all 5 CRAAP criteria.
+
+### Exercise 2: Lateral Reading Practice
+Find a website making a claim. Open new tabs and research who runs the site and their agenda.
+
+### Exercise 3: Echo Chamber Check
+List your 5 most-visited news sources. Do they all share the same perspective?
+
+---
+
+> "Trust, but verify." - Ronald Reagan
     `
   },
   { 
@@ -571,6 +727,23 @@ Look at who is speaking in the story.
 
 ## Key Takeaway
 Don't be a sponge absorbing everything. Be a filter. Question the narrative.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Bias Detection
+Watch 2 different news channels cover the same story. List the differences in framing.
+
+### Exercise 2: "Who Benefits?" Analysis
+Pick 3 pieces of content you consumed today. For each, ask: "Who benefits if I believe this?"
+
+### Exercise 3: Representation Audit
+Find a news story about a specific group. Were members of that group interviewed?
+
+---
+
+> "The media's the most powerful entity on earth. They have the power to make the innocent guilty and to make the guilty innocent." - Malcolm X
     `
   },
   { 
@@ -612,6 +785,23 @@ Advertisers build a "Psychographic Profile" of you.
 
 ## Key Takeaway
 Advertising is the art of making you unhappy with what you have. Recognize the game so you don't have to play it.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Sponsored Spotting
+Scroll through social media for 10 minutes. Count and identify all sponsored content.
+
+### Exercise 2: Ad Diary
+For one day, note every time you feel the urge to buy something. Was an ad involved?
+
+### Exercise 3: Retargeting Test
+Search for a product you don't want. Over the next 24 hours, note how often it appears in ads.
+
+---
+
+> "The best minds of my generation are thinking about how to make people click ads." - Jeff Hammerbacher
     `
   },
 
@@ -661,6 +851,23 @@ There are two types of people: those who have lost data, and those who will.
 
 ## Key Takeaway
 A well-maintained device is a reliable partner. Neglect it, and it will fail you when you need it most.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Storage Cleanup
+Check your device storage. Delete unused apps and old files to free up at least 2GB.
+
+### Exercise 2: Backup Check
+Verify when your last backup was. If it was more than a week ago, do one now.
+
+### Exercise 3: Update Audit
+Check for pending software updates on all your devices. Install them.
+
+---
+
+> "An ounce of prevention is worth a pound of cure."
     `
   },
   { 
@@ -703,6 +910,23 @@ Data doesn't travel in one big lump. It is chopped into tiny "packets."
 
 ## Key Takeaway
 The internet is a physical infrastructure of cables and servers, not magic. Understanding this helps you troubleshoot when things go wrong.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Traceroute
+Use the traceroute command (or online tool) to see the path data takes from your computer to a website.
+
+### Exercise 2: DNS Lookup
+Use an online DNS lookup tool to find the IP address behind your favorite website.
+
+### Exercise 3: Data Center Research
+Research where the nearest data center is to your location. What companies operate there?
+
+---
+
+> "The internet is the first thing that humanity has built that humanity doesn't understand." - Eric Schmidt
     `
   },
   { 
@@ -750,6 +974,23 @@ Delete apps you haven't used in 3 months.
 
 ## Key Takeaway
 Your phone is your digital house. Don't let strangers in, and definitely don't give them the keys (permissions) to your safe.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Permission Review
+Go through all apps on your phone. Revoke unnecessary permissions for at least 5 apps.
+
+### Exercise 2: App Deletion
+Delete 5 apps you haven't used in the last 3 months.
+
+### Exercise 3: Free App Analysis
+Pick 3 free apps you use. Research how they make money.
+
+---
+
+> "If you're not paying for the product, you are the product."
     `
   },
   { 
@@ -793,7 +1034,24 @@ Try a 24-hour break once a month.
 ## Key Takeaway
 Life happens in the analog world. Don't scroll your life away.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: Screen Time Check
+Check your screen time report. Note your most-used apps. Are you happy with how you spent that time?
+
+### Exercise 2: Phone-Free Hour
+Try one hour without your phone today. Notice how you feel.
+
+### Exercise 3: Grayscale Challenge
+Turn your phone to grayscale for 24 hours. Notice how it affects your usage.
+
+---
+
 > "Disconnect to reconnect."
+
+> "Almost everything will work again if you unplug it for a few minutes, including you." - Anne Lamott
     `
   }
 ];

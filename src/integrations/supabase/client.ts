@@ -2,16 +2,37 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = "https://seswrpyynbrquurnonss.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlc3dycHl5bmJycXV1cm5vbnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NDA4MDMsImV4cCI6MjA3MzQxNjgwM30._wnpaziYtbuXEdTQCCRKMas9PmQ6iqHBNXPLYzNWK_A";
+// Use environment variables with fallbacks for development
+// Note: The anon key is designed to be public and is safe to include here
+// Security is enforced via Row Level Security (RLS) policies in Supabase
+
+// Get env vars, handling Vite's empty string default and common placeholders
+const envUrl = import.meta.env.VITE_SUPABASE_URL;
+const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const isPlaceholder = (val: string) => !val || val.includes('your_supabase') || val.includes('placeholder');
+
+const SUPABASE_URL = (!isPlaceholder(envUrl) && envUrl.trim()) || "https://seswrpyynbrquurnonss.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = (!isPlaceholder(envKey) && envKey.trim()) || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlc3dycHl5bmJycXV1cm5vbnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NDA4MDMsImV4cCI6MjA3MzQxNjgwM30._wnpaziYtbuXEdTQCCRKMas9PmQ6iqHBNXPLYzNWK_A";
+
+console.log('Supabase client initialization:', { 
+  hasEnvUrl: !!envUrl, 
+  usingUrl: SUPABASE_URL.substring(0, 30) + '...' 
+});
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
-    storage: localStorage,
+    storage: typeof window !== 'undefined' ? localStorage : undefined,
     persistSession: true,
     autoRefreshToken: true,
-  }
+    detectSessionInUrl: true,
+  },
+  global: {
+    headers: {
+      'x-client-info': 'questweave-io',
+    },
+  },
 });

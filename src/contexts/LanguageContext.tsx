@@ -13,13 +13,21 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('app-language');
-    return (saved as Language) || 'en';
+    try {
+      const saved = localStorage.getItem('app-language');
+      return (saved as Language) || 'en';
+    } catch {
+      return 'en';
+    }
   });
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem('app-language', lang);
+    try {
+      localStorage.setItem('app-language', lang);
+    } catch (e) {
+      console.warn('Failed to save language to localStorage:', e);
+    }
   };
 
   const t = (key: string): string => {

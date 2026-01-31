@@ -109,7 +109,7 @@ export function useNotes() {
     const newPage = createPage(`${pageToDuplicate.title} (Copy)`, pageToDuplicate.parentId);
     newPage.blocks = pageToDuplicate.blocks.map(b => ({
       ...b,
-      id: crypto.randomUUID(),
+      id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Math.random().toString(36).substring(2),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     }));

@@ -85,7 +85,24 @@ Creativity rewires your brain.
 ## Key Takeaway
 You are already creative. Every time you construct a sentence you've never said before, you are creating. The goal is to do it on purpose.
 
+---
+
+## Practical Exercises
+
+### Exercise 1: The 30 Circles Test
+Draw 30 circles on paper. In 3 minutes, turn as many as possible into recognizable objects (sun, pizza, wheel, etc.). This exercises divergent thinking.
+
+### Exercise 2: Combinatorial Creation
+Pick 3 random objects around you. Spend 5 minutes imagining a product that combines all three.
+
+### Exercise 3: Creative Observation
+For 5 minutes, observe a common object (a chair, a cup). List 10 things you never noticed about it before.
+
+---
+
 > "You can't use up creativity. The more you use, the more you have." - Maya Angelou
+
+> "Creativity is intelligence having fun." - Albert Einstein
     `
   },
   { 
@@ -138,7 +155,37 @@ Paradoxically, limitations boost creativity.
 ## Key Takeaway
 Writer's block is just performance anxiety. Stop trying to be a genius and just be a worker.
 
+---
+
+## The Resistance Framework
+
+**What Creates Resistance:**
+| Trigger | Solution |
+|---------|----------|
+| Perfectionism | "Done is better than perfect" |
+| Fear of judgment | Create for yourself first |
+| Overwhelm | Break into tiny steps |
+| Comparison to others | Compare to your past self |
+| Waiting for inspiration | Inspiration follows action |
+
+---
+
+## Practical Exercises
+
+### Exercise 1: The Bad First Draft
+Set a timer for 10 minutes. Write/create the worst possible version of your project. No editing, no judgment. Just output.
+
+### Exercise 2: Constraint Creation
+Add 3 random constraints to your project (must be blue, must include a dog, must rhyme). Notice how constraints spark ideas.
+
+### Exercise 3: The 5-Minute Start
+Commit to just 5 minutes of creative work. When the timer ends, you can stop. (You probably won't want to.)
+
+---
+
 > "Amateurs sit and wait for inspiration, the rest of us just get up and go to work." - Stephen King
+
+> "The secret to getting ahead is getting started." - Mark Twain
     `
   },
   { 
@@ -187,6 +234,23 @@ Dean Simonton's research shows that the most successful creators (Picasso, Ediso
 
 ## Key Takeaway
 To have a good idea, you must first have lots of ideas. Turn off the filter.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: 30 Circles Challenge
+Draw 30 circles. In 3 minutes, turn as many as possible into recognizable objects. Focus on quantity.
+
+### Exercise 2: SCAMPER a Product
+Pick any common object (umbrella, toothbrush). Apply all 7 SCAMPER techniques to generate at least 7 new ideas.
+
+### Exercise 3: Bad Idea Brainstorm
+Pick a problem. Spend 10 minutes generating intentionally terrible solutions. Then see if any spark a good idea.
+
+---
+
+> "The best way to have a good idea is to have lots of ideas." - Linus Pauling
     `
   },
   { 
@@ -240,6 +304,36 @@ Happy accidents.
 
 ## Key Takeaway
 Creativity is the art of remixing. Feed your brain diverse ingredients so it can cook up new recipes.
+
+---
+
+## The Idea Combination Matrix
+
+When stuck, use a combination matrix:
+
+| Idea A | Idea B | Combination |
+|--------|--------|-------------|
+| Bicycle | Electricity | E-Bike |
+| Restaurant | Driving | Food Truck |
+| Book | Audio | Audiobook |
+| Game | Education | Edutainment |
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Random Word Technique
+State a problem. Open a dictionary to a random word. Force 3 connections between the word and your problem.
+
+### Exercise 2: Cross-Pollination Journal
+For one week, learn one new thing from a field completely unrelated to your main interest. Note any surprising connections.
+
+### Exercise 3: Bisociation Practice
+Pick two random objects. Spend 5 minutes combining them into a new invention. Draw it and name it.
+
+---
+
+> "Creativity is just connecting things." - Steve Jobs
     `
   },
 
@@ -299,6 +393,23 @@ The space *around* the object.
 
 ## Key Takeaway
 You don't need to be "talented" to enjoy art. Art is a language. Even learning the alphabet (lines, shapes) allows you to express yourself.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Contour Drawing
+Without looking at your paper, draw the outline of your hand slowly. This trains your eye-hand connection.
+
+### Exercise 2: Negative Space Drawing
+Draw the space AROUND an object, not the object itself.
+
+### Exercise 3: Value Study
+Create a 5-step gradient from white to black using just a pencil. Practice shading spheres.
+
+---
+
+> "Every child is an artist. The problem is how to remain an artist once we grow up." - Pablo Picasso
     `
   },
   { 
@@ -358,6 +469,23 @@ You don't need instruments to make music.
 
 ## Key Takeaway
 Music is organized sound. By understanding the organization, you deepen the emotional impact.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Active Listening Session
+Pick a song. Listen 3 times: once for drums only, once for melody only, once for lyrics only.
+
+### Exercise 2: Found Sound Recording
+Record 5 interesting sounds on your phone. Arrange them into a simple rhythm.
+
+### Exercise 3: Mood Playlist
+Create 3 playlists: one for focus, one for energy, one for relaxation. Notice how tempo and key affect you.
+
+---
+
+> "Music gives a soul to the universe, wings to the mind, flight to the imagination." - Plato
     `
   },
   { 
@@ -415,6 +543,23 @@ Generative fiction starts with "What If."
 
 ## Key Takeaway
 Everyone has a story. The only difference between a writer and a non-writer is that the writer writes it down.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: 10-Minute Freewrite
+Set a timer. Write without stopping. Don't edit. See what emerges.
+
+### Exercise 2: The What-If Generator
+Write 10 "What If" scenarios. Pick the most interesting and write a 1-paragraph story.
+
+### Exercise 3: Show Don't Tell Practice
+Take 5 emotions (fear, joy, anger, sadness, love). Write a paragraph showing each without naming the emotion.
+
+---
+
+> "Start writing, no matter what. The water does not flow until the faucet is turned on." - Louis L'Amour
     `
   },
   { 
@@ -466,6 +611,23 @@ You don't need steps to dance.
 
 ## Key Takeaway
 Performance builds confidence. Being comfortable in your body and voice is a superpower in job interviews, dates, and speeches.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Status Walk
+Walk around your room as a high-status character (king, CEO). Then switch to low-status (nervous new employee). Feel the difference.
+
+### Exercise 2: "Yes, And" Practice
+With a partner, take turns making statements. Each person must respond with "Yes, and..." to build the scene.
+
+### Exercise 3: Mirror Exercise
+Face a partner. One leads slow movements, the other mirrors exactly. Switch roles after 2 minutes.
+
+---
+
+> "Acting is behaving truthfully under imaginary circumstances." - Sanford Meisner
     `
   },
 
@@ -529,6 +691,25 @@ Design thinking is best for "Wicked Problems"—problems with no single right an
 
 ## Key Takeaway
 Don't fall in love with your solution; fall in love with the user's problem.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Empathy Interview
+Interview 3 people about a problem they face. Listen for unmet needs, not just stated wants.
+
+### Exercise 2: Problem Reframe
+Take a problem statement. Rewrite it 5 different ways, each starting with "How might we..."
+
+### Exercise 3: Rapid Ideation
+Pick a problem. Generate 20 solutions in 10 minutes. Quantity over quality.
+
+---
+
+> "If I had asked people what they wanted, they would have said faster horses." - Henry Ford
+
+> "Get out of the building." - Steve Blank
     `
   },
   { 
@@ -590,6 +771,25 @@ Be ready to throw your prototype in the trash.
 
 ## Key Takeaway
 Stop talking about it. Build it. A bad prototype is worth more than a perfect theory.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Paper Prototype
+Pick an app idea. Draw 5 screens on paper. Test with a friend using paper "buttons."
+
+### Exercise 2: Cardboard Challenge
+Build a prototype of a physical product using only cardboard, tape, and markers.
+
+### Exercise 3: Feedback Session
+Show your prototype to 3 people. Use the Feedback Grid (Plus, Delta, Questions, Ideas) to capture responses.
+
+---
+
+> "If a picture is worth 1000 words, a prototype is worth 1000 meetings." - IDEO
+
+> "Fail early, fail often, fail forward." - John C. Maxwell
     `
   },
   { 
@@ -637,6 +837,23 @@ Take a finished product and work backward to understand how it was made.
 
 ## Key Takeaway
 If you are stuck, change the question. A well-defined problem is half-solved.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Problem Reframe
+Take any current challenge. Rewrite the problem 5 different ways starting with "How might we..."
+
+### Exercise 2: Functional Fixedness Test
+List 10 unconventional uses for a paperclip, a brick, and a newspaper.
+
+### Exercise 3: First Principles Analysis
+Pick a product you use daily. Break it down to its fundamental components. Ask: "Why does each part exist?"
+
+---
+
+> "If I had an hour to solve a problem, I'd spend 55 minutes defining the problem and 5 minutes solving it." - Albert Einstein
     `
   },
   { 
@@ -692,6 +909,25 @@ Ask "And then what?"
 
 ## Key Takeaway
 The best way to predict the future is to create it.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: A Day in 2050
+Write a detailed description of a typical day in your life in 2050. What technology exists? How do you work, eat, travel?
+
+### Exercise 2: Second-Order Thinking
+Pick a current trend (AI, electric cars, remote work). List 3 first-order effects, then 3 second-order effects for each.
+
+### Exercise 3: Scenario Planning
+For your career, write 4 scenarios: Probable, Plausible Good, Plausible Bad, and Preferable. What would you do in each?
+
+---
+
+> "The future is already here—it's just not very evenly distributed." - William Gibson
+
+> "The best way to predict the future is to invent it." - Alan Kay
     `
   },
 
@@ -742,6 +978,23 @@ Many creative geniuses (Brontë sisters, Tolkien) created elaborate fantasy worl
 
 ## Key Takeaway
 Imagination is the preview of life's coming attractions. (Einstein). It is a tool, not just a daydream.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Visualization Practice
+Close your eyes for 5 minutes. Visualize in detail a goal you want to achieve—see, hear, and feel it.
+
+### Exercise 2: Cloud Gazing
+Spend 10 minutes looking at clouds, patterns, or textures. Draw or describe 5 shapes you find.
+
+### Exercise 3: Build a World
+Create a fictional world with 5 rules that differ from our world. Write a short story set there.
+
+---
+
+> "Imagination is the beginning of creation. You imagine what you desire." - George Bernard Shaw
     `
   },
   { 
@@ -787,6 +1040,23 @@ The expert knows what is impossible. The beginner doesn't, so they try it anyway
 
 ## Key Takeaway
 "Man is most nearly himself when he achieves the seriousness of a child at play." - Heraclitus
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Sandbox Hour
+Set aside 1 hour with no agenda. Build, draw, write, or create anything with no pressure for results.
+
+### Exercise 2: Gamify a Task
+Take a boring task. Add a challenge: time limit, points system, or unusual constraint. Notice if it becomes more engaging.
+
+### Exercise 3: Play Date
+Do something purely playful: build with blocks, play a board game, or doodle aimlessly. Notice how your mind feels afterward.
+
+---
+
+> "Play is the highest form of research." - Albert Einstein
     `
   },
   { 
@@ -836,6 +1106,23 @@ Follow the thread.
 
 ## Key Takeaway
 Curiosity didn't kill the cat; it made the cat smarter. Stay curious.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Question Before Learning
+Before reading a new topic, write 5 questions you want answered. Notice how much better the information sticks.
+
+### Exercise 2: Rabbit Hole Hour
+Set a timer for 1 hour. Start with any topic and let curiosity guide you wherever it leads. Document your journey.
+
+### Exercise 3: Novelty Challenge
+This week, do 3 things you've never done: eat new food, take a new route, read an unusual magazine.
+
+---
+
+> "I have no special talents. I am only passionately curious." - Albert Einstein
     `
   },
   { 
@@ -890,6 +1177,25 @@ It's not magic. It's **Selective Attention**.
 
 ## Key Takeaway
 "The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt
+
+---
+
+## Practical Exercises
+
+### Exercise 1: The $100 Million Question
+If you had unlimited resources and couldn't fail, what would you create? Write in detail.
+
+### Exercise 2: Reverse Engineer Your Dream
+Pick a big dream. Work backward: What do you need to do in 5 years, 1 year, 1 month, 1 week, today?
+
+### Exercise 3: Vision Board
+Create a physical or digital board with images representing your goals—not just things, but feelings and experiences.
+
+---
+
+> "Shoot for the moon. Even if you miss, you'll land among the stars." - Les Brown
+
+> "Dream no small dreams for they have no power to move the hearts of men." - Johann Wolfgang von Goethe
     `
   }
 ];

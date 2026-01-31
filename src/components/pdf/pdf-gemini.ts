@@ -8,10 +8,16 @@ import {
   chunkText,
   searchChunks
 } from '@/lib/rag-engine';
+import { logger } from '@/lib/logger';
 
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyDJC5a882ruaC4XL6ejY3h_uJzpga-yLLA';
+// Secure API key handling - never use hardcoded fallbacks
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+if (!GEMINI_API_KEY) {
+  logger.error('VITE_GEMINI_API_KEY is not configured. AI features will be unavailable.');
+}
+
+const genAI = GEMINI_API_KEY ? new GoogleGenerativeAI(GEMINI_API_KEY) : null;
 
 // Cache for processed RAG documents
 const ragDocumentCache = new Map<string, RAGDocument>();

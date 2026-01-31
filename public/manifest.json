@@ -74,13 +74,6 @@
         }
       ]
     },
-      "icons": [
-        {
-          "src": "/placeholder.svg",
-          "sizes": "96x96"
-        }
-      ]
-    },
     {
       "name": "Lessons",
       "short_name": "Lessons", 

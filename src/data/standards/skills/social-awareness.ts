@@ -258,6 +258,25 @@ Sometimes, a law is unjust (e.g., Segregation laws).
 
 ## Key Takeaway
 Laws are not static. They are living agreements. If a law is bad, we have the power (through democracy) to change it.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: How a Bill Becomes Law Tracker
+Follow a current piece of legislation in your country. Track its journey: (1) Who proposed it? (2) What committees reviewed it? (3) What changes were made? (4) Did it pass? Create a timeline documenting each step over several weeks.
+
+### Exercise 2: Criminal vs. Civil Law Sorting Game
+Create 10 scenario cards (e.g., `Someone steals your phone`, `A company breaks a contract`). Sort each into Criminal Law or Civil Law. For each, identify: Who would bring the case? What's the potential penalty? What evidence would be needed?
+
+### Exercise 3: Rule of Law Case Study
+Research a famous case where the `Rule of Law` was tested - either upheld or violated. Examples: Watergate (USA), any corruption trial of a major leader. Write a one-page analysis of what happened and what it tells us about the importance of no one being above the law.
+
+---
+
+> `Where laws end, tyranny begins.` - John Locke
+
+> `One has a moral responsibility to disobey unjust laws.` - Martin Luther King Jr.
     `
   },
 
@@ -451,6 +470,25 @@ Is the world becoming too similar?
 
 ## Key Takeaway
 Isolation is no longer possible. To understand your own life (prices, jobs, safety), you must understand the world.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Supply Chain Trace
+Pick one item you own (phone, shirt, food item). Research its supply chain: Where were the raw materials sourced? Where was it manufactured? How did it reach you? Create a world map marking each location. This demonstrates how interconnected our daily lives are with global systems.
+
+### Exercise 2: News Ripple Effect Analysis
+When a major world event happens (economic, political, natural disaster), track its ripple effects for one week. How does an event in one country affect: stock markets globally, oil prices, supply chains, migration, or your local community? Document at least 5 connected impacts.
+
+### Exercise 3: Cultural Homogenization Debate
+Research `glocalization` - how global brands adapt to local cultures. Find 3 examples (like menu items at global restaurants in different countries). Then debate: Is globalization erasing unique cultures, or is it creating new hybrid cultures? Write a balanced 300-word reflection.
+
+---
+
+> `No man is an island, entire of itself.` - John Donne
+
+> `The world is getting smaller every day.` - Bill Gates
     `
   },
 
@@ -635,6 +673,25 @@ Not all helping is helpful.
 
 ## Key Takeaway
 Service is the rent we pay for the privilege of living on this planet.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Passion to Service Mapping
+Create a three-column chart: (1) Issues that break your heart (hunger, animals, education), (2) Skills you have, (3) Time you can commit. Find the intersection and research 3 local organizations that match. Reach out to one this week.
+
+### Exercise 2: Charity vs. Mutual Aid Analysis
+Research one traditional charity and one mutual aid organization in your area. Compare: Who makes decisions? Where does money go? How are recipients involved? Write a reflection on the differences and which approach you find more empowering.
+
+### Exercise 3: Impact Assessment
+Before your next volunteer activity, ask the organization: `What does this community actually need? How can I help without taking away local jobs or imposing my ideas?` Document their answer. After volunteering, reflect: Did my help actually help? What could be done better?
+
+---
+
+> `The best way to find yourself is to lose yourself in the service of others.` - Mahatma Gandhi
+
+> `No one has ever become poor by giving.` - Anne Frank
     `
   },
 
@@ -822,6 +879,25 @@ Have a bag ready for earthquakes/hurricanes.
 
 ## Key Takeaway
 In an emergency, seconds count. Knowing what to do *before* the panic sets in is your best defense.
+
+---
+
+## Practical Exercises
+
+### Exercise 1: Emergency Call Practice
+Role-play a 911 call with a family member. Practice: (1) Stating your location clearly, (2) Describing the emergency calmly, (3) Answering dispatcher questions. Time yourself - can you communicate essential information in under 30 seconds?
+
+### Exercise 2: Go Bag Assembly
+Assemble an emergency go-bag for your family. Include: water, non-perishable food, flashlight, batteries, first aid kit, cash, ID copies, phone charger. Check expiration dates. Store it somewhere accessible. Review contents every 6 months.
+
+### Exercise 3: Family Emergency Plan
+Create a comprehensive family emergency plan covering: (1) Meeting points if separated, (2) Out-of-area contact person, (3) Evacuation routes from home, (4) Location of emergency supplies, (5) Special needs (medications, pets). Post it visibly and practice it annually.
+
+---
+
+> `In the middle of difficulty lies opportunity.` - Albert Einstein
+
+> `Preparedness is the key to success and victory.` - Douglas MacArthur
     `
   }
 ];

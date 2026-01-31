@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
+import { sanitizeMermaid } from '@/lib/sanitize';
 
 interface MermaidFlowchartProps {
   code: string;
@@ -208,7 +209,7 @@ export function MermaidFlowchart({ code, title, onRefresh, isLoading }: MermaidF
                 transformOrigin: 'top left',
               }}
               className="min-h-[200px] flex items-center justify-center p-4"
-              dangerouslySetInnerHTML={{ __html: svg }}
+              dangerouslySetInnerHTML={{ __html: sanitizeMermaid(svg) }}
             />
           </div>
         )}

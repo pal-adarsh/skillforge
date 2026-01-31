@@ -10,6 +10,8 @@ import {
   Trash2 
 } from 'lucide-react';
 import { PDFDocument, extractTextFromPDF, formatFileSize, estimateReadingTime } from './pdf-utils';
+import { validateFile } from '@/lib/file-validator';
+import { logger } from '@/lib/logger';
 
 interface PDFUploaderProps {
   onPDFsChange: (pdfs: PDFDocument[]) => void;
@@ -39,25 +41,41 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({
       return;
     }
 
-    // Filter and validate PDF files
-    const pdfFiles = fileArray.filter(file => {
-      if (file.type !== 'application/pdf') {
-        setError(`${file.name} is not a PDF file`);
-        return false;
-      }
-      if (file.size > maxSizeMB * 1024 * 1024) {
-        setError(`${file.name} exceeds ${maxSizeMB}MB limit`);
-        return false;
-      }
-      return true;
-    });
+    // Validate each file with comprehensive security checks
+    const validatedFiles: File[] = [];
+    
+    for (const file of fileArray) {
+      const validation = await validateFile(file, {
+        allowedTypes: ['pdf'],
+        maxSize: maxSizeMB * 1024 * 1024,
+        scanContent: true,
+      });
 
-    if (pdfFiles.length === 0) return;
+      if (!validation.valid) {
+        setError(`${file.name}: ${validation.errors.join(', ')}`);
+        logger.warn('File validation failed', {
+          filename: file.name,
+          errors: validation.errors,
+        });
+        continue;
+      }
+
+      if (validation.warnings.length > 0) {
+        logger.warn('File validation warnings', {
+          filename: file.name,
+          warnings: validation.warnings,
+        });
+      }
+
+      validatedFiles.push(file);
+    }
+
+    if (validatedFiles.length === 0) return;
 
     setIsProcessing(true);
     const newPdfs: PDFDocument[] = [];
 
-    for (const file of pdfFiles) {
+    for (const file of validatedFiles) {
       try {
         setProcessingFile(file.name);
         const extracted = await extractTextFromPDF(file);
