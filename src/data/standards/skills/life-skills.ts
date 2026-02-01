@@ -160,16 +160,16 @@ Remember: hygiene isn’t about perfection. It’s about progress, awareness, an
 Create a simple tracking sheet for one week. List all hygiene activities (brushing teeth, showering, handwashing, nail care, etc.) and check off each time you complete them. At the end of the week, identify which areas need more consistency and create reminders for those specific habits.
 
 ### Exercise 2: The 20-Second Handwashing Challenge
-For one day, time yourself every time you wash your hands. Use the `Happy Birthday` song sung twice method (about 20 seconds). Notice how often you were rushing before. Track how many proper handwashes you complete in a day and aim to hit at least 8-10.
+For one day, time yourself every time you wash your hands. Use the 'Happy Birthday' song sung twice method (about 20 seconds). Notice how often you were rushing before. Track how many proper handwashes you complete in a day and aim to hit at least 8-10.
 
 ### Exercise 3: Morning Routine Optimization
 Write down your current morning hygiene routine with time estimates. Identify time-wasters and reorganize the sequence for maximum efficiency. Practice the optimized routine for 5 days and note how much time you save while maintaining quality hygiene.
 
 ---
 
-> `Personal hygiene is not just about cleanliness; it's about respecting yourself and those around you.` - Anonymous
+> \`Personal hygiene is not just about cleanliness; it's about respecting yourself and those around you.\` - Anonymous
 
-> `Cleanliness is not next to godliness. It is godliness.` - Unknown
+> \`Cleanliness is not next to godliness. It is godliness.\` - Unknown
 `
 },
 
@@ -312,9 +312,9 @@ Research your skin type (oily, dry, combination, sensitive) and create a simple 
 
 ---
 
-> `Dress shabbily and they remember the dress; dress impeccably and they remember the person.` - Coco Chanel
+> \`Dress shabbily and they remember the dress; dress impeccably and they remember the person.\` - Coco Chanel
 
-> `Good grooming is essential; the way you present yourself is how the world perceives you.` - Estee Lauder
+> \`Good grooming is essential; the way you present yourself is how the world perceives you.\` - Estee Lauder
 `
 },
 
@@ -461,16 +461,16 @@ Stay consistent, stay mindful, and let your habits shape a stronger, happier you
 Get a reusable water bottle and mark it with time goals (8 AM - 25%, 12 PM - 50%, 4 PM - 75%, 8 PM - 100%). Track your water intake for 7 days. Note changes in your energy levels, skin clarity, and focus. Aim for at least 2 liters daily.
 
 ### Exercise 2: Movement Minutes Tracker
-For one week, log every form of movement: walking to class, climbing stairs, stretching, exercise sessions. Calculate your total `movement minutes` each day. Set a goal to reach at least 30 minutes of intentional movement daily, then gradually increase.
+For one week, log every form of movement: walking to class, climbing stairs, stretching, exercise sessions. Calculate your total \`movement minutes\` each day. Set a goal to reach at least 30 minutes of intentional movement daily, then gradually increase.
 
 ### Exercise 3: The Whole Foods Experiment
-For 5 days, follow the `80/20 plate rule`: 80% of each meal should be whole, unprocessed foods (vegetables, fruits, grains, proteins) and only 20% processed foods. Take photos of your meals and rate how you feel (energy, mood, digestion) each day from 1-10.
+For 5 days, follow the \`80/20 plate rule\`: 80% of each meal should be whole, unprocessed foods (vegetables, fruits, grains, proteins) and only 20% processed foods. Take photos of your meals and rate how you feel (energy, mood, digestion) each day from 1-10.
 
 ---
 
-> `Health is not valued till sickness comes.` - Thomas Fuller
+> \`Health is not valued till sickness comes.\` - Thomas Fuller
 
-> `He who has health has hope, and he who has hope has everything.` - Arabian Proverb
+> \`He who has health has hope, and he who has hope has everything.\` - Arabian Proverb
 `
 },
 
@@ -574,6 +574,19 @@ Sleep is not laziness — it’s recovery. Resting properly enhances your focus,
 Treat your sleeping hours as seriously as your working hours; both are the pillars of high performance and a clear mind.
 
 > “Sleep is the golden chain that ties health and our bodies together.” — Thomas Dekker
+
+---
+
+## Practical Exercises
+
+### Exercise 1: The 3-2-1 Challenge
+For three nights, follow the 3-2-1 rule strictly: no heavy meals 3 hours before bed, no work 2 hours before, and no screens 1 hour before. Note how long it takes you to fall asleep each night and your energy level the next morning (scale 1-10).
+
+### Exercise 2: Sleep Sanctuary Audit
+Evaluate your bedroom based on the 5 key elements: Temperature, Darkness, Noise, Comfort, and Scent. Identify one improvement you can make today (e.g., getting a sleep mask or adjusting the thermostat) and implement it. Track your sleep quality for the next two nights.
+
+### Exercise 3: Consistency Tracker
+Pick a fixed bedtime and wake-up time that allows for 8 hours of sleep. Stick to this schedule for 7 days, including the weekend. Use a journal to record any daytime sleepiness and how your focus improves throughout the week.
 `
 },
 
@@ -973,13 +986,13 @@ Gather 10 random clothing items from your wardrobe. For each item, find and deco
 Next time you do laundry, practice the full sorting process: separate by color (whites, lights, darks), by fabric type (delicates, towels, regular), and check pockets. Time how long proper sorting takes. Track any items you caught that could have caused problems (tissues, pens, coins).
 
 ### Exercise 3: Stain Emergency Response
-Research and create a `Stain First Aid` card with immediate responses for 5 common stains: coffee/tea, food grease, ink, blood, and grass. Include the do's and don'ts for each. Keep this card near your laundry area or in your phone notes.
+Research and create a \`Stain First Aid\` card with immediate responses for 5 common stains: coffee/tea, food grease, ink, blood, and grass. Include the do's and don'ts for each. Keep this card near your laundry area or in your phone notes.
 
 ---
 
-> `Laundry is the only thing that should be separated by color.` - Anonymous
+> \`Laundry is the only thing that should be separated by color.\` - Anonymous
 
-> `A well-cared-for wardrobe is a well-cared-for life.` - Unknown
+> \`A well-cared-for wardrobe is a well-cared-for life.\` - Unknown
 `
 },
 
@@ -1006,8 +1019,7 @@ Small, consistent precautions:
 - Keep minor issues from becoming major disasters.
 - Protect children, elders, and pets who depend on you.
 
-![Fire extinguisher](https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80&auto=format&fit=crop
-)
+![Fire extinguisher](https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80&auto=format&fit=crop)
 
 ---
 
@@ -1101,9 +1113,9 @@ Create a simple emergency communication plan: (1) Draw your home with two exit r
 
 ---
 
-> `By failing to prepare, you are preparing to fail.` - Benjamin Franklin
+> \`By failing to prepare, you are preparing to fail.\` - Benjamin Franklin
 
-> `Safety is not a gadget but a state of mind.` - Eleanor Everet
+> \`Safety is not a gadget but a state of mind.\` - Eleanor Everet
 `
 },
 
@@ -1247,11 +1259,11 @@ Budgeting helps you:
 A simple and effective budgeting framework for most incomes.  
 Divide your **after-tax income** into three parts:
 
-**|  Category  |  Percentage  |  Examples  |**\n
-**|-----------|-------------|-----------|**  \n
-**| Needs     |** 50% **|** Rent, groceries, transport, utilities, insurance, minimum loan payments **|** \n
-**| Wants    |** 30% **|** Eating out, entertainment, shopping, hobbies, travel **|**                    \n
-**| Savings  |** 20% **|**  Emergency fund, investments, future goals, extra debt repayment **|**       \n
+**|  Category  |  Percentage  |  Examples  |**
+|-----------|-------------|-----------|
+| **Needs** | 50% | Rent, groceries, transport, utilities, insurance, minimum loan payments |
+| **Wants** | 30% | Eating out, entertainment, shopping, hobbies, travel |
+| **Savings** | 20% | Emergency fund, investments, future goals, extra debt repayment |
 
 **Tip:** If saving 20% feels difficult, start with 5–10%. Consistency matters more than the amount.
 
@@ -1426,11 +1438,11 @@ It protects you from debt when life throws unexpected problems.
 
 Saving becomes easier when your money has a **clear purpose**.
 
-**| Goal Type | Timeframe | Examples |** \n
-**|------------|------------|-----------|**   \n
-**| Short-term |** 1–6 months **|** Headphones, clothes, phone accessories **|** \n
-**| Medium-term |** 6–18 months **|** Laptop, vacation, bike down payment **|**\n
-**| Long-term |** 2+ years **|** College fees, vehicle, home deposit **|**\n
+**| Goal Type | Timeframe | Examples |**
+|------------|------------|-----------|
+| **Short-term** | 1–6 months | Headphones, clothes, phone accessories |
+| **Medium-term** | 6–18 months | Laptop, vacation, bike down payment |
+| **Long-term** | 2+ years | College fees, vehicle, home deposit |
 
 **Motivation trick:**  
 Rename accounts like *“Laptop Fund”* instead of just *“Savings”*.
@@ -1559,12 +1571,12 @@ Most impulse urges fade overnight. Emotions spend quickly—logic protects your 
 
 **Real cost = Price ÷ Expected usage**
 
-**| Item | Price | Expected Use | Cost per Use |** \n
-|------|------|----------------|---------------|\n
-**|** Jacket **|** ₹1,500 **|** 100 wears **|** ₹15/use **|**\n
-**|** Cheap shirt **|** ₹400 **|** 5 wears **|** ₹80/use **|**\n
-**|** Laptop **|** ₹12,000 **|** 2,000 hours **|** ₹6/hour **|**\n
-**|** Earphones **|** ₹2,000 **|** 500 hours **|** ₹4/hour **|**
+**| Item | Price | Expected Use | Cost per Use |**
+|------|------|----------------|---------------|
+| **Jacket** | ₹1,500 | 100 wears | ₹15/use |
+| **Cheap shirt** | ₹400 | 5 wears | ₹80/use |
+| **Laptop** | ₹12,000 | 2,000 hours | ₹6/hour |
+| **Earphones** | ₹2,000 | 500 hours | ₹4/hour |
 
 **Golden Rule:**  
 Pay more upfront **only if** the cost per use is lower.
@@ -1815,9 +1827,9 @@ For one week, use the 1-3-5 rule daily: 1 big task, 3 medium tasks, 5 small task
 
 ---
 
-> `Either you run the day, or the day runs you.` - Jim Rohn
+> \`Either you run the day, or the day runs you.\` - Jim Rohn
 
-> `The key is not to prioritize what's on your schedule, but to schedule your priorities.` - Stephen Covey
+> \`The key is not to prioritize what's on your schedule, but to schedule your priorities.\` - Stephen Covey
 `
 },
 
@@ -1927,12 +1939,12 @@ These activities waste time and energy.
 **80% of results come from 20% of efforts.**  
 This principle applies to almost every area of life.
 
-| Area | 80/20 Insight | \n
-|------|---------------|    \n
-| Studying | 20% key topics bring 80% marks |  \n
-| Work | 20% tasks create 80% value |        \n
-| Relationships | 20% people provide 80% support |  \n
-| Habits | 20% routines shape 80% of your lifestyle |  \n
+| Area | 80/20 Insight |
+|------|---------------|
+| Studying | 20% key topics bring 80% marks |
+| Work | 20% tasks create 80% value |
+| Relationships | 20% people provide 80% support |
+| Habits | 20% routines shape 80% of your lifestyle |
 
 **Action step:** Identify your personal top 20% and protect that time fiercely.
 
@@ -2247,11 +2259,11 @@ Better sleep, calmer mornings, less stress.
 
 **Small daily actions compound over time.**
 
-| Daily Habit (15 min) | Monthly | Yearly |\n
-|---------------------|---------|--------|\n
-| Studying | 7.5 hours | 90 hours |\n
-| Exercise | 7.5 hours | 90 hours |\n
-| Reading | 7.5 hours | 90 hours |\n 
+| Daily Habit (15 min) | Monthly | Yearly |
+|---------------------|---------|--------|
+| Studying | 7.5 hours | 90 hours |
+| Exercise | 7.5 hours | 90 hours |
+| Reading | 7.5 hours | 90 hours | 
 
 15 minutes every day → **91 hours per year**  
 Big weekend efforts → Inconsistent and fragile

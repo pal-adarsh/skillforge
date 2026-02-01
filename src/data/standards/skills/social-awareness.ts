@@ -267,16 +267,16 @@ Laws are not static. They are living agreements. If a law is bad, we have the po
 Follow a current piece of legislation in your country. Track its journey: (1) Who proposed it? (2) What committees reviewed it? (3) What changes were made? (4) Did it pass? Create a timeline documenting each step over several weeks.
 
 ### Exercise 2: Criminal vs. Civil Law Sorting Game
-Create 10 scenario cards (e.g., `Someone steals your phone`, `A company breaks a contract`). Sort each into Criminal Law or Civil Law. For each, identify: Who would bring the case? What's the potential penalty? What evidence would be needed?
+Create 10 scenario cards (e.g., \`Someone steals your phone\`, \`A company breaks a contract\`). Sort each into Criminal Law or Civil Law. For each, identify: Who would bring the case? What's the potential penalty? What evidence would be needed?
 
 ### Exercise 3: Rule of Law Case Study
-Research a famous case where the `Rule of Law` was tested - either upheld or violated. Examples: Watergate (USA), any corruption trial of a major leader. Write a one-page analysis of what happened and what it tells us about the importance of no one being above the law.
+Research a famous case where the \`Rule of Law\` was tested - either upheld or violated. Examples: Watergate (USA), any corruption trial of a major leader. Write a one-page analysis of what happened and what it tells us about the importance of no one being above the law.
 
 ---
 
-> `Where laws end, tyranny begins.` - John Locke
+> \`Where laws end, tyranny begins.\` - John Locke
 
-> `One has a moral responsibility to disobey unjust laws.` - Martin Luther King Jr.
+> \`One has a moral responsibility to disobey unjust laws.\` - Martin Luther King Jr.
     `
   },
 
@@ -482,13 +482,13 @@ Pick one item you own (phone, shirt, food item). Research its supply chain: Wher
 When a major world event happens (economic, political, natural disaster), track its ripple effects for one week. How does an event in one country affect: stock markets globally, oil prices, supply chains, migration, or your local community? Document at least 5 connected impacts.
 
 ### Exercise 3: Cultural Homogenization Debate
-Research `glocalization` - how global brands adapt to local cultures. Find 3 examples (like menu items at global restaurants in different countries). Then debate: Is globalization erasing unique cultures, or is it creating new hybrid cultures? Write a balanced 300-word reflection.
+Research \`glocalization\` - how global brands adapt to local cultures. Find 3 examples (like menu items at global restaurants in different countries). Then debate: Is globalization erasing unique cultures, or is it creating new hybrid cultures? Write a balanced 300-word reflection.
 
 ---
 
-> `No man is an island, entire of itself.` - John Donne
+> \`No man is an island, entire of itself.\` - John Donne
 
-> `The world is getting smaller every day.` - Bill Gates
+> \`The world is getting smaller every day.\` - Bill Gates
     `
   },
 
@@ -685,13 +685,13 @@ Create a three-column chart: (1) Issues that break your heart (hunger, animals, 
 Research one traditional charity and one mutual aid organization in your area. Compare: Who makes decisions? Where does money go? How are recipients involved? Write a reflection on the differences and which approach you find more empowering.
 
 ### Exercise 3: Impact Assessment
-Before your next volunteer activity, ask the organization: `What does this community actually need? How can I help without taking away local jobs or imposing my ideas?` Document their answer. After volunteering, reflect: Did my help actually help? What could be done better?
+Before your next volunteer activity, ask the organization: \`What does this community actually need? How can I help without taking away local jobs or imposing my ideas?\` Document their answer. After volunteering, reflect: Did my help actually help? What could be done better?
 
 ---
 
-> `The best way to find yourself is to lose yourself in the service of others.` - Mahatma Gandhi
+> \`The best way to find yourself is to lose yourself in the service of others.\` - Mahatma Gandhi
 
-> `No one has ever become poor by giving.` - Anne Frank
+> \`No one has ever become poor by giving.\` - Anne Frank
     `
   },
 
@@ -895,9 +895,9 @@ Create a comprehensive family emergency plan covering: (1) Meeting points if sep
 
 ---
 
-> `In the middle of difficulty lies opportunity.` - Albert Einstein
+> \`In the middle of difficulty lies opportunity.\` - Albert Einstein
 
-> `Preparedness is the key to success and victory.` - Douglas MacArthur
+> \`Preparedness is the key to success and victory.\` - Douglas MacArthur
     `
   }
 ];
