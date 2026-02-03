@@ -42,225 +42,912 @@ export const creativityLessons = [
   // ==================================================================================
   // CREATIVE THINKING
   // ==================================================================================
-  { 
-    id: "cr-what-is-creativity", 
-    title: "What is Creativity?", 
-    description: "Understand the nature of creative thinking", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "20 min", 
-    points: 120, 
+  {
+    id: "cr-what-is-creativity",
+    title: "What is Creativity?",
+    description: "Understand the nature of creative thinking",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "20 min",
+    points: 120,
     image: "https://images.unsplash.com/photo-1491245338813-c6832976196e?w=800",
     tags: ["theory", "mindset", "brain"],
     content: `
 # What is Creativity?
 
 ## It's Not Magic, It's a Muscle
-Many people believe creativity is a divine spark given to a chosen few (artists, musicians). This is a myth. Creativity is simply **the ability to create something new and valuable**. It is a cognitive skill that can be trained, just like math or soccer.
+
+The most damaging myth about creativity is that it's an innate gift—you either have it or you don't. This is scientifically false. Creativity is **the ability to generate something new and valuable**, and like any cognitive skill, it can be developed through deliberate practice.
 
 ![Brain glowing with ideas](https://images.unsplash.com/photo-1491245338813-c6832976196e?w=800&q=80)
 
+## Debunking Creativity Myths
+
+### Myth 1: "I'm Just Not Creative"
+**Reality:** Everyone is creative. You use creativity every time you:
+- Solve an unexpected problem
+- Tell a joke or story
+- Rearrange furniture
+- Cook without a recipe
+- Find a new route when traffic is bad
+
+**The Evidence:** Studies show that creativity is normally distributed in the population, like height. Most people are average, some are below, some are above—but everyone has it.
+
+### Myth 2: "Creativity is Right-Brained"
+**Reality:** The "left brain = logic, right brain = creativity" idea is oversimplified. Modern neuroscience shows creativity involves **whole-brain activation**:
+- **Prefrontal cortex:** Executive control, working memory
+- **Default Mode Network (DMN):** Daydreaming, imagination, connecting distant ideas
+- **Salience Network:** Switching between focused and diffuse thinking
+
+**The Truth:** Creative people aren't right-brained; they're better at **switching** between focused analytical thinking and diffuse imaginative thinking.
+
+### Myth 3: "Creativity Requires Freedom and No Constraints"
+**Reality:** Research shows that **constraints actually boost creativity**. When you have unlimited options, you freeze (paradox of choice). Constraints force creative problem-solving.
+
+**Example:** Dr. Seuss wrote *Green Eggs and Ham* using only 50 different words (a bet with his publisher). The constraint made it a masterpiece.
+
+### Myth 4: "Creativity is Spontaneous—You Can't Force It"
+**Reality:** While inspiration feels spontaneous, professional creators don't wait for it. They show up daily and work. As Tchaikovsky said, "Inspiration is a guest that does not willingly visit the lazy."
+
+## The Evolution of Creativity Understanding
+
+### Ancient Times: Divine Inspiration
+- Greeks believed creativity came from the Muses (goddesses of inspiration)
+- Romans had the concept of "genius" as an external spirit
+- **Implication:** You couldn't control it; you just had to wait
+
+### Renaissance: Individual Genius
+- Shift to viewing creativity as an individual trait
+- Focus on "Great Men" (Da Vinci, Michelangelo)
+- **Implication:** Creativity was still rare and special
+
+### 20th Century: Democratization
+- Psychologists (Guilford, Torrance) began studying creativity scientifically
+- Discovered everyone has creative potential
+- Developed tests and training programs
+- **Implication:** Creativity became teachable
+
+### 21st Century: Neuroscience Era
+- Brain imaging reveals the neural basis of creativity
+- Understanding of neuroplasticity shows the brain can be trained
+- **Implication:** We now have evidence-based methods to enhance creativity
+
 ## Big-C vs. Little-c Creativity
-Psychologists distinguish between two types:
-* **Big-C Creativity:** The genius-level breakthroughs that change history (Einstein, Picasso, Mozart). This is rare.
-* **Little-c Creativity:** Everyday problem solving. Finding a new route to work, cooking a meal without a recipe, or fixing a broken zipper with a paperclip. **This is what we focus on.**
 
-## The Combinatorial Theory
-Steve Jobs said, "Creativity is just connecting things."
-* You don't create from nothing (ex nihilo).
-* You take existing blocks (ideas, memories, facts) and rearrange them into a new structure.
-* *Example:* The iPhone was not a "new" invention. It was a combination of a Phone + iPod + Internet Communicator.
+Psychologists Margaret Boden and others distinguish between levels:
 
-## The Creative Process (Wallas Model)
-1.  **Preparation:** Researching and gathering information. (Loading the brain).
-2.  **Incubation:** Stepping away. Letting the subconscious work. (The shower moment).
-3.  **Illumination:** The "Aha!" moment.
-4.  **Verification:** Testing the idea to see if it actually works.
+### Big-C Creativity (Historical)
+- **Definition:** Groundbreaking contributions that transform a field
+- **Examples:** Einstein's relativity, Picasso's cubism, Mozart's compositions
+- **Characteristics:** Rare, requires deep expertise, changes culture
+- **Impact:** Remembered for generations
 
-## Neuroplasticity
-Creativity rewires your brain.
-* It increases the "White Matter" (connections) between the left hemisphere (logic) and right hemisphere (imagination).
-* Creative people aren't "Right Brained"; they are "Whole Brained."
+### Pro-C Creativity (Professional)
+- **Definition:** Expert-level creativity within a profession
+- **Examples:** A successful novelist, an innovative engineer, a master chef
+- **Characteristics:** Requires years of practice, recognized by peers
+- **Impact:** Earns a living from creative work
+
+### Little-c Creativity (Everyday)
+- **Definition:** Daily problem-solving and personal expression
+- **Examples:** Decorating your room, improvising a meal, finding a shortcut
+- **Characteristics:** Accessible to everyone, personally meaningful
+- **Impact:** Improves daily life
+
+### Mini-c Creativity (Learning)
+- **Definition:** Personal insights and interpretations during learning
+- **Examples:** A child's unique drawing, your personal understanding of a concept
+- **Characteristics:** Subjectively novel, important for development
+- **Impact:** Foundation for all other creativity levels
+
+**Key Insight:** We all start with mini-c and little-c. Big-C creators simply spent decades developing their craft. You don't need to be Einstein to benefit from creativity.
+
+## The Neuroscience of Creativity
+
+### The Default Mode Network (DMN)
+When you're not focused on a task, your brain doesn't rest—it activates the DMN:
+- **Location:** Medial prefrontal cortex, posterior cingulate cortex, angular gyrus
+- **Function:** Mind-wandering, imagination, autobiographical memory, simulating future scenarios
+- **Creative Role:** Generates novel associations and connections
+
+**The Shower Effect:** Why do great ideas come in the shower? Because you're relaxed, not focused on a problem, allowing the DMN to make unexpected connections.
+
+### The Executive Control Network (ECN)
+- **Location:** Dorsolateral prefrontal cortex, posterior parietal cortex
+- **Function:** Focused attention, working memory, logical reasoning
+- **Creative Role:** Evaluates ideas, refines them, executes plans
+
+### The Salience Network
+- **Location:** Anterior cingulate cortex, insula
+- **Function:** Switches between DMN and ECN
+- **Creative Role:** Determines which ideas are worth pursuing
+
+**The Creative Sweet Spot:** The most creative people aren't those with the strongest DMN or ECN—they're those who can **flexibly switch** between them. They can generate wild ideas (DMN) and then critically evaluate them (ECN).
+
+### Neuroplasticity and Creativity
+Your brain physically changes when you practice creativity:
+- **Gray matter:** Increases in areas associated with divergent thinking
+- **White matter:** More connections between distant brain regions
+- **Synaptic density:** Strengthened pathways for creative thinking
+
+**Implication:** Every time you practice creativity, you're literally building a more creative brain.
+
+## The Combinatorial Theory of Creativity
+
+### Arthur Koestler's Bisociation
+Creativity is the act of connecting two previously unrelated "matrices of thought."
+
+**Examples:**
+- **Gutenberg:** Wine press + Coin punch = Printing press
+- **Velcro:** Burrs (nature) + Fabric = Hook-and-loop fastener
+- **Airbnb:** Spare room + Hotel = Home-sharing platform
+
+### Steve Jobs: "Connecting the Dots"
+Jobs famously said creativity is "just connecting things." His calligraphy class at Reed College (seemingly useless) later inspired the beautiful typography of the Mac.
+
+**The Implication:** The more diverse your experiences and knowledge, the more "dots" you have to connect. This is why reading widely, traveling, and learning across disciplines enhances creativity.
+
+### The Medici Effect
+Frans Johansson's concept: Innovation happens at the **intersection** of fields.
+- Renaissance Florence: Artists + Scientists + Philosophers = Explosion of creativity
+- Modern examples: Biomimicry (biology + engineering), Behavioral economics (psychology + economics)
+
+## The Creative Process: Expanded Wallas Model
+
+Graham Wallas (1926) identified four stages. Modern research has refined this:
+
+### 1. Preparation (Conscious Work)
+- **What:** Immerse yourself in the problem, gather information, study the field
+- **Duration:** Days to years
+- **Brain state:** ECN active (focused attention)
+- **Example:** Edison tested 3,000+ materials for light bulb filaments
+
+### 2. Incubation (Unconscious Processing)
+- **What:** Step away from the problem; let your subconscious work
+- **Duration:** Hours to weeks
+- **Brain state:** DMN active (diffuse attention)
+- **Activities:** Sleep, exercise, shower, walk in nature
+- **Example:** Archimedes in the bath discovering water displacement
+
+### 3. Illumination (The "Aha!" Moment)
+- **What:** Sudden insight; the solution appears
+- **Duration:** Seconds
+- **Brain state:** Gamma wave burst (40 Hz), right temporal lobe activation
+- **Feeling:** Certainty, excitement, clarity
+- **Example:** Kekule dreaming of a snake biting its tail, leading to the benzene ring structure
+
+### 4. Verification (Testing and Refinement)
+- **What:** Evaluate the idea, test it, refine it
+- **Duration:** Days to months
+- **Brain state:** ECN active (critical thinking)
+- **Reality check:** Most "brilliant" ideas fail this stage—and that's okay
+- **Example:** The Wright brothers' hundreds of glider tests
+
+### Modern Addition: Iteration
+Creativity is rarely linear. You cycle through these stages multiple times, refining the idea with each pass.
+
+## Case Study: Leonardo da Vinci's Creative Process
+
+### Preparation
+- Studied anatomy by dissecting 30+ corpses
+- Learned mathematics, engineering, botany, geology
+- Filled 13,000+ pages of notebooks with observations
+
+### Combinatorial Thinking
+- Combined art + science (unprecedented at the time)
+- Studied bird flight to design flying machines
+- Used anatomical knowledge to paint realistic humans
+
+### Incubation
+- Worked on *Mona Lisa* for 4 years, carrying it everywhere
+- Would stare at it for hours without painting
+
+### Key Lesson
+Da Vinci's genius wasn't innate—it was the result of **insatiable curiosity** and **relentless practice**. His notebooks show thousands of "failed" ideas for every successful one.
+
+## Case Study: Thomas Edison's Creative System
+
+### Volume Over Perfection
+- Held 1,093 patents
+- Failed thousands of times for every success
+- Famous quote: "I have not failed. I've just found 10,000 ways that won't work."
+
+### Systematic Experimentation
+- Tested 3,000+ materials for light bulb filaments
+- Kept detailed records of every experiment
+- Built on previous failures
+
+### Team Creativity
+- Menlo Park lab employed dozens of inventors
+- Created the first industrial research lab
+- Understood that creativity is collaborative
+
+### Key Lesson
+Edison's success came from **systematic persistence** and **learning from failure**, not sudden genius.
+
+## Practical Framework: The 4 Ps of Creativity
+
+### 1. Person
+- **Traits:** Openness to experience, tolerance for ambiguity, intrinsic motivation
+- **Mindset:** Growth mindset (Dweck)—belief that creativity can be developed
+- **Habits:** Daily practice, curiosity, reflection
+
+### 2. Process
+- **Techniques:** Brainstorming, SCAMPER, mind mapping, lateral thinking
+- **Stages:** Preparation, incubation, illumination, verification
+- **Environment:** Time and space for both focus and diffusion
+
+### 3. Product
+- **Criteria:** Novel (new) + Useful (valuable)
+- **Evaluation:** By domain experts or the market
+- **Examples:** Inventions, artworks, theories, solutions
+
+### 4. Press (Environment)
+- **Physical:** Workspace that inspires (natural light, stimulating objects)
+- **Social:** Supportive culture, diverse perspectives, psychological safety
+- **Cultural:** Values that reward risk-taking and tolerate failure
 
 ## Key Takeaway
-You are already creative. Every time you construct a sentence you've never said before, you are creating. The goal is to do it on purpose.
+
+You are already creative. Every time you construct a sentence you've never said before, solve an unexpected problem, or imagine a future scenario, you are creating. The difference between you and Da Vinci is not the presence of creativity—it's the **volume of practice** and the **diversity of inputs**.
+
+Creativity is not a gift; it's a **practice**. And like any practice, it gets easier and more rewarding the more you do it.
 
 ---
 
 ## Practical Exercises
 
-### Exercise 1: The 30 Circles Test
-Draw 30 circles on paper. In 3 minutes, turn as many as possible into recognizable objects (sun, pizza, wheel, etc.). This exercises divergent thinking.
+### Exercise 1: Creativity Self-Assessment
+Rate yourself (1-10) on these creativity indicators:
+- Openness to new experiences
+- Tolerance for ambiguity and uncertainty
+- Willingness to take risks
+- Curiosity and asking questions
+- Ability to see multiple perspectives
+- Persistence in the face of obstacles
 
-### Exercise 2: Combinatorial Creation
-Pick 3 random objects around you. Spend 5 minutes imagining a product that combines all three.
+Identify your lowest score. This week, deliberately practice that trait. For example, if "openness" is low, try one completely new experience daily.
 
-### Exercise 3: Creative Observation
-For 5 minutes, observe a common object (a chair, a cup). List 10 things you never noticed about it before.
+### Exercise 2: The 30 Circles Test (Guilford)
+Draw 30 circles on paper. Set a timer for 3 minutes. Turn as many circles as possible into recognizable objects (sun, pizza, wheel, clock, face, etc.).
+
+**Scoring:**
+- **Fluency:** How many did you complete?
+- **Flexibility:** How many different categories? (faces, food, objects, etc.)
+- **Originality:** How many are unusual? (most people draw suns and faces)
+
+Repeat weekly and track improvement. This exercises divergent thinking.
+
+### Exercise 3: Combinatorial Creation Challenge
+Pick 3 random objects around you (or use a random word generator). Spend 10 minutes designing a product that combines all three. Draw it, name it, and write a one-sentence pitch.
+
+**Example:** Coffee mug + Umbrella + Phone = "The Commuter Cup" (insulated mug with phone holder and collapsible rain cover for walking commutes)
+
+### Exercise 4: Daily Creativity Habit
+Choose one micro-creative practice to do daily for 30 days:
+- **Morning pages:** Write 3 pages of stream-of-consciousness (Julia Cameron)
+- **Photo walk:** Take 10 photos of interesting details
+- **Doodle break:** 5 minutes of non-representational drawing
+- **Idea quota:** Generate 10 ideas on any topic (James Altucher)
+- **What if:** Ask and answer one "What if?" question
+
+Track your practice and notice how your creative confidence grows.
+
+### Exercise 5: Cross-Domain Learning
+This week, learn something from a field completely unrelated to your main interest:
+- If you're a coder, watch a documentary on architecture
+- If you're an artist, read about quantum physics
+- If you're a writer, study music theory
+
+Write down 3 unexpected connections between this new knowledge and your field. This builds your "dot collection" for future creative connections.
 
 ---
 
 > "You can't use up creativity. The more you use, the more you have." - Maya Angelou
 
 > "Creativity is intelligence having fun." - Albert Einstein
+
+> "The chief enemy of creativity is 'good' sense." - Pablo Picasso
+
+> "Creativity is just connecting things." - Steve Jobs
+
+> "Every child is an artist. The problem is how to remain an artist once we grow up." - Pablo Picasso
     `
   },
-  { 
-    id: "cr-overcoming-blocks", 
-    title: "Overcoming Creative Blocks", 
-    description: "Break through barriers to creativity", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "25 min", 
-    points: 150, 
+  {
+    id: "cr-overcoming-blocks",
+    title: "Overcoming Creative Blocks",
+    description: "Break through barriers to creativity",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "25 min",
+    points: 150,
     image: "https://images.unsplash.com/photo-1515890435782-59a5bb6e0627?w=800",
     tags: ["writer-block", "fear", "psychology"],
     content: `
 # Overcoming Creative Blocks
 
 ## The Enemy Within
-The biggest obstacle to creativity isn't lack of talent; it's **Resistance**.
+
+The biggest obstacle to creativity isn't lack of talent, time, or resources—it's **Resistance**. Steven Pressfield, in *The War of Art*, describes Resistance as an invisible force that appears whenever we try to do something meaningful. It's the voice that says "I'll start tomorrow," "This isn't good enough," or "Who am I to do this?"
 
 ![Person staring at blank paper](https://images.unsplash.com/photo-1515890435782-59a5bb6e0627?w=800&q=80)
 
-## Types of Blocks
-1.  **The Inner Critic:** That voice saying "This sucks" before you even finish.
-2.  **Perfectionism:** The fear that if it isn't perfect, it's worthless.
-3.  **Fear of Failure:** "What if people laugh?"
-4.  **Blank Page Syndrome:** The paralysis of infinite choices.
+## The Psychology of Creative Blocks
 
-## Strategy 1: Lower the Stakes
-* **The "Bad Draft" Rule:** Give yourself permission to write the worst essay/draw the ugliest picture possible.
-* Once the pressure is off, the creativity flows. You can't fix a blank page, but you can fix a bad draft.
+### The Neuroscience
+When you face a creative block, your **amygdala** (fear center) activates, triggering a stress response. This shuts down the **prefrontal cortex** (creative thinking) and activates the **fight-or-flight** response. Your brain literally can't be creative when it's in survival mode.
 
-## Strategy 2: Constraints
-Paradoxically, limitations boost creativity.
-* *Too much freedom:* "Write a story about anything." (Hard).
-* *Constraint:* "Write a story about a dog, set on Mars, without using the letter 'E'." (Easier to start).
-* Constraints force your brain to problem-solve.
+**The Solution:** Reduce the perceived threat. Make the task feel safe, playful, and low-stakes.
 
-## Strategy 3: Change the Mode
-* Einstein would play violin when stuck on physics.
-* If you are stuck writing, go for a walk.
-* This engages the **Default Mode Network** (daydreaming brain) which makes connections the focused brain misses.
+### The Paradox of Expertise
+Beginners often create freely because they don't know what's "wrong." Experts become blocked because they know too much—they see all the ways something could fail.
 
-## Strategy 4: The 5-Minute Timer
-* Tell yourself: "I will only work on this for 5 minutes."
-* Usually, the pain is in the *starting*. Once you start, momentum takes over.
+**Example:** Hemingway, one of the greatest writers, would sometimes write only one sentence in a day, agonizing over every word. His expertise became his block.
 
-## The Gap (Ira Glass)
-* **The Taste Gap:** When you start, your taste is killer, but your skill is weak. You know your work isn't good enough.
-* *The Solution:* Do a huge volume of work. It is the only way to close the gap between what you want to make and what you actually make.
+## Types of Creative Blocks
+
+### 1. The Inner Critic (Superego Block)
+**Symptoms:**
+- Harsh self-judgment while creating
+- Deleting/erasing work immediately
+- Comparing yourself to masters
+- Feeling like an impostor
+
+**Psychology:** This is your internalized voice of authority figures (parents, teachers, society) telling you to "stay safe" and "don't embarrass yourself."
+
+**Antidote:** Separate creation from evaluation. Create first, judge later. As Anne Lamott says, "Perfectionism is the voice of the oppressor."
+
+### 2. Perfectionism (The Excellence Trap)
+**Symptoms:**
+- Refusing to start until conditions are perfect
+- Abandoning projects that aren't "good enough"
+- Endless revision without finishing
+- All-or-nothing thinking
+
+**Psychology:** Perfectionism is often fear of judgment disguised as high standards. It's safer to not finish than to finish and be judged.
+
+**Antidote:** Embrace "shitty first drafts" (Anne Lamott). Done is better than perfect. You can't edit a blank page.
+
+### 3. Fear of Failure (Vulnerability Block)
+**Symptoms:**
+- Procrastination
+- Self-sabotage
+- Starting many projects but finishing none
+- "I work better under pressure" (actually: avoiding the work)
+
+**Psychology:** If you don't try, you can't fail. Failure feels like a threat to identity.
+
+**Antidote:** Reframe failure as data. Every "failure" is feedback. Thomas Edison: "I have not failed. I've just found 10,000 ways that won't work."
+
+### 4. Blank Page Syndrome (Choice Paralysis)
+**Symptoms:**
+- Staring at blank canvas/page
+- Feeling overwhelmed by infinite possibilities
+- Not knowing where to start
+- Analysis paralysis
+
+**Psychology:** Too much freedom is paralyzing (Barry Schwartz's *Paradox of Choice*). The brain needs constraints to focus.
+
+**Antidote:** Add arbitrary constraints. "I will write exactly 250 words about a red shoe." Constraints provide direction.
+
+### 5. Burnout (Depletion Block)
+**Symptoms:**
+- Everything feels like a chore
+- No excitement for projects
+- Physical exhaustion
+- Cynicism about your work
+
+**Psychology:** Creativity requires mental energy. When depleted, the brain conserves resources.
+
+**Antidote:** Rest. Sleep. Play. Creativity isn't a grind; it's a rhythm of work and recovery.
+
+## Strategies to Overcome Blocks
+
+### Strategy 1: Lower the Stakes (Permission to Suck)
+**The "Bad Draft" Rule:** Give yourself explicit permission to create the worst possible version.
+
+**Why it works:** When the goal is to be bad, there's no pressure. Paradoxically, removing pressure often produces good work.
+
+**Exercise:** Set a timer for 10 minutes. Create the worst poem/drawing/song you can. Make it deliberately terrible. Notice how freeing this feels.
+
+**Real Example:** Author Jodi Picoult says, "You can edit a bad page. You can't edit a blank page." She writes terrible first drafts daily, then edits them into bestsellers.
+
+### Strategy 2: Constraints Boost Creativity
+**The Paradox:** Unlimited freedom is paralyzing. Constraints force creative problem-solving.
+
+**Research:** Studies show that people given constraints ("design a toy using only these 3 materials") produce more creative solutions than those with unlimited resources.
+
+**Famous Examples:**
+- **Dr. Seuss:** Wrote *Green Eggs and Ham* using only 50 words (a bet with his publisher)
+- **Twitter:** 140-character limit (now 280) forced concise, creative expression
+- **Dogme 95:** Danish filmmakers created a movement with strict rules (no artificial lighting, handheld cameras only)
+
+**Exercise:** Add 3 arbitrary constraints to your current project:
+- Must use only 3 colors
+- Must include the word "elephant"
+- Must be completed in 15 minutes
+
+Notice how constraints spark ideas.
+
+### Strategy 3: Change Your State (Mode Switching)
+**The Science:** Your brain has two modes:
+- **Focused Mode:** Concentrated, analytical, effortful (Executive Control Network)
+- **Diffuse Mode:** Relaxed, wandering, effortless (Default Mode Network)
+
+Blocks happen when you're stuck in focused mode. Switching to diffuse mode allows subconscious connections.
+
+**How to Switch:**
+- **Walk in nature:** Studies show walking boosts creativity by 60%
+- **Shower:** Warm water, white noise, relaxation = DMN activation
+- **Exercise:** Increases blood flow to brain, releases endorphins
+- **Sleep:** REM sleep consolidates memories and makes novel connections
+- **Mundane tasks:** Washing dishes, folding laundry (autopilot mode)
+
+**Famous Examples:**
+- **Einstein:** Played violin when stuck on physics problems
+- **Beethoven:** Took long walks, carrying a notebook for ideas
+- **Lin-Manuel Miranda:** Best ideas came in the shower or on walks
+
+### Strategy 4: The 5-Minute Rule (Overcoming Inertia)
+**The Principle:** The hardest part is starting. Once you start, momentum takes over.
+
+**The Technique:** Commit to just 5 minutes. Tell yourself you can stop after 5 minutes if you want.
+
+**Why it works:** Starting reduces anxiety. Most people continue past 5 minutes because the pain was in the anticipation, not the doing.
+
+**Variation:** The "2-Minute Rule" (James Clear): Scale down the task until it takes 2 minutes. "Write a novel" becomes "Write one sentence."
+
+### Strategy 5: Ritual and Routine (Reducing Decision Fatigue)
+**The Concept:** Willpower is finite. Every decision depletes it. Creative rituals eliminate decisions.
+
+**Examples:**
+- **Maya Angelou:** Rented a hotel room, arrived at 6:30 AM, wrote until 2 PM, same routine daily
+- **Haruki Murakami:** Wakes at 4 AM, writes for 5-6 hours, runs 10K, reads, sleeps at 9 PM—every single day
+- **Beethoven:** Counted exactly 60 coffee beans for his morning coffee
+
+**Your Ritual:** Create a simple pre-work ritual (light a candle, play specific music, wear a "creativity hat"). This signals to your brain: "It's time to create."
+
+### Strategy 6: The Taste Gap (Ira Glass)
+**The Problem:** When you start creating, your taste is excellent, but your skill is weak. You know your work isn't as good as you want it to be. This gap is painful.
+
+**The Solution:** Volume. Do a huge amount of work. The only way to close the gap is to create so much that your skill catches up to your taste.
+
+**Ira Glass's Advice:** "Nobody tells this to people who are beginners... It's going to take a while. It's normal to take a while. You've just gotta fight your way through."
+
+**Practical:** Commit to creating 100 bad poems, 100 ugly sketches, 100 terrible songs. By #100, they won't be terrible anymore.
+
+## Case Study: Hemingway's Creative Blocks
+
+**The Struggle:**
+- Hemingway suffered severe writer's block later in life
+- Would sharpen pencils for hours to avoid writing
+- Rewrote the ending of *A Farewell to Arms* 47 times
+
+**His Strategies:**
+- **Stop mid-sentence:** He'd stop writing mid-sentence when things were going well, making it easy to start the next day
+- **Write standing up:** Changed his physical state
+- **Track word count:** Kept a chart of daily output to maintain momentum
+- **"Write drunk, edit sober":** (Metaphorical) Create freely, judge later
+
+**The Lesson:** Even masters struggle. The difference is they show up anyway.
+
+## Case Study: Beethoven's Deafness Block
+
+**The Ultimate Block:**
+- Beethoven began losing hearing in his late 20s
+- By 44, completely deaf
+- Considered suicide (Heiligenstadt Testament)
+
+**How He Overcame It:**
+- **Adaptation:** Sawed legs off his piano, felt vibrations through the floor
+- **Inner hearing:** Composed entirely in his mind
+- **Constraint as catalyst:** Deafness forced him to rely on pure imagination, leading to his most innovative works (9th Symphony composed while deaf)
+
+**The Lesson:** Constraints, even devastating ones, can force creative breakthroughs.
+
+## Environmental Factors
+
+### Physical Space
+- **Clutter:** Messy space = messy mind (for some; others thrive in chaos)
+- **Lighting:** Natural light boosts mood and creativity
+- **Temperature:** Slightly cool (68-72°F) is optimal for cognitive work
+- **Sound:** Some need silence; others need ambient noise (coffitivity.com)
+
+### Time of Day
+- **Morning people:** Peak creativity 2-4 hours after waking
+- **Night owls:** Peak creativity in evening
+- **Paradox:** Some research shows you're more creative when slightly tired (less inhibited)
+
+### Social Environment
+- **Solitude:** Needed for deep work
+- **Collaboration:** Sparks new ideas
+- **Balance:** Alternate between alone time and social time
+
+## The Resistance Framework (Expanded)
+
+| Block Type | Root Cause | Antidote |
+|------------|------------|----------|
+| Inner Critic | Fear of judgment | Separate creation from evaluation |
+| Perfectionism | Fear of imperfection | "Shitty first drafts" permission |
+| Fear of Failure | Identity threat | Reframe failure as data |
+| Blank Page | Too many choices | Add arbitrary constraints |
+| Burnout | Depletion | Rest, play, refill the well |
+| Comparison | External focus | Compare to past self only |
+| Waiting for inspiration | Passive mindset | Inspiration follows action |
+| Overwhelm | Task too big | Break into 2-minute chunks |
 
 ## Key Takeaway
-Writer's block is just performance anxiety. Stop trying to be a genius and just be a worker.
 
----
+Creative blocks aren't a sign that you're not creative—they're a sign that you care about your work. The block is the resistance between who you are and who you're becoming. As Pressfield says, "The more important a call to action is to our soul's evolution, the more Resistance we will feel."
 
-## The Resistance Framework
-
-**What Creates Resistance:**
-| Trigger | Solution |
-|---------|----------|
-| Perfectionism | "Done is better than perfect" |
-| Fear of judgment | Create for yourself first |
-| Overwhelm | Break into tiny steps |
-| Comparison to others | Compare to your past self |
-| Waiting for inspiration | Inspiration follows action |
+The solution isn't to eliminate blocks (impossible) but to develop strategies to work through them. Professional creators don't have fewer blocks; they just have better tools to overcome them.
 
 ---
 
 ## Practical Exercises
 
-### Exercise 1: The Bad First Draft
-Set a timer for 10 minutes. Write/create the worst possible version of your project. No editing, no judgment. Just output.
+### Exercise 1: Block Diagnosis
+Identify your current block type. Write for 5 minutes: "I can't create because..." Be brutally honest. Is it fear? Perfectionism? Exhaustion? Knowing the enemy is half the battle.
 
-### Exercise 2: Constraint Creation
-Add 3 random constraints to your project (must be blue, must include a dog, must rhyme). Notice how constraints spark ideas.
+### Exercise 2: The "Shitty First Draft" Challenge
+Set a timer for 15 minutes. Create the worst possible version of your project. Make it deliberately bad. No editing, no judgment. Then walk away for an hour. Come back and notice: it's probably not as bad as you thought, and now you have something to improve.
 
-### Exercise 3: The 5-Minute Start
-Commit to just 5 minutes of creative work. When the timer ends, you can stop. (You probably won't want to.)
+### Exercise 3: Constraint Creativity
+Pick a creative project. Add 3 absurd constraints:
+- Must include the word "banana"
+- Must use only 2 colors
+- Must be completed in 10 minutes
+
+Notice how constraints force creative solutions and eliminate choice paralysis.
+
+### Exercise 4: The 5-Minute Commitment
+For one week, commit to just 5 minutes of creative work daily. Set a timer. When it rings, you can stop (but you probably won't). Track how often you continue past 5 minutes.
+
+### Exercise 5: State Change Experiment
+Next time you're blocked, try each state change method and note which works best for you:
+- 10-minute walk
+- 5-minute shower
+- 20 jumping jacks
+- 10-minute nap
+- Washing dishes
+
+Create your personal "unblock protocol."
+
+### Exercise 6: Volume Challenge
+Commit to creating 30 of something in 30 days (30 poems, 30 sketches, 30 songs). Quality doesn't matter. Only volume. By day 30, compare to day 1. Notice the improvement.
 
 ---
 
 > "Amateurs sit and wait for inspiration, the rest of us just get up and go to work." - Stephen King
 
 > "The secret to getting ahead is getting started." - Mark Twain
+
+> "Perfectionism is the voice of the oppressor, the enemy of the people." - Anne Lamott
+
+> "You can't wait for inspiration. You have to go after it with a club." - Jack London
+
+> "The scariest moment is always just before you start." - Stephen King
     `
   },
-  { 
-    id: "cr-divergent-thinking", 
-    title: "Divergent Thinking", 
-    description: "Generate many ideas and possibilities", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "25 min", 
-    points: 150, 
+  {
+    id: "cr-divergent-thinking",
+    title: "Divergent Thinking",
+    description: "Generate many ideas and possibilities",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "25 min",
+    points: 150,
     image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=800",
     tags: ["brainstorming", "ideas", "lateral-thinking"],
     content: `
 # Divergent Thinking
 
 ## One Right Answer vs. Many Possible Answers
-School teaches **Convergent Thinking** (focusing on the one correct answer, like in a multiple-choice test).
-Creativity requires **Divergent Thinking** (generating as many possible answers as you can).
+
+Our education system is optimized for **convergent thinking**—finding the single correct answer. Multiple-choice tests, standardized exams, and "show your work" all reward convergence.
+
+Creativity requires the opposite: **divergent thinking**—generating as many possible answers as you can, even if most are wrong.
 
 ![Lightbulbs hanging](https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=800&q=80)
 
-## The 30 Circles Challenge
-* **Task:** Draw 30 circles on a page. Set a timer for 3 minutes. Turn as many circles as you can into recognizable objects (clock, face, ball, planet).
-* **Goal:** Quantity, not quality.
-* *Result:* Most adults struggle to fill 30. Children fill them easily. Adults self-edit; children just create.
+## The Research: Guilford's Structure of Intellect
 
-## SCAMPER Method
-A checklist to modify existing ideas:
-* **S - Substitute:** Replace a part. (Tofu instead of meat).
-* **C - Combine:** Merge two things. (Phone + Camera).
-* **A - Adapt:** Change the context. (Use a drill motor for a blender).
-* **M - Modify:** Change size/shape. (Giant candy bars).
-* **P - Put to another use:** Use a brick as a doorstop.
-* **E - Eliminate:** Remove parts. (Convertible car).
-* **R - Reverse:** Do it backward. (Dessert first).
+J.P. Guilford (1950s) distinguished between:
 
-## The "Bad Idea" Brainstorm
-Pressure to have "Good Ideas" stops flow.
-* **Exercise:** Spend 10 minutes coming up with the worst solutions to a problem.
-* *Problem:* Selling more ice cream.
-* *Bad Ideas:* Make it taste like dirt. Charge $1000. Melt it first.
-* *Why:* It relaxes the brain. Often, a bad idea leads to a good one (Melt it first \u2192 Hot Chocolate!).
+### Convergent Thinking
+- **Goal:** Find the one correct answer
+- **Process:** Logical, analytical, linear
+- **Example:** "What is 2 + 2?"
+- **Measured by:** IQ tests, SAT, standardized exams
+- **Valued in:** School, traditional workplaces
 
-## Quantity Leads to Quality
-Dean Simonton's research shows that the most successful creators (Picasso, Edison) simply produced **more** work. They had more hits because they had more attempts.
+### Divergent Thinking
+- **Goal:** Generate many possible answers
+- **Process:** Associative, exploratory, non-linear
+- **Example:** "How many uses can you think of for a brick?"
+- **Measured by:** Torrance Tests of Creative Thinking
+- **Valued in:** Innovation, arts, entrepreneurship
+
+**The Problem:** We spend 12+ years training convergent thinking and almost no time on divergent thinking. Then we wonder why we're not creative.
+
+## The Creativity Crisis
+
+**Shocking Research:** Kyung Hee Kim analyzed 300,000 Torrance test scores from 1968-2008. Finding: **Creativity scores have been declining since 1990**, especially in younger children.
+
+**Why?**
+- More standardized testing (teaches convergent thinking)
+- Less unstructured play (where divergent thinking develops)
+- More screen time (passive consumption vs. active creation)
+- Risk-averse parenting ("Don't climb that tree!")
+
+**The Good News:** Divergent thinking can be retrained at any age.
+
+## The 30 Circles Challenge (Expanded)
+
+### The Test
+**Task:** Draw 30 circles on a page. Set a timer for 3 minutes. Turn as many circles as possible into recognizable objects.
+
+### Scoring (Torrance Criteria)
+
+**1. Fluency:** How many did you complete?
+- 0-10: Low
+- 11-20: Average
+- 21-30: High
+
+**2. Flexibility:** How many different categories?
+- Faces, food, sports, nature, objects, symbols, etc.
+- More categories = more flexible thinking
+
+**3. Originality:** How many are unusual?
+- Common: Sun, smiley face, ball, clock, pizza
+- Uncommon: Petri dish, manhole cover, crop circle, iris of an eye
+- Scoring: If less than 5% of people drew it, it's original
+
+**4. Elaboration:** How much detail?
+- Simple circle with two dots = low
+- Detailed clock with Roman numerals and ornate hands = high
+
+### The Shocking Result
+**Children (age 5):** 98% score at "creative genius" level
+**Adults:** Only 2% score at "creative genius" level
+
+**What happened?** We learned to self-edit. We learned there are "right" and "wrong" answers. We learned to fear judgment.
+
+### The Solution
+**Quantity over quality.** Turn off the inner critic. Generate first, evaluate later.
+
+## SCAMPER Method (Deep Dive)
+
+Developed by Bob Eberle, SCAMPER is a systematic checklist for modifying existing ideas.
+
+### S - Substitute
+**Question:** What can you replace?
+- **Materials:** Plastic → Bamboo (eco-friendly products)
+- **Ingredients:** Meat → Plant protein (Impossible Burger)
+- **Process:** Manual → Automated
+- **Example:** Netflix substituted DVDs with streaming
+
+### C - Combine
+**Question:** What can you merge?
+- **Products:** Phone + Camera + Computer = Smartphone
+- **Services:** Gym + Childcare = Family fitness centers
+- **Concepts:** Education + Entertainment = Edutainment
+- **Example:** Uber Eats combined ride-sharing with food delivery
+
+### A - Adapt
+**Question:** What can you adjust or adapt from another context?
+- **Cross-industry:** Pit crew efficiency → Hospital ER procedures
+- **Nature:** Velcro adapted from burrs
+- **Example:** Airbnb adapted hotel concept to homes
+
+### M - Modify/Magnify/Minify
+**Question:** What can you change in size, shape, or attributes?
+- **Magnify:** Tiny house → McMansion
+- **Minify:** Computer → Smartphone → Smartwatch
+- **Modify:** Bicycle → Unicycle, Tandem, Recumbent
+- **Example:** Mini Cooper took a car and made it cute and tiny
+
+### P - Put to Another Use
+**Question:** What else can this be used for?
+- **Baking soda:** Baking → Cleaning → Deodorizing → Toothpaste
+- **Bubble wrap:** Packaging → Stress relief → Insulation
+- **Example:** Viagra was developed for heart disease, repurposed for erectile dysfunction
+
+### E - Eliminate
+**Question:** What can you remove?
+- **Features:** Landline phone → Mobile (eliminated cord)
+- **Steps:** Self-checkout (eliminated cashier)
+- **Example:** Craigslist eliminated the middleman in classified ads
+
+### R - Reverse/Rearrange
+**Question:** What if you did it backward or in a different order?
+- **Reverse:** Dessert first (some restaurants)
+- **Rearrange:** Flipped classroom (watch lectures at home, do homework in class)
+- **Example:** Reverse mentoring (young employees teach older ones about technology)
+
+### SCAMPER in Action: The Spork
+- **Combine:** Spoon + Fork
+- **Eliminate:** Removed knife (not needed)
+- **Modify:** Shortened fork tines
+- **Result:** Portable, versatile utensil
+
+## The "Bad Idea" Brainstorm (Reverse Brainstorming)
+
+### Why It Works
+**Psychology:** Pressure to have "good ideas" activates your inner critic, shutting down divergent thinking. Permission to have "bad ideas" turns off the critic.
+
+**Neuroscience:** Humor and absurdity activate the Default Mode Network, which makes unexpected connections.
+
+### The Process
+1. **State the problem:** "How can we increase ice cream sales?"
+2. **Reverse it:** "How can we decrease ice cream sales?"
+3. **Brainstorm bad ideas:**
+   - Make it taste terrible
+   - Charge $1,000 per scoop
+   - Only sell it in winter
+   - Melt it before serving
+   - Make it invisible
+4. **Reverse the bad ideas:**
+   - "Melt it first" → Hot fudge sundae, milkshakes
+   - "Only sell in winter" → Market as comfort food for cold days
+   - "Make it invisible" → Clear ice cream (novelty flavor)
+
+### Real Example: IDEO's Shopping Cart Project
+IDEO used reverse brainstorming: "How can we make the worst shopping cart?" Ideas included: wheels that don't turn, baskets that leak, carts that shock you. Reversing these led to innovations like modular baskets and child-safe designs.
+
+## Quantity Leads to Quality (The Equal-Odds Rule)
+
+### Dean Simonton's Research
+Studied the most prolific creators in history. Finding: **The ratio of hits to misses is constant**.
+
+**What this means:**
+- Picasso created 50,000 works. Only a few hundred are famous.
+- Edison held 1,093 patents. Most failed.
+- Shakespeare wrote 37 plays. Only ~10 are regularly performed.
+
+**The Implication:** You can't predict which ideas will be good. The only way to have more hits is to have more attempts.
+
+### The 100-Idea Method (James Altucher)
+**Exercise:** Generate 100 ideas on any topic. Don't stop until you hit 100.
+
+**What happens:**
+- Ideas 1-10: Obvious, cliché
+- Ideas 11-50: Decent, some interesting
+- Ideas 51-80: Struggling, getting weird
+- Ideas 81-100: Breakthrough territory (desperation breeds creativity)
+
+**Why it works:** You exhaust the obvious answers and are forced into divergent territory.
+
+## Case Study: IDEO's Brainstorming Culture
+
+### The Rules
+1. **Defer judgment:** No criticism during ideation
+2. **Encourage wild ideas:** The crazier, the better
+3. **Build on others' ideas:** "Yes, and..."
+4. **Stay focused on topic:** Divergent, but not random
+5. **One conversation at a time:** Everyone listens
+6. **Be visual:** Sketch ideas
+7. **Go for quantity:** Aim for 100+ ideas per session
+
+### The Environment
+- Colorful Post-its everywhere
+- Toys and prototyping materials
+- Standing, not sitting (energy)
+- Time-boxed (urgency breeds creativity)
+
+### The Result
+IDEO has designed thousands of products (Apple's first mouse, Swiffer, Oral-B toothbrush) using divergent thinking as a core practice.
+
+## Case Study: Pixar's Braintrust
+
+### The Problem
+Every Pixar movie starts terrible. Early versions of *Toy Story*, *Finding Nemo*, and *Up* were unwatchable.
+
+### The Solution: The Braintrust
+A group of directors and writers who give brutally honest feedback on works-in-progress.
+
+### The Rules
+1. **Candor without cruelty:** Honest, but respectful
+2. **No authority:** The director can ignore all feedback (removes defensiveness)
+3. **Focus on the problem, not the solution:** "This scene is boring" not "Change it to this"
+4. **Divergent feedback:** Generate many possible solutions, not one "right" answer
+
+### The Result
+Every Pixar movie goes through the Braintrust multiple times, generating hundreds of ideas. Most are discarded. A few transform the film.
+
+## Group vs. Individual Ideation
+
+### The Debate
+**Traditional wisdom:** "Brainstorming in groups generates more ideas."
+**Research:** Individuals working alone generate more ideas than groups (due to production blocking, social loafing, evaluation apprehension).
+
+### The Solution: Brainwriting
+1. Everyone writes ideas silently for 5 minutes
+2. Pass papers to the right
+3. Build on others' ideas for 5 minutes
+4. Repeat 3-4 times
+5. Share all ideas
+
+**Result:** Combines individual divergent thinking with collaborative building.
+
+## Techniques to Boost Divergent Thinking
+
+### 1. Forced Connections (Random Input)
+- Pick a random word from dictionary
+- Force a connection to your problem
+- Example: Problem = "Improve umbrella." Random word = "Elephant." Connection = "Elephant trunk is flexible and strong" → Flexible, unbreakable umbrella ribs
+
+### 2. Attribute Listing
+- List all attributes of an object
+- Modify each attribute
+- Example: Pencil = Wood, Graphite, Eraser, Hexagonal, Yellow
+  - Change material: Plastic pencil
+  - Change shape: Round pencil
+  - Change color: Rainbow pencil
+
+### 3. Morphological Analysis
+- Create a matrix of attributes
+- Combine different attributes
+- Example: New restaurant concept
+  - Cuisine: Italian, Mexican, Japanese, Fusion
+  - Service: Fast food, Fine dining, Food truck, Buffet
+  - Theme: Sports, Art, Music, Science
+  - Combine: Japanese + Food truck + Science = Molecular gastronomy sushi truck
+
+### 4. Six Thinking Hats (Edward de Bono)
+Look at a problem from 6 perspectives:
+- **White Hat:** Facts and data
+- **Red Hat:** Emotions and intuition
+- **Black Hat:** Risks and problems
+- **Yellow Hat:** Benefits and optimism
+- **Green Hat:** Creativity and alternatives
+- **Blue Hat:** Process and organization
 
 ## Key Takeaway
-To have a good idea, you must first have lots of ideas. Turn off the filter.
+
+Divergent thinking is a muscle. The more you practice generating many ideas without judgment, the stronger it gets. The goal isn't to have all good ideas—it's to have so many ideas that some are bound to be good.
+
+As Linus Pauling said, "The best way to have a good idea is to have lots of ideas." And the only way to have lots of ideas is to turn off your inner critic and let the ideas flow.
 
 ---
 
 ## Practical Exercises
 
-### Exercise 1: 30 Circles Challenge
-Draw 30 circles. In 3 minutes, turn as many as possible into recognizable objects. Focus on quantity.
+### Exercise 1: 30 Circles Challenge (Timed)
+Draw 30 circles. Set a 3-minute timer. Turn as many as possible into recognizable objects. Score yourself on fluency, flexibility, and originality. Repeat weekly and track improvement.
 
-### Exercise 2: SCAMPER a Product
-Pick any common object (umbrella, toothbrush). Apply all 7 SCAMPER techniques to generate at least 7 new ideas.
+### Exercise 2: SCAMPER Deep Dive
+Pick a common object (umbrella, toothbrush, backpack). Apply all 7 SCAMPER techniques. Generate at least 3 ideas for each technique (21 total ideas). Sketch your top 3.
 
 ### Exercise 3: Bad Idea Brainstorm
-Pick a problem. Spend 10 minutes generating intentionally terrible solutions. Then see if any spark a good idea.
+Pick a real problem you're facing. Spend 10 minutes generating the worst possible solutions. Then spend 10 minutes reversing them into potentially good solutions. Did any bad ideas spark good ones?
+
+### Exercise 4: The 100-Idea Challenge
+Pick a topic ("Ways to use a paperclip," "Business ideas," "Story premises"). Generate 100 ideas. Don't stop until you hit 100. Notice how ideas 80-100 are often the most creative.
+
+### Exercise 5: Brainwriting Session
+Gather 3-5 people. Each person writes 3 ideas silently (5 minutes). Pass papers to the right. Build on others' ideas (5 minutes). Repeat 3 times. Compare the quantity and quality to traditional brainstorming.
 
 ---
 
 > "The best way to have a good idea is to have lots of ideas." - Linus Pauling
+
+> "Quantity produces quality. If you only write a few things, you're doomed." - Ray Bradbury
+
+> "To have a great idea, have a lot of them." - Thomas Edison
+
+> "You can't use up creativity. The more you use, the more you have." - Maya Angelou
     `
   },
-  { 
-    id: "cr-connecting-ideas", 
-    title: "Connecting Ideas", 
-    description: "Combine concepts in new and unique ways", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "25 min", 
-    points: 150, 
+  {
+    id: "cr-connecting-ideas",
+    title: "Connecting Ideas",
+    description: "Combine concepts in new and unique ways",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "25 min",
+    points: 150,
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800",
     tags: ["synthesis", "innovation", "connections"],
     content: `
@@ -340,14 +1027,14 @@ Pick two random objects. Spend 5 minutes combining them into a new invention. Dr
   // ==================================================================================
   // ARTISTIC EXPRESSION
   // ==================================================================================
-  { 
-    id: "cr-visual-arts-basics", 
-    title: "Visual Arts Basics", 
-    description: "Explore drawing, painting, and visual creativity", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "30 min", 
-    points: 180, 
+  {
+    id: "cr-visual-arts-basics",
+    title: "Visual Arts Basics",
+    description: "Explore drawing, painting, and visual creativity",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "30 min",
+    points: 180,
     image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800",
     tags: ["art", "drawing", "design"],
     content: `
@@ -412,14 +1099,14 @@ Create a 5-step gradient from white to black using just a pencil. Practice shadi
 > "Every child is an artist. The problem is how to remain an artist once we grow up." - Pablo Picasso
     `
   },
-  { 
-    id: "cr-music-appreciation", 
-    title: "Music & Sound Exploration", 
-    description: "Discover the creative world of music", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "25 min", 
-    points: 140, 
+  {
+    id: "cr-music-appreciation",
+    title: "Music & Sound Exploration",
+    description: "Discover the creative world of music",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "25 min",
+    points: 140,
     image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800",
     tags: ["music", "rhythm", "sound"],
     content: `
@@ -488,14 +1175,14 @@ Create 3 playlists: one for focus, one for energy, one for relaxation. Notice ho
 > "Music gives a soul to the universe, wings to the mind, flight to the imagination." - Plato
     `
   },
-  { 
-    id: "cr-creative-writing-intro", 
-    title: "Creative Writing Introduction", 
-    description: "Express yourself through stories and words", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "30 min", 
-    points: 180, 
+  {
+    id: "cr-creative-writing-intro",
+    title: "Creative Writing Introduction",
+    description: "Express yourself through stories and words",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "30 min",
+    points: 180,
     image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800",
     tags: ["writing", "storytelling", "narrative"],
     content: `
@@ -562,14 +1249,14 @@ Take 5 emotions (fear, joy, anger, sadness, love). Write a paragraph showing eac
 > "Start writing, no matter what. The water does not flow until the faucet is turned on." - Louis L'Amour
     `
   },
-  { 
-    id: "cr-performing-arts", 
-    title: "Performing Arts Exploration", 
-    description: "Discover drama, dance, and performance", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "25 min", 
-    points: 140, 
+  {
+    id: "cr-performing-arts",
+    title: "Performing Arts Exploration",
+    description: "Discover drama, dance, and performance",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "25 min",
+    points: 140,
     image: "https://images.unsplash.com/photo-1503095392233-628963af0ebd?w=800",
     tags: ["drama", "acting", "dance"],
     content: `
@@ -634,14 +1321,14 @@ Face a partner. One leads slow movements, the other mirrors exactly. Switch role
   // ==================================================================================
   // INNOVATION & DESIGN
   // ==================================================================================
-  { 
-    id: "cr-design-thinking", 
-    title: "Introduction to Design Thinking", 
-    description: "A creative approach to problem-solving", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "30 min", 
-    points: 180, 
+  {
+    id: "cr-design-thinking",
+    title: "Introduction to Design Thinking",
+    description: "A creative approach to problem-solving",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "30 min",
+    points: 180,
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800",
     tags: ["design", "problem-solving", "empathy"],
     content: `
@@ -712,14 +1399,14 @@ Pick a problem. Generate 20 solutions in 10 minutes. Quantity over quality.
 > "Get out of the building." - Steve Blank
     `
   },
-  { 
-    id: "cr-prototyping-ideas", 
-    title: "Prototyping Your Ideas", 
-    description: "Turn concepts into tangible creations", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "30 min", 
-    points: 180, 
+  {
+    id: "cr-prototyping-ideas",
+    title: "Prototyping Your Ideas",
+    description: "Turn concepts into tangible creations",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "30 min",
+    points: 180,
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
     tags: ["maker", "mvp", "building"],
     content: `
@@ -792,14 +1479,14 @@ Show your prototype to 3 people. Use the Feedback Grid (Plus, Delta, Questions, 
 > "Fail early, fail often, fail forward." - John C. Maxwell
     `
   },
-  { 
-    id: "cr-problem-innovation", 
-    title: "Innovative Problem Solving", 
-    description: "Find creative solutions to challenges", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "25 min", 
-    points: 150, 
+  {
+    id: "cr-problem-innovation",
+    title: "Innovative Problem Solving",
+    description: "Find creative solutions to challenges",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "25 min",
+    points: 150,
     image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=800",
     tags: ["logic", "reframing", "innovation"],
     content: `
@@ -856,14 +1543,14 @@ Pick a product you use daily. Break it down to its fundamental components. Ask: 
 > "If I had an hour to solve a problem, I'd spend 55 minutes defining the problem and 5 minutes solving it." - Albert Einstein
     `
   },
-  { 
-    id: "cr-future-thinking", 
-    title: "Thinking About the Future", 
-    description: "Imagine and design tomorrow's possibilities", 
-    category: "Creativity", 
-    difficulty: "Advanced" as const, 
-    duration: "30 min", 
-    points: 180, 
+  {
+    id: "cr-future-thinking",
+    title: "Thinking About the Future",
+    description: "Imagine and design tomorrow's possibilities",
+    category: "Creativity",
+    difficulty: "Advanced" as const,
+    duration: "30 min",
+    points: 180,
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
     tags: ["futurism", "trends", "imagination"],
     content: `
@@ -934,14 +1621,14 @@ For your career, write 4 scenarios: Probable, Plausible Good, Plausible Bad, and
   // ==================================================================================
   // IMAGINATION & PLAY
   // ==================================================================================
-  { 
-    id: "cr-power-imagination", 
-    title: "Power of Imagination", 
-    description: "Unlock your mind's creative potential", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "20 min", 
-    points: 120, 
+  {
+    id: "cr-power-imagination",
+    title: "Power of Imagination",
+    description: "Unlock your mind's creative potential",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "20 min",
+    points: 120,
     image: "https://images.unsplash.com/photo-1490129374591-2719b26bdd1d?w=800",
     tags: ["visualization", "dreaming", "mind"],
     content: `
@@ -997,14 +1684,14 @@ Create a fictional world with 5 rules that differ from our world. Write a short 
 > "Imagination is the beginning of creation. You imagine what you desire." - George Bernard Shaw
     `
   },
-  { 
-    id: "cr-play-creativity", 
-    title: "Play & Creativity", 
-    description: "How playfulness fuels creative thinking", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "20 min", 
-    points: 120, 
+  {
+    id: "cr-play-creativity",
+    title: "Play & Creativity",
+    description: "How playfulness fuels creative thinking",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "20 min",
+    points: 120,
     image: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=800",
     tags: ["play", "fun", "experimentation"],
     content: `
@@ -1059,14 +1746,14 @@ Do something purely playful: build with blocks, play a board game, or doodle aim
 > "Play is the highest form of research." - Albert Einstein
     `
   },
-  { 
-    id: "cr-curiosity-exploration", 
-    title: "Curiosity & Exploration", 
-    description: "Let curiosity guide your creative journey", 
-    category: "Creativity", 
-    difficulty: "Beginner" as const, 
-    duration: "20 min", 
-    points: 120, 
+  {
+    id: "cr-curiosity-exploration",
+    title: "Curiosity & Exploration",
+    description: "Let curiosity guide your creative journey",
+    category: "Creativity",
+    difficulty: "Beginner" as const,
+    duration: "20 min",
+    points: 120,
     image: "https://images.unsplash.com/photo-1532153955177-f59af40d6472?w=800",
     tags: ["questions", "discovery", "wonder"],
     content: `
@@ -1125,14 +1812,14 @@ This week, do 3 things you've never done: eat new food, take a new route, read a
 > "I have no special talents. I am only passionately curious." - Albert Einstein
     `
   },
-  { 
-    id: "cr-dreaming-big", 
-    title: "Dreaming Big", 
-    description: "Set ambitious creative goals and visions", 
-    category: "Creativity", 
-    difficulty: "Intermediate" as const, 
-    duration: "25 min", 
-    points: 150, 
+  {
+    id: "cr-dreaming-big",
+    title: "Dreaming Big",
+    description: "Set ambitious creative goals and visions",
+    category: "Creativity",
+    difficulty: "Intermediate" as const,
+    duration: "25 min",
+    points: 150,
     image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800",
     tags: ["vision", "goals", "moonshot"],
     content: `
